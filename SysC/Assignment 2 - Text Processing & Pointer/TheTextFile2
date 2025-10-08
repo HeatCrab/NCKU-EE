@@ -1,0 +1,34 @@
+Computer Science Engineering 2025 Fall Semester Assignment Testing Data
+Programming Languages: C, C++, Java, Python, JavaScript, Assembly, VHDL, Verilog
+Data Structures: Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash Tables
+
+Software Development Life Cycle includes requirements analysis, design, implementation, testing, deployment, and maintenance phases. Each phase has specific deliverables and quality checkpoints.
+
+Object-Oriented Programming Concepts:
+1. Encapsulation - bundling data and methods
+2. Inheritance - creating new classes from existing ones
+3. Polymorphism - same interface, different implementations
+4. Abstraction - hiding implementation details
+
+Database Management Systems store and retrieve data efficiently using SQL queries.
+SELECT * FROM students WHERE grade > 85 AND department = 'Computer Science';
+INSERT INTO courses VALUES ('CS101', 'Introduction to Programming', 3);
+UPDATE students SET grade = 95 WHERE student_id = 12345;
+
+Network Protocols: HTTP/HTTPS, TCP/IP, UDP, FTP, SSH, DNS, DHCP
+Web Technologies: HTML5, CSS3, JavaScript ES6+, React, Angular, Vue.js, Node.js
+
+Algorithm Complexity Analysis:
+- Time Complexity: O(1), O(log n), O(n), O(n log n), O(n^2), O(2^n)
+- Space Complexity: auxiliary memory usage during execution
+
+Machine Learning Applications in modern software systems include natural language processing, computer vision, recommendation systems, and predictive analytics for business intelligence.
+
+Cybersecurity measures protect systems from unauthorized access, data breaches, malware attacks, and other security threats through encryption, authentication, and monitoring.
+
+Mobile Development Platforms: Android (Java/Kotlin), iOS (Swift/Objective-C), Cross-platform (React Native, Flutter, Xamarin)
+
+Cloud Computing Services: Infrastructure as a Service (IaaS), Platform as a Service (PaaS), Software as a Service (SaaS)
+Major providers include Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP)
+
+Version Control Systems like Git enable collaborative software development with branching, merging, and distributed repositories for code management.

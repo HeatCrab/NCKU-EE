@@ -1,0 +1,51 @@
+Mathematical Formulas and Scientific Computing Applications 2025
+
+Linear Algebra Fundamentals:
+Matrix multiplication: C = A × B where C[i][j] = Σ(A[i][k] × B[k][j])
+Eigenvalues and eigenvectors solve Av = λv for scalar λ and vector v
+Determinant calculation for 2x2 matrix: det(A) = a11×a22 - a12×a21
+
+Calculus Applications in Engineering:
+Derivative: f'(x) = lim(h→0) [f(x+h) - f(x)] / h
+Integral: ∫f(x)dx represents area under curve from a to b
+Fundamental Theorem: d/dx[∫f(t)dt] = f(x)
+
+Statistics and Probability Theory:
+Mean μ = (x1 + x2 + ... + xn) / n
+Standard deviation σ = √[Σ(xi - μ)² / n]
+Normal distribution: f(x) = (1/σ√2π) × e^[-(x-μ)²/(2σ²)]
+
+Computer Graphics Mathematics:
+3D transformations use homogeneous coordinates and 4x4 matrices
+Rotation matrix for angle θ: [[cos θ, -sin θ], [sin θ, cos θ]]
+Perspective projection maps 3D points to 2D screen coordinates
+
+Discrete Mathematics for Computer Science:
+Set theory operations: union ∪, intersection ∩, complement ¬
+Boolean algebra: AND (∧), OR (∨), NOT (¬), XOR (⊕)
+Graph theory: vertices V, edges E, adjacency matrix representation
+
+Numerical Methods and Algorithms:
+Newton-Raphson method: x(n+1) = x(n) - f(x(n))/f'(x(n))
+Binary search time complexity: O(log n) for sorted arrays
+Quicksort average case: O(n log n), worst case: O(n²)
+
+Physics Simulations in Software:
+Force equations: F = ma (Newton's second law)
+Kinematic equations: v = v0 + at, s = ut + (1/2)at²
+Energy conservation: KE + PE = constant
+
+Digital Signal Processing:
+Fourier Transform: F(ω) = ∫f(t)e^(-iωt)dt
+Sampling theorem: fs ≥ 2fmax (Nyquist frequency)
+Z-transform for discrete systems: X(z) = Σx[n]z^(-n)
+
+Cryptography and Security Mathematics:
+RSA encryption uses large prime numbers p and q
+Modular arithmetic: (a + b) mod n = ((a mod n) + (b mod n)) mod n
+Hash functions provide fixed-size output for variable input
+
+Financial Mathematics in Computing:
+Compound interest: A = P(1 + r/n)^(nt)
+Present value: PV = FV / (1 + r)^n
+Monte Carlo simulations for risk analysis and portfolio optimization

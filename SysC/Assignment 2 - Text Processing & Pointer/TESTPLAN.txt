@@ -1,0 +1,171 @@
+TEST PLAN FOR POINTERS PROGRAM
+=====================================
+
+Program: pointers.c
+Purpose: Test memory allocation, pointer manipulation, and segmentation fault prevention
+Date: 2025-09-30
+
+TEST CASES
+----------
+
+1. NORMAL CASES - Valid Memory Sizes
+
+Test Case 1.1: Small Memory Allocation
+- Input: ./pointers 10
+- Expected Behavior:
+  * Allocate 10 bytes of memory
+  * Fill with pattern "ABCDEFGHIJ" (first 10 characters of pattern)
+  * Print generated string
+  * Print 2 integer values (10/4 = 2 complete integers)
+  * No segmentation fault
+
+Test Case 1.2: Pattern Wraparound
+- Input: ./pointers 40
+- Expected Behavior:
+  * Allocate 40 bytes
+  * Pattern should wrap: "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789ABCD"
+  * Print 10 integer values (40/4 = 10 complete integers)
+  * Verify pattern repetition works correctly
+
+Test Case 1.3: Exact Multiple of Pattern Length
+- Input: ./pointers 35
+- Expected Behavior:
+  * Allocate 35 bytes
+  * Pattern: "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789" (exactly one pattern)
+  * Print 8 integer values (35/4 = 8 complete integers, 3 bytes remaining)
+
+2. BOUNDARY CONDITIONS
+
+Test Case 2.1: Single Byte
+- Input: ./pointers 1
+- Expected Behavior:
+  * Allocate 1 byte
+  * Fill with 'A'
+  * String should be null-terminated
+  * No integer output (1/4 = 0 complete integers)
+
+Test Case 2.2: Exactly One Integer Size
+- Input: ./pointers 4
+- Expected Behavior:
+  * Allocate 4 bytes
+  * Fill with "ABCD"
+  * Print exactly 1 integer value
+
+Test Case 2.3: Large Memory Size
+- Input: ./pointers 1000
+- Expected Behavior:
+  * Allocate 1000 bytes successfully
+  * Pattern repeats multiple times
+  * Print 250 integer values (1000/4 = 250)
+  * Guard condition prevents overflow
+
+3. ERROR CONDITIONS
+
+Test Case 3.1: Zero Memory Size
+- Input: ./pointers 0
+- Expected Behavior:
+  * Program should detect invalid size
+  * Print error message
+  * Exit with error code
+
+Test Case 3.2: Negative Memory Size
+- Input: ./pointers -5
+- Expected Behavior:
+  * atoi() converts to negative number
+  * Program should detect invalid size
+  * Print error message and exit
+
+Test Case 3.3: No Command Line Arguments
+- Input: ./pointers
+- Expected Behavior:
+  * Print usage message
+  * Exit with error code 1
+
+Test Case 3.4: Too Many Arguments
+- Input: ./pointers 10 20
+- Expected Behavior:
+  * Program should reject extra arguments
+  * Print usage message
+
+Test Case 3.5: Non-numeric Input
+- Input: ./pointers abc
+- Expected Behavior:
+  * atoi("abc") returns 0
+  * Program treats as invalid size
+  * Print error message
+
+4. SEGMENTATION FAULT PREVENTION
+
+Test Case 4.1: Guard Condition Testing
+- Input: ./pointers 6
+- Expected Behavior:
+  * Allocate 6 bytes
+  * Fill with "ABCDEF"
+  * Only 1 complete integer (4 bytes), 2 bytes remaining
+  * Guard should prevent accessing second integer
+  * No segmentation fault
+
+Test Case 4.2: Odd Memory Size
+- Input: ./pointers 7
+- Expected Behavior:
+  * Same as above, guard prevents invalid access
+  * Only print 1 integer value
+
+5. MEMORY MANAGEMENT
+
+Test Case 5.1: Memory Allocation Failure Simulation
+- Method: Monitor program behavior with very large memory request
+- Input: ./pointers 999999999
+- Expected Behavior:
+  * malloc() may fail
+  * Program should check for NULL return
+  * Print error message if allocation fails
+
+Test Case 5.2: Memory Leak Check
+- Method: Use valgrind or similar tool
+- Input: ./pointers 100
+- Expected Behavior:
+  * No memory leaks detected
+  * All allocated memory properly freed
+
+6. PATTERN VERIFICATION
+
+Test Case 6.1: Pattern Correctness
+- Input: ./pointers 50
+- Verification Steps:
+  * Check first 26 characters are A-Z
+  * Check next 9 characters are 1-9
+  * Check pattern repeats from position 35
+  * Verify null termination
+
+Test Case 6.2: Integer Value Verification
+- Input: ./pointers 8
+- Verification Steps:
+  * Check that integer values represent ASCII characters
+  * Verify subtract-1 operation is correct
+  * Ensure endianness is handled properly
+
+EXECUTION ENVIRONMENT
+--------------------
+- Compiler: gcc with -Wall -Wextra flags
+- Operating System: Linux/Unix environment
+- Memory checking: valgrind (if available)
+- Testing method: Manual execution with various inputs
+
+EXPECTED OUTCOMES
+----------------
+- All normal cases should execute without errors
+- Boundary conditions should be handled gracefully
+- Error conditions should be detected and reported
+- No segmentation faults should occur
+- Memory should be properly allocated and freed
+- Pattern generation should be consistent and correct
+
+VERIFICATION METHODS
+-------------------
+1. Visual inspection of output strings
+2. Manual calculation of expected integer values
+3. Boundary testing with edge cases
+4. Error injection testing
+5. Memory debugging tools
+6. Code review for guard conditions
