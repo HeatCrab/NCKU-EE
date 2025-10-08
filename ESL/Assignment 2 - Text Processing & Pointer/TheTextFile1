@@ -1,0 +1,24 @@
+The Quick Brown Fox Jumps Over The Lazy Dog 123456789
+This is a comprehensive test file designed to verify the correctness of our text processing program. It contains various types of characters including uppercase letters, lowercase letters, numbers, punctuation marks, and special symbols.
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
+The alphabet contains 26 letters in both uppercase and lowercase forms. Numbers range from 0 to 9.
+
+Special characters and punctuation: !@#$%^&*()_+-=[]{}|;':\",./<>?
+These symbols should not be counted as alphanumeric characters but serve as word separators.
+
+Multiple    spaces    and    tabs	should	be	handled	correctly.
+Empty lines below:
+
+
+
+The program should count lines properly including empty lines above.
+Text processing involves reading files character by character using while loops and string functions.
+SystemC is a system-level modeling language that extends C++ for hardware description.
+Electronic System Level Design Methodology focuses on high-level abstraction and verification.
+
+Final paragraph to ensure proper line counting and character analysis.
+Words are separated by spaces, tabs, and newlines according to the specification.
+Memory allocation using malloc requires careful pointer manipulation and bounds checking.
+Programming assignments help students practice coding skills and understand concepts better.
+Testing is crucial for software quality assurance and bug detection in development process.
