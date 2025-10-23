@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Object files
+*.o
+
+# Executables
+*.out
+a.out
+
+# Editor backup files
+*~
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+
+# Test input/output files
+input.txt
+RESULT
