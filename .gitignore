@@ -19,4 +19,13 @@ a.out
 
 # Test input/output files
 input.txt
+*_input.txt
+double_input.txt
+string_input.txt
 RESULT
+
+# Executable binaries (without extension)
+list
+main
+prog
+test
