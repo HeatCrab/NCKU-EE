@@ -29,3 +29,14 @@ list
 main
 prog
 test
+timer
+
+# SystemC files
+*.vcd
+RESULT.vcd
+
+# SystemC Assignment 5 - exclude example directories and submission files
+Exercise5_Example/
+Exercise5_Example 2/
+Assignment5_*.zip
+Assignment5_N*/
