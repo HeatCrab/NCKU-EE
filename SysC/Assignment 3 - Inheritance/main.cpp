@@ -98,6 +98,59 @@ int main(int argc, char *argv[]) {
                << "(list2--) ===" << endl;
     outputFile << list2 << endl;
 
+    // === Error Handling Tests ===
+    outputFile << "\n=== Error Handling Tests ===" << endl;
+
+    // Test 1: Try to set length when it's already non-zero
+    outputFile << "\n--- Test 1: setLength() with non-zero "
+               << "length ---" << endl;
+    outputFile << "Current list1 length: " << list1.getLength()
+               << endl;
+    int result = list1.setLength(10);
+    outputFile << "Attempting to set length to 10..." << endl;
+    outputFile << "Return value: " << result
+               << " (0 = error, 1 = success)" << endl;
+
+    // Test 2: Try to access out-of-bounds element with setElement()
+    outputFile << "\n--- Test 2: setElement() out of bounds ---"
+               << endl;
+    unsigned int len = list1.getLength();
+    outputFile << "List1 length: " << len << endl;
+    outputFile << "Attempting to set element at position "
+               << len << "..." << endl;
+    result = list1.setElement(len, 999);
+    outputFile << "Return value: " << result
+               << " (0 = error, 1 = success)" << endl;
+
+    outputFile << "Attempting to set element at position "
+               << (len + 5) << "..." << endl;
+    result = list1.setElement(len + 5, 999);
+    outputFile << "Return value: " << result
+               << " (0 = error, 1 = success)" << endl;
+
+    // Test 3: Try to access out-of-bounds element with getElement()
+    outputFile << "\n--- Test 3: getElement() out of bounds ---"
+               << endl;
+    outputFile << "List1 length: " << len << endl;
+    outputFile << "Attempting to get element at position "
+               << len << "..." << endl;
+    long value = list1.getElement(len);
+    outputFile << "Return value: " << value
+               << " (-99999 = error)" << endl;
+
+    outputFile << "Attempting to get element at position "
+               << (len + 10) << "..." << endl;
+    value = list1.getElement(len + 10);
+    outputFile << "Return value: " << value
+               << " (-99999 = error)" << endl;
+
+    // Test 4: Verify getLength() works correctly
+    outputFile << "\n--- Test 4: getLength() verification ---"
+               << endl;
+    outputFile << "list1 length: " << list1.getLength() << endl;
+    outputFile << "list2 length: " << list2.getLength() << endl;
+    outputFile << "list3 length: " << list3.getLength() << endl;
+
     outputFile.close();
     cout << "All operations completed. Results written to "
          << "RESULT file." << endl;
