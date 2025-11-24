@@ -125,6 +125,58 @@ int main(int argc, char *argv[]) {
     cout << "=== Verify stringList2 remains unchanged ===" << endl;
     cout << stringList2 << endl;
 
+    /*
+     * Error handling tests to ensure complete coverage.
+     */
+    cout << "\n=== Error Handling Tests ===" << endl;
+
+    cout << "\n--- Test 1: setLength() with non-zero length ---"
+         << endl;
+    cout << "Current doubleList1 length: "
+         << doubleList1.getLength() << endl;
+    cout << "Attempting to set length to 10..." << endl;
+    int result = doubleList1.setLength(10);
+    cout << "Return value: " << result
+         << " (0 = error, 1 = success)" << endl << endl;
+
+    cout << "--- Test 2: setElement() out of bounds ---" << endl;
+    unsigned int len = doubleList1.getLength();
+    cout << "doubleList1 length: " << len << endl;
+    cout << "Attempting to set element at position " << len
+         << "..." << endl;
+    result = doubleList1.setElement(len, 999.99);
+    cout << "Return value: " << result
+         << " (0 = error, 1 = success)" << endl;
+
+    cout << "Attempting to set element at position " << (len + 5)
+         << "..." << endl;
+    result = doubleList1.setElement(len + 5, 999.99);
+    cout << "Return value: " << result
+         << " (0 = error, 1 = success)" << endl << endl;
+
+    cout << "--- Test 3: setElement() out of bounds for string list ---"
+         << endl;
+    len = stringList1.getLength();
+    cout << "stringList1 length: " << len << endl;
+    cout << "Attempting to set element at position " << len
+         << "..." << endl;
+    result = stringList1.setElement(len, "invalid");
+    cout << "Return value: " << result
+         << " (0 = error, 1 = success)" << endl << endl;
+
+    cout << "--- Test 4: Verify getLength() works correctly ---"
+         << endl;
+    cout << "doubleList1 length: " << doubleList1.getLength() << endl;
+    cout << "doubleList2 length: " << doubleList2.getLength() << endl;
+    cout << "stringList1 length: " << stringList1.getLength() << endl;
+    cout << "stringList2 length: " << stringList2.getLength()
+         << endl << endl;
+
+    cout << "Note: getElement() with out-of-bounds access uses assert "
+         << "and will terminate the program," << endl;
+    cout << "so it cannot be safely tested in this test suite."
+         << endl << endl;
+
     cout << "All operations completed successfully." << endl;
 
     return 0;
