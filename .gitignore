@@ -30,6 +30,7 @@ main
 prog
 test
 timer
+fir
 
 # SystemC files
 *.vcd
