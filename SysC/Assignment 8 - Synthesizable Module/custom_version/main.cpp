@@ -1,3 +1,4 @@
+#define SC_INCLUDE_FX
 #include "systemc.h"
 #include "FIR.h"
 #include <iostream>
@@ -43,10 +44,10 @@ int sc_main(int argc, char* argv[]) {
     rst.write(1);
     sc_start(5, SC_NS); // Release reset
 
-    int input_val;
+    sc_uint<32> input_val;
     int count = 0;
     while (input_file >> input_val && count < 64) {
-        x.write((sc_uint<32>)input_val);
+        x.write(input_val);
         sc_start(5, SC_NS);
         count++;
     }

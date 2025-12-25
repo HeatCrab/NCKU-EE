@@ -22,7 +22,7 @@ def verify_fir_fixed_point():
         inputs = [65536 * i for i in range(1, 65)]
 
     taps_config = {'fir32': 32, 'fir48': 48}
-    buffers = {name: [0] * taps for name, taps in taps_config.items()}
+    buffers = {name: [0] * (taps + 1) for name, taps in taps_config.items()}
 
     print(f"{'#':<4} | {'Input (Hex)':<12} | {'y32 (Hex)':<12} | {'y48 (Hex)':<12}")
     print("-" * 52)
@@ -33,23 +33,24 @@ def verify_fir_fixed_point():
         for name, N in taps_config.items():
             # Coefficient: bi = 1/(N+1)
             coef_float = 1.0 / (N + 1)
-            coef_fixed = sc_fixed_to_uint32(coef_float)
-            coef_value = uint32_to_sc_fixed(coef_fixed)
+            # coef is stored as Q16.16 bits in sc_uint<32>
+            coef_int = int(coef_float * 65536) & 0xFFFFFFFF
 
-            # Shift register
+            # Shift register (size N+1)
             buffer = buffers[name]
-            for i in range(N - 1, 0, -1):
+            for i in range(N, 0, -1):
                 buffer[i] = buffer[i - 1]
             buffer[0] = x
 
-            # FIR computation
-            acc = 0.0
-            for i in range(N):
-                data_value = uint32_to_sc_fixed(buffer[i])
-                acc += data_value * coef_value
+            # FIR computation (Golden logic: sc_uint<32> accumulation)
+            acc = 0
+            for i in range(N + 1):
+                # buffer[i] is input integer
+                # coef_int is the bit pattern of the coefficient
+                term = (buffer[i] * coef_int) & 0xFFFFFFFF
+                acc = (acc + term) & 0xFFFFFFFF
 
-            y = sc_fixed_to_uint32(acc)
-            outputs[name] = y
+            outputs[name] = acc
 
         print(f"{idx:<4} | {to_hex(x):<12} | {to_hex(outputs['fir32']):<12} | {to_hex(outputs['fir48']):<12}")
 
