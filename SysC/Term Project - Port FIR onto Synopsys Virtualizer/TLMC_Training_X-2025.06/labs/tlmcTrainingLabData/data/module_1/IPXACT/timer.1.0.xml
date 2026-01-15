@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.5 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.5/index.xsd">
+	<spirit:vendor>Synopsys</spirit:vendor>
+	<spirit:name>timer</spirit:name>
+	<spirit:version>1.0</spirit:version>
+  <spirit:memoryMaps>
+    <spirit:memoryMap>
+      <spirit:name>r_registers</spirit:name>
+      <spirit:addressBlock>
+        <spirit:name>r_registers</spirit:name>
+        <spirit:displayName>r_registers</spirit:displayName>
+        <spirit:description>The register interface</spirit:description><spirit:description/>
+        <spirit:typeIdentifier>unsigned int</spirit:typeIdentifier>
+        <spirit:baseAddress>0x0</spirit:baseAddress>
+        <spirit:range>12</spirit:range>
+        <spirit:width>32</spirit:width>
+        <spirit:usage>register</spirit:usage>
+        <spirit:volatile>true</spirit:volatile>
+        <spirit:register>
+          <spirit:name>ITCSR</spirit:name>
+          <spirit:addressOffset>0x0</spirit:addressOffset>
+          <spirit:size>32</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:description>Interval Timer Control/Status Register</spirit:description>
+          <spirit:description/>
+          <spirit:field>
+            <spirit:name>STOP</spirit:name>
+            <spirit:description>Stop Mode Control.
+This bit controls the function of the PIT in stop mode:
+0 = PIT function is not affected in stop mode
+1 = PIT function is frozen in stop mode</spirit:description>
+            <spirit:bitOffset>7</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+		 <spirit:field>
+            <spirit:name>DOZE</spirit:name>
+            <spirit:description>Doze Mode Control.
+This bit controls the function of the PIT in doze mode:
+0 = PIT function is not affected in doze mode
+1 = PIT function is frozen in doze mode</spirit:description>
+            <spirit:bitOffset>6</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+		  <spirit:field>
+            <spirit:name>DBG</spirit:name>
+            <spirit:description>Debug Mode Control.
+This bit controls the function of the PIT in debug mode:
+0 = PIT function is not affected in debug mode
+1 = PIT function is frozen in debug mode</spirit:description>
+            <spirit:bitOffset>5</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+		  <spirit:field>
+            <spirit:name>OVW</spirit:name>
+            <spirit:description>Counter Overwrite Enable.
+This bit controls what happens to the counter value when the modulus latch is written:
+0 = Modulus latch is a holding register for values to be loaded into the counter
+when the count expires to zero.
+1 = Modulus latch is transparent. All writes to the latch will also overwrite the counter contents.</spirit:description>
+            <spirit:bitOffset>4</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+		  <spirit:field>
+            <spirit:name>ITIE</spirit:name>
+            <spirit:description>Interval Timer Interrupt Enable.
+This bit controls the PIT interrupt function:
+0 = ITIF is inhibited from reaching the CPU.
+1 = ITIF is allowed to request an interrupt.
+           </spirit:description>
+            <spirit:bitOffset>3</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+		  <spirit:field>
+            <spirit:name>ITIF</spirit:name>
+            <spirit:description>Interval Timer Interrupt Flag.
+This bit is the PIT interrupt flag. It is cleared by writing a one to this bit or by writing to the PIT data register:
+0 = No PIT interrupt is present
+1 = PIT interrupt is present.
+           </spirit:description>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+		  <spirit:field>
+            <spirit:name>RLD</spirit:name>
+            <spirit:description>Counter Reload Control.
+This bit controls whether the value contained in the modulus latch is reloaded into the counter when the counter reaches a count of zero or whether the counter rolls over from zero to 0xFFFF:
+0 = Counter rolls over to 0xFFFF
+1 = Counter is reloaded from the modulus latch
+           </spirit:description>
+            <spirit:bitOffset>1</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+		  <spirit:field>
+            <spirit:name>EN</spirit:name>
+            <spirit:description>Enable Timer.
+This bit controls the PIT enable function:
+0 = PIT is disabled
+1 = PIT is enabled
+           </spirit:description>
+            <spirit:bitOffset>0</spirit:bitOffset>
+            <spirit:bitWidth>1</spirit:bitWidth>
+            <spirit:enumeratedValues>
+            </spirit:enumeratedValues>
+          </spirit:field>
+        </spirit:register>
+        <spirit:register>
+          <spirit:name>ITDR</spirit:name>
+          <spirit:addressOffset>0x4</spirit:addressOffset>
+          <spirit:size>32</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:description>Interval Timer Data Register</spirit:description>
+        </spirit:register>
+		<spirit:register>
+          <spirit:name>ITADR</spirit:name>
+          <spirit:addressOffset>0x8</spirit:addressOffset>
+          <spirit:size>32</spirit:size>
+          <spirit:access>read-write</spirit:access>
+          <spirit:description>Interval Timer Alternate Data Register</spirit:description>
+        </spirit:register>
+      </spirit:addressBlock>
+    </spirit:memoryMap>
+  </spirit:memoryMaps>
+  <spirit:description>
+    A programmable interval timer as part of the Freescale mmc2001 microcontroller. 
+  </spirit:description>
+</spirit:component>
