@@ -1,0 +1,36 @@
+This is a SystemC example code of a FIR filter that supports any level of taps.
+It contains:
+1. FIR.h         - The FIR module declaration
+2. FIR.cpp       - The FIR process implementation
+5. main.cpp	 - The test bench
+6. Makefile	 - The make script to complile the modle
+7. README        - This file
+
+To try run this example, first download SystemC 3.0.0 or later from Accellera.
+
+Then modify makefile to fit into your SystemC installation. There are two
+variable definitions to modify:
+1. SYSTEMC_DIR    : change to your SystemC installation directory
+2. CXX            : add -std=c++17 compile flag
+3. v3.0.2 & later : add -Wl,-rpath,${SYSTEMC_DIR}/lib to link run-time library
+
+Do 'make' to compile the module. Then run it using './fir'. The result
+is stored in a VCD waveform file called RESULT.vcd
+
+Implementation details:
+1. void fb_cal() uses sc_fixed and it is not synthesizable. Call this function
+inside SC_CTOR is the easiest way to remove it from a synthesizable
+implementation.
+2. For Nth-order FIR there are N delays (registers.) And sc_signal non-blocking
+descriptor must be used to define delays.
+3. There are N+1 amplifiers (multipliers) for a Nth-order FIR. And there are
+N additions to sum up N+1 terms of multiple. And these computations are
+blocking.
+4. Do not use STL data structure, e.g. vector, in a synthesizable circuit
+design, for STL-like pointer heavy data structures are not synthesizable.
+For real circuit designs the most complicated data structure needed is the
+C-style array.
+
+This example adds an out-of-spec f16, a 16-order FIR using the default
+constructor to test the use of default constructor. This is only for
+demonstration and not to meet the spec given.
