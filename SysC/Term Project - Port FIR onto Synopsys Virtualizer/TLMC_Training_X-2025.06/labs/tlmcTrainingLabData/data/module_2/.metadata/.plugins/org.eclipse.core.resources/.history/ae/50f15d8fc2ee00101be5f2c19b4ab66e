@@ -1,0 +1,3575 @@
+<model format="7">
+  <creationVersion>2025.03</creationVersion>
+  <name>SPICtrl</name>
+  <vsSolutionUUID>CF3381F8-4654-4FC0-BF2D-99693A080882</vsSolutionUUID>
+  <vsProjectUUID>8B0BA2A4-EB43-4870-93E2-AD4A0597B80B</vsProjectUUID>
+  <testVsProjectUUID>DBCEA454-1B61-4848-A261-C57072975D47</testVsProjectUUID>
+  <baseClass>sc_core::sc_module</baseClass>
+  <authorName>Synopsy</authorName>
+  <version>1.0</version>
+  <documentation>Serial Protocol Interface (SPI) controller peripheral</documentation>
+  <includes/>
+  <templateSearchPaths>
+    <path>@BASE_DIR@/Templates</path>
+  </templateSearchPaths>
+  <librarySearchPaths>
+    <path>${SNPS_VP_IPDIR}/TLMModelingLibrary/library.tlmclib</path>
+  </librarySearchPaths>
+  <baseHeader>SystemC/include/@MODEL_NAME@Base.h</baseHeader>
+  <derivedHeader>SystemC/include/@MODEL_NAME@.h</derivedHeader>
+  <derivedSource>SystemC/src/@MODEL_NAME@.cc</derivedSource>
+  <pctImportScript>Tool/PCT/@MODEL_NAME@_import.tcl</pctImportScript>
+  <pctUserPreImportScript>Tool/PCT/@MODEL_NAME@_import_user_pre.tcl</pctUserPreImportScript>
+  <pctUserPostImportScript>Tool/PCT/@MODEL_NAME@_import_user_post.tcl</pctUserPostImportScript>
+  <pctCallbackScript>Tool/PCT/@MODEL_NAME@_callback.tcl</pctCallbackScript>
+  <pctBuildScript>Tool/PCT/@MODEL_NAME@_build.tcl</pctBuildScript>
+  <testMakefileLinux>Tests/Unittests/Makefile.@MODEL_NAME@.linux</testMakefileLinux>
+  <testMakefileWindows>Tests/Unittests/Makefile.@MODEL_NAME@.windows</testMakefileWindows>
+  <testMakefileWindowsUser>Tests/Unittests/Makefile.@MODEL_NAME@.windows.user</testMakefileWindowsUser>
+  <testMakefileLinuxUser>Tests/Unittests/Makefile.@MODEL_NAME@.linux.user</testMakefileLinuxUser>
+  <documentationFilename>Documentation/@MODEL_NAME@.xml</documentationFilename>
+  <htmlDocumentationFilename>Documentation/@MODEL_NAME@.html</htmlDocumentationFilename>
+  <cssDocumentationFilename>Documentation/style.css</cssDocumentationFilename>
+  <buildSpecification>
+    <configurations>
+      <configuration>
+        <target>${model.name}</target>
+        <sources>
+          <conditionalString>${model.derived_source_filename}</conditionalString>
+        </sources>
+        <testSources/>
+        <headers>
+          <conditionalString>${model.derived_header_filename}</conditionalString>
+        </headers>
+        <templateInstances/>
+        <defines/>
+        <includePath/>
+        <testIncludePath/>
+        <cxxFlags/>
+        <libraries/>
+        <testLibraries/>
+        <libraryPath/>
+        <testLibraryPath/>
+        <linkFlags/>
+        <testLinkFlags/>
+        <exportSources/>
+        <exportHeaders>
+          <conditionalString>${model.derived_header_filename}</conditionalString>
+        </exportHeaders>
+        <exportDefines/>
+        <exportIncludePath/>
+        <exportCXXFlags/>
+        <exportLibraries>
+          <conditionalString>${model.name}</conditionalString>
+        </exportLibraries>
+        <exportLibraryPath>
+          <conditionalString>${base_dir}/SystemC/${build_configuration.libprefix}-${compiler}/${build_configuration.name}</conditionalString>
+        </exportLibraryPath>
+        <exportLinkFlags/>
+        <incompatibleCompilers/>
+        <testDynamicLibraryPath/>
+        <primitiveChannelPayloadHeaders/>
+        <templateFallbackLibraries/>
+        <localDynamicLibrarySearchPath/>
+        <dynamicLibrarySearchPath/>
+        <componentHelpers/>
+        <packageFiles/>
+        <simulationFiles/>
+        <envVariables/>
+        <pathEnvVariables/>
+        <testEnvVariables/>
+        <infrastructureParameters/>
+        <name>FastBuild</name>
+        <type>DynamicLoadLibrary</type>
+        <conditionalConfigurations/>
+        <strip>false</strip>
+        <debug>false</debug>
+        <optimize>true</optimize>
+        <assertions>false</assertions>
+        <rebuildAllowed>false</rebuildAllowed>
+        <testBuildEnabled>false</testBuildEnabled>
+        <testRunEnabled>false</testRunEnabled>
+        <isDefault>true</isDefault>
+        <isActive>false</isActive>
+        <reuseComponentBuildInTest>true</reuseComponentBuildInTest>
+        <exposeCoverageHelperParameter>true</exposeCoverageHelperParameter>
+        <includeInIPLibrary>true</includeInIPLibrary>
+        <useBuildInnoRuntime>false</useBuildInnoRuntime>
+        <usePackageInnoRuntime>false</usePackageInnoRuntime>
+        <packageHeaders>false</packageHeaders>
+        <derivedBuildSettingsOverrides class="derivedBuildSettingsOverrides">
+          <sources/>
+          <testSources/>
+          <headers/>
+          <templateInstances/>
+          <defines/>
+          <includePath/>
+          <testIncludePath/>
+          <cxxFlags/>
+          <libraries/>
+          <testLibraries/>
+          <libraryPath/>
+          <testLibraryPath/>
+          <linkFlags/>
+          <testLinkFlags/>
+          <exportSources/>
+          <exportHeaders/>
+          <exportDefines/>
+          <exportIncludePath/>
+          <exportCXXFlags/>
+          <exportLibraries/>
+          <exportLibraryPath/>
+          <exportLinkFlags/>
+          <incompatibleCompilers/>
+          <testDynamicLibraryPath/>
+          <primitiveChannelPayloadHeaders/>
+          <templateFallbackLibraries/>
+          <localDynamicLibrarySearchPath/>
+          <dynamicLibrarySearchPath/>
+          <componentHelpers/>
+          <packageFiles/>
+          <simulationFiles/>
+          <envVariables/>
+          <pathEnvVariables/>
+          <testEnvVariables/>
+          <infrastructureParameters/>
+        </derivedBuildSettingsOverrides>
+      </configuration>
+    </configurations>
+    <defaultBuildConfiguration class="configuration" reference="/model/buildSpecification/configurations/configuration"/>
+  </buildSpecification>
+  <stylesheetSearchPaths/>
+  <extraGeneratedFiles/>
+  <parameters>
+    <parameter>
+      <name>enable_check_clocks</name>
+      <type>Bool</type>
+      <defaultValue>false</defaultValue>
+      <documentation>Enable/disable the check on the SPI clock communication</documentation>
+    </parameter>
+    <parameter>
+      <name>target_id</name>
+      <type>UnsignedInt</type>
+      <defaultValue>0</defaultValue>
+      <documentation>Identify SPI when in input mode</documentation>
+    </parameter>
+    <parameter>
+      <name>fifo_size</name>
+      <type>UnsignedInt</type>
+      <defaultValue>5</defaultValue>
+      <documentation>Size of the internal FIFOs</documentation>
+    </parameter>
+  </parameters>
+  <templateParameters/>
+  <constructorParameters/>
+  <interfaces>
+    <interface>
+      <name>bus_reg_in</name>
+      <type>scml2::ft_target_socket&lt;32&gt;</type>
+      <protocol>TLM2</protocol>
+      <role>target</role>
+      <category>Memory</category>
+      <width>32</width>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>tlm2_ft_target_port_pe</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="tlm2_ft_target_port_pe" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>abstraction</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>tlm2_ft_mode</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>LT</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>intercepts</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>tlm2_target_intercept_base</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity>0</quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>protocol</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>std::string</type>
+            <kind>ProtectedAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>read_capacity</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>write_capacity</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>total_capacity</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>rd_cmd_accept_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>rd_data_trigger_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>wr_cmd_accept_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>wr_data_accept_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>wr_rsp_trigger_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>req_accept_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>collect_databeats</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>dba_supported</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>clock_port</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>sc_core::sc_in&lt;bool&gt;&amp;</type>
+            <kind>Attribute</kind>
+            <objectReference>interface/clock_slave</objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>bus_width</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>unsigned int</type>
+            <kind>ProtectedAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>invoke_timing_cbks</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>invoke_behavior_cbks</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>consume_annotated_time</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>preferAbsoluteAddressing</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>target_locations_override</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <type></type>
+            <kind>AttributeStruct</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity>0</quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>b_transport</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>nb_transport_fw</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>transport_dbg</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>get_direct_mem_ptr</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>clock_changed</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_addr_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_last_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_last_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_addr_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_rsp_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_rsp_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_last_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_last_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_addr_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_addr_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors>
+          <instanceBehavior>
+            <name>clock_cycles_to_time</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>get_event_id</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>update_transaction</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>invalidate_direct_mem_ptr</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>nb_transport_bw</name>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+          </instanceBehavior>
+        </behaviors>
+        <arguments>
+          <instanceArgument>
+            <name>BUSWIDTH</name>
+            <value>@BUSWIDTH@</value>
+            <parent class="instance" reference="/model/interfaces/interface/protocolEngine"/>
+          </instanceArgument>
+        </arguments>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>tlm2_ft_initiator_port_pe</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="tlm2_ft_initiator_port_pe" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>abstraction</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>tlm2_ft_mode</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>LT</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>read_capacity</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>write_capacity</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>total_capacity</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>rd_data_accept_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>wr_data_trigger_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>wr_rsp_accept_cycles</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>handle_tkeep</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>dba_supported</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>max_beats</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>protocol</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>std::string</type>
+            <kind>ProtectedAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>bus_width</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>unsigned int</type>
+            <kind>ProtectedAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>clock_port</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>sc_core::sc_in&lt;bool&gt;&amp;</type>
+            <kind>Attribute</kind>
+            <objectReference>interface/clock_slave</objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>dmi_enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>consume_annotated_time</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>invoke_timing_cbks</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <type>int</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>nb_transport_bw</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>invalidate_direct_mem_ptr</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>clock_changed</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_addr_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_last_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_last_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_data_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>rd_addr_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_rsp_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_rsp_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_last_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_last_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_data_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_addr_end</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>wr_addr_start</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors>
+          <instanceBehavior>
+            <name>b_transport</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>nb_transport_fw</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>transport_dbg</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>get_direct_mem_ptr</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>clock_cycles_to_time</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>get_event_id</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>alloc_and_init_trans</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>send_transaction</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>update_transaction</name>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceBehavior>
+        </behaviors>
+        <arguments>
+          <instanceArgument>
+            <name>BUSWIDTH</name>
+            <value>@BUSWIDTH@</value>
+            <parent class="instance" reference="/model/interfaces/interface/mockup"/>
+          </instanceArgument>
+        </arguments>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <protocolModeAttribute class="instanceAttribute" reference="/model/interfaces/interface/protocolEngine/attributes/instanceAttribute"/>
+      <parameters/>
+    </interface>
+    <interface>
+      <name>Serial_IO</name>
+      <type>tlm_ft_spi_device_socket</type>
+      <protocol>SPI</protocol>
+      <role>device</role>
+      <category>SPI</category>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>tlm_ft_spi_protocol_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="tlm_ft_spi_protocol_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>version</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <type>spi_version</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>V3_0</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>is_master</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>is_slave</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>slave_id</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <type>unsigned</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>bit_time</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <type>sc_core::sc_time</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>sc_core::sc_time(1, SC_US)</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>check_clocks</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>enable_check_clocks</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>slave_select_type</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <type>tlm_ft_spi_payload::SLAVE_SELECT_TYPE</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>start_received_transfer</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <kind>Callback</kind>
+            <enabled>true</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>start_received_transfer_64bit</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <kind>Callback</kind>
+            <enabled>true</enabled>
+            <visible>false</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>start_received_transfer_64bit_V3</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <kind>Callback</kind>
+            <enabled>true</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>end_received_transfer</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+            <kind>Callback</kind>
+            <enabled>true</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors>
+          <instanceBehavior>
+            <name>set_slave_select_type_chip_select</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>set_slave_select_type_strobe_select</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>start_master_transfer</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>start_slave_transfer</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>register_as_master</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>register_as_slave</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>set_num_of_data_lines</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>set_continuous_select_tx</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/protocolEngine"/>
+          </instanceBehavior>
+        </behaviors>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>tlm_ft_spi_mockup</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="tlm_ft_spi_mockup" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>version</name>
+            <parent class="instance" reference="/model/interfaces/interface[2]/mockup"/>
+            <type>spi_version</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>V3_0</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+    </interface>
+    <interface>
+      <name>rst_in</name>
+      <type>sc_core::sc_in&lt;bool&gt;</type>
+      <protocol>Reset</protocol>
+      <role>slave</role>
+      <category>Reset</category>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue>false</attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>reset_slave_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="reset_slave_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>reset_enter</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>true</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>reset_exit</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>reset_master_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="reset_master_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>mode</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/mockup"/>
+            <type>reset_engine_mode</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>DURATION</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/mockup"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>duration</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/mockup"/>
+            <type>sc_core::sc_time</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/mockup"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>false</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enable_debug_trigger</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/mockup"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors>
+          <instanceBehavior>
+            <name>start_reset_pulse</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/mockup"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>do_reset_pulse</name>
+            <parent class="instance" reference="/model/interfaces/interface[3]/mockup"/>
+          </instanceBehavior>
+        </behaviors>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+    </interface>
+    <interface>
+      <name>spi_clk</name>
+      <type>sc_core::sc_in&lt;bool&gt;</type>
+      <protocol>Clock</protocol>
+      <role>slave</role>
+      <category>Clock</category>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>clock_slave_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="clock_slave_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>divider</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <type>unsigned int</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>1</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>ticking</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>period</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <type>sc_core::sc_time</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>clock_if</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <type>scml_clock*</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>period_updated</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>true</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>started</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>stopped</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors>
+          <instanceBehavior>
+            <name>enable</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>disable</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/protocolEngine"/>
+          </instanceBehavior>
+        </behaviors>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>clock_master_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="clock_master_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>m_mode</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/mockup"/>
+            <type>clock_mode</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>ACTIVE</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>m_period</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/mockup"/>
+            <type>sc_core::sc_time</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value>sc_core::sc_time(10, SC_NS)</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>m_enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[4]/mockup"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value>true</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+    </interface>
+    <interface>
+      <name>clk_in</name>
+      <type>sc_core::sc_in&lt;bool&gt;</type>
+      <protocol>Clock</protocol>
+      <role>slave</role>
+      <category>Clock</category>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+        <attribute>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>clock_slave_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="clock_slave_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>divider</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <type>unsigned int</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>1</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>ticking</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>period</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <type>sc_core::sc_time</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>clock_if</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <type>scml_clock*</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value></value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>period_updated</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>started</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>stopped</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors>
+          <instanceBehavior>
+            <name>enable</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+          </instanceBehavior>
+          <instanceBehavior>
+            <name>disable</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/protocolEngine"/>
+          </instanceBehavior>
+        </behaviors>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>clock_master_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="clock_master_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>m_mode</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/mockup"/>
+            <type>clock_mode</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>ACTIVE</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>m_period</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/mockup"/>
+            <type>sc_core::sc_time</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value>sc_core::sc_time(10, SC_NS)</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>m_enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[5]/mockup"/>
+            <type>bool</type>
+            <kind>Attribute</kind>
+            <objectReference></objectReference>
+            <value>true</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+      <state>Definition</state>
+    </interface>
+    <interface>
+      <name>tfuf_irq</name>
+      <type>sc_core::sc_out&lt;bool&gt;</type>
+      <protocol>Interrupt</protocol>
+      <role>master</role>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>interrupt_master_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_master_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enable</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>(SR.TFUF == 1)</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>interrupt_slave_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_slave_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/mockup"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/mockup"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/mockup"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>true</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>interrupt_enter</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>interrupt_exit</name>
+            <parent class="instance" reference="/model/interfaces/interface[6]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+    </interface>
+    <interface>
+      <name>tfff_irq</name>
+      <type>sc_core::sc_out&lt;bool&gt;</type>
+      <protocol>Interrupt</protocol>
+      <role>master</role>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+        <attribute>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>interrupt_master_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_master_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enable</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>(SR.TFFF == 1)</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>interrupt_slave_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_slave_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/mockup"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/mockup"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/mockup"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>true</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>interrupt_enter</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>interrupt_exit</name>
+            <parent class="instance" reference="/model/interfaces/interface[7]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+      <state>Definition</state>
+    </interface>
+    <interface>
+      <name>rfof_irq</name>
+      <type>sc_core::sc_out&lt;bool&gt;</type>
+      <protocol>Interrupt</protocol>
+      <role>master</role>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+        <attribute>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>interrupt_master_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_master_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enable</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>(SR.RFOF == 1)</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>interrupt_slave_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_slave_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/mockup"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/mockup"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/mockup"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>true</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>interrupt_enter</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>interrupt_exit</name>
+            <parent class="instance" reference="/model/interfaces/interface[8]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+      <state>Definition</state>
+    </interface>
+    <interface>
+      <name>rfdf_irq</name>
+      <type>sc_core::sc_out&lt;bool&gt;</type>
+      <protocol>Interrupt</protocol>
+      <role>master</role>
+      <attributes>
+        <attribute>
+          <attributeType>ActiveLevel</attributeType>
+          <attributeValue></attributeValue>
+        </attribute>
+        <attribute>
+          <attributeValue></attributeValue>
+        </attribute>
+      </attributes>
+      <protocolEngine class="instance">
+        <modelingObject>interrupt_master_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_master_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enable</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>(SR.RFDF == 1)</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/protocolEngine"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks/>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </protocolEngine>
+      <mockup class="instance">
+        <modelingObject>interrupt_slave_engine</modelingObject>
+        <name>dummy</name>
+        <modelingObjectSpecifier vendor="Synopsys" library="Protocols" name="interrupt_slave_engine" version="1.0"/>
+        <attributes>
+          <instanceAttribute>
+            <name>active_level</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/mockup"/>
+            <type>bool</type>
+            <kind>ConstAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>enabled</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/mockup"/>
+            <type>bool</type>
+            <kind>ProtectedValueAttribute</kind>
+            <objectReference></objectReference>
+            <value>false</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+          <instanceAttribute>
+            <name>decodable</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/mockup"/>
+            <type>bool</type>
+            <kind>ExportAttribute</kind>
+            <objectReference></objectReference>
+            <value>true</value>
+            <quantity></quantity>
+            <values/>
+            <visible>true</visible>
+            <children/>
+          </instanceAttribute>
+        </attributes>
+        <callbacks>
+          <instanceCallback>
+            <name>interrupt_enter</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+          <instanceCallback>
+            <name>interrupt_exit</name>
+            <parent class="instance" reference="/model/interfaces/interface[9]/mockup"/>
+            <kind>CallbackIgnore</kind>
+            <enabled>false</enabled>
+            <visible>true</visible>
+          </instanceCallback>
+        </callbacks>
+        <behaviors/>
+        <arguments/>
+        <children/>
+        <base>false</base>
+      </mockup>
+      <parameters/>
+      <state>Definition</state>
+    </interface>
+  </interfaces>
+  <powerdomains/>
+  <tasks/>
+  <versionLabels/>
+  <memories>
+    <memory>
+      <name>mRegs</name>
+      <size>0x24</size>
+      <origin>0x0</origin>
+      <children>
+        <register>
+          <name>MCR</name>
+          <origin>0x0</origin>
+          <quantity></quantity>
+          <resetValue>0x0</resetValue>
+          <documentation>Module Configuration Register&#xd;</documentation>
+          <bitfields>
+            <bitfield>
+              <name>MSTR</name>
+              <startBit>0</startBit>
+              <endBit>0</endBit>
+              <documentation>Bit to configure the SPI in either Initiator (value 1) or Target mode (value 0)</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>PCSSE</name>
+              <startBit>6</startBit>
+              <endBit>6</endBit>
+              <documentation>Bit to enable the Peripheral Chip Select in Strobe mode (value 1)&#xd;</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>UFL_TXF</name>
+              <startBit>8</startBit>
+              <endBit>11</endBit>
+              <documentation> Bitfield to set the Underflow alarm level of the Transmit Fifo</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>OFL_RXF</name>
+              <startBit>12</startBit>
+              <endBit>15</endBit>
+              <documentation>: Bitfield to set the Overflow alarm level of the Receive Fifo</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>MDIS</name>
+              <startBit>17</startBit>
+              <endBit>17</endBit>
+              <documentation> Bit to disable the module</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>CLR_TXF</name>
+              <startBit>20</startBit>
+              <endBit>20</endBit>
+              <documentation>Bit to clear/flush the TX FIFO</documentation>
+              <writeBehavior>None</writeBehavior>
+              <customWriteBehavior>UntimedWrite</customWriteBehavior>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>CLR_RXF</name>
+              <startBit>21</startBit>
+              <endBit>21</endBit>
+              <documentation>Bit to clear/flush the RX FIFO</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved0</name>
+              <startBit>1</startBit>
+              <endBit>5</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved1</name>
+              <startBit>7</startBit>
+              <endBit>7</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved2</name>
+              <startBit>16</startBit>
+              <endBit>16</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved3</name>
+              <startBit>18</startBit>
+              <endBit>19</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved4</name>
+              <startBit>22</startBit>
+              <endBit>31</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+          </bitfields>
+        </register>
+        <register>
+          <name>CTAR</name>
+          <origin>0x4</origin>
+          <quantity>4</quantity>
+          <resetValue>0x0</resetValue>
+          <documentation>Clock and Transfer Attributes 
+Register</documentation>
+          <bitfields>
+            <bitfield>
+              <name>FMSZ</name>
+              <startBit>0</startBit>
+              <endBit>4</endBit>
+              <documentation>Bit to configure the Frame Size (bits transferred equals this value plus 1)&#xd;</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>CPOL</name>
+              <startBit>5</startBit>
+              <endBit>5</endBit>
+              <documentation>Bit to configure the Clock Polarity</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>bf</name>
+              <startBit>6</startBit>
+              <endBit>6</endBit>
+              <documentation>Bit to configure the Clock Phase&#xd;</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>LSBFE</name>
+              <startBit>7</startBit>
+              <endBit>7</endBit>
+              <documentation>Bit to configure the MSB or LSB transmit first option</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>PCSSCK</name>
+              <startBit>8</startBit>
+              <endBit>9</endBit>
+              <documentation> Clock Prescaler</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved0</name>
+              <startBit>10</startBit>
+              <endBit>31</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+          </bitfields>
+        </register>
+        <register>
+          <name>SR</name>
+          <origin>0x14</origin>
+          <resetValue>0x0</resetValue>
+          <documentation>Status Register&#xd;</documentation>
+          <bitfields>
+            <bitfield>
+              <name>TCF</name>
+              <startBit>0</startBit>
+              <endBit>0</endBit>
+              <documentation>Transfer Complete Flag</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>TXRXS</name>
+              <startBit>1</startBit>
+              <endBit>1</endBit>
+              <documentation>Transmit and Receive Status Flag</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>EOQF</name>
+              <startBit>3</startBit>
+              <endBit>3</endBit>
+              <documentation>End of Queue Flag</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>TFUF</name>
+              <startBit>4</startBit>
+              <endBit>4</endBit>
+              <documentation>Transmit FIFO Underflow Flag&#xd;</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>TFFF</name>
+              <startBit>6</startBit>
+              <endBit>6</endBit>
+              <documentation>Transmit FIFO Fill Flag</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>RFOF</name>
+              <startBit>12</startBit>
+              <endBit>12</endBit>
+              <documentation>Receive FIFO Overflow Flag</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>RFDF</name>
+              <startBit>14</startBit>
+              <endBit>14</endBit>
+              <documentation> Receive FIFO Drain Flag&#xd;</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved0</name>
+              <startBit>2</startBit>
+              <endBit>2</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved1</name>
+              <startBit>5</startBit>
+              <endBit>5</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved2</name>
+              <startBit>7</startBit>
+              <endBit>11</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved3</name>
+              <startBit>13</startBit>
+              <endBit>13</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>reserved4</name>
+              <startBit>15</startBit>
+              <endBit>31</endBit>
+              <restriction>ReservedIgnore</restriction>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+          </bitfields>
+        </register>
+        <register>
+          <name>RSER</name>
+          <origin>0x18</origin>
+          <resetValue>0x0</resetValue>
+          <documentation>Request Select and Enable Register</documentation>
+          <bitfields/>
+        </register>
+        <register>
+          <name>PUSHR</name>
+          <origin>0x1c</origin>
+          <resetValue>0x0</resetValue>
+          <documentation>Push Transmit FIFO Register</documentation>
+          <bitfields>
+            <bitfield>
+              <name>CONT</name>
+              <startBit>0</startBit>
+              <endBit>0</endBit>
+              <documentation>Continuous Selection Format&#xd;</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>CTAS</name>
+              <startBit>1</startBit>
+              <endBit>3</endBit>
+              <documentation>CTAS register selection&#xd;</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>EOQ</name>
+              <startBit>4</startBit>
+              <endBit>4</endBit>
+              <documentation>End Of Queue</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>CTCNT</name>
+              <startBit>5</startBit>
+              <endBit>5</endBit>
+              <documentation>Clear Transfer Counter</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>PCS</name>
+              <startBit>8</startBit>
+              <endBit>15</endBit>
+              <documentation>Peripheral Chip Select</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+            <bitfield>
+              <name>TXDATA</name>
+              <startBit>16</startBit>
+              <endBit>31</endBit>
+              <documentation>Data to transmit</documentation>
+              <enums/>
+              <bitfields/>
+            </bitfield>
+          </bitfields>
+        </register>
+        <register>
+          <name>POPR</name>
+          <origin>0x20</origin>
+          <resetValue>0x0</resetValue>
+          <documentation> Pop Receive FIFO Register</documentation>
+          <bitfields/>
+        </register>
+      </children>
+    </memory>
+  </memories>
+  <instances>
+    <instance>
+      <modelingObject>router</modelingObject>
+      <name>bus_reg_in_router</name>
+      <modelingObjectSpecifier vendor="Synopsys" library="ModelingObjects" name="router"/>
+      <attributes>
+        <instanceAttribute>
+          <name>bound_on</name>
+          <parent class="instance" reference="/model/instances/instance"/>
+          <type>binder</type>
+          <kind>ConstAttribute</kind>
+          <objectReference></objectReference>
+          <value>bus_reg_in_protocol_engine</value>
+          <quantity></quantity>
+          <values/>
+          <visible>true</visible>
+          <children/>
+        </instanceAttribute>
+        <instanceAttribute>
+          <name>mappings</name>
+          <parent class="instance" reference="/model/instances/instance"/>
+          <type></type>
+          <kind>AttributeStruct</kind>
+          <objectReference></objectReference>
+          <value></value>
+          <quantity>1</quantity>
+          <values/>
+          <visible>true</visible>
+          <children>
+            <instanceAttribute>
+              <name>mappings</name>
+              <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]"/>
+              <type></type>
+              <kind>AttributeStruct</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children>
+                <instanceAttribute>
+                  <name>base</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]/children/instanceAttribute"/>
+                  <type>unsigned long long</type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>0x0</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>size</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]/children/instanceAttribute"/>
+                  <type>unsigned long long</type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>mRegs.get_size()*mRegs.get_width()</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>destination</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]/children/instanceAttribute"/>
+                  <type>scml2::mappable_if &amp;</type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>mRegs</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>offset</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]/children/instanceAttribute"/>
+                  <type>unsigned long long</type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>type</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]/children/instanceAttribute"/>
+                  <type></type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>RW</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>active</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]/children/instanceAttribute"/>
+                  <type>bool</type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>true</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>name</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance/attributes/instanceAttribute[2]/children/instanceAttribute"/>
+                  <type>std::string</type>
+                  <kind>ConstAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+              </children>
+            </instanceAttribute>
+          </children>
+        </instanceAttribute>
+      </attributes>
+      <callbacks>
+        <instanceCallback>
+          <name>Callback</name>
+          <parent class="instance" reference="/model/instances/instance"/>
+          <kind>CallbackIgnore</kind>
+          <enabled>false</enabled>
+          <visible>true</visible>
+        </instanceCallback>
+        <instanceCallback>
+          <name>DebugCallback</name>
+          <parent class="instance" reference="/model/instances/instance"/>
+          <kind>CallbackIgnore</kind>
+          <enabled>false</enabled>
+          <visible>true</visible>
+        </instanceCallback>
+      </callbacks>
+      <behaviors/>
+      <arguments>
+        <instanceArgument>
+          <name>Type</name>
+          <value>unsigned int</value>
+          <parent class="instance" reference="/model/instances/instance"/>
+        </instanceArgument>
+      </arguments>
+      <children/>
+      <base>false</base>
+    </instance>
+    <instance>
+      <modelingObject>hierarchy</modelingObject>
+      <name>TX_PATH</name>
+      <modelingObjectSpecifier vendor="Synopsys" library="PrimitiveObjects" name="hierarchy" version="1.0"/>
+      <attributes>
+        <instanceAttribute>
+          <name>m_fifo_size</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <type>long long</type>
+          <kind>ValueAttribute</kind>
+          <objectReference></objectReference>
+          <value>fifo_size</value>
+          <quantity></quantity>
+          <values/>
+          <customAttribute>
+            <name>m_fifo_size</name>
+            <type>long long</type>
+            <value></value>
+            <array>false</array>
+            <resizable>true</resizable>
+            <quantity></quantity>
+            <mandatory>false</mandatory>
+            <kind>value_attribute</kind>
+            <objectReference></objectReference>
+            <description></description>
+            <values/>
+            <enumDefinition></enumDefinition>
+            <enableExpression></enableExpression>
+            <valueForExistingInstance></valueForExistingInstance>
+            <attributes/>
+            <namespace></namespace>
+            <header></header>
+            <includePaths/>
+          </customAttribute>
+          <visible>true</visible>
+          <children/>
+        </instanceAttribute>
+        <instanceAttribute>
+          <name>UFL_TXF</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <type>unsigned long long</type>
+          <kind>ValueAttribute</kind>
+          <objectReference></objectReference>
+          <value>MCR.UFL_TXF</value>
+          <quantity></quantity>
+          <values/>
+          <customAttribute>
+            <name>UFL_TXF</name>
+            <type>unsigned long long</type>
+            <value></value>
+            <array>false</array>
+            <resizable>true</resizable>
+            <quantity></quantity>
+            <mandatory>false</mandatory>
+            <kind>value_attribute</kind>
+            <objectReference></objectReference>
+            <description></description>
+            <values/>
+            <enumDefinition></enumDefinition>
+            <enableExpression></enableExpression>
+            <valueForExistingInstance></valueForExistingInstance>
+            <attributes/>
+            <namespace></namespace>
+            <header></header>
+            <includePaths/>
+          </customAttribute>
+          <visible>true</visible>
+          <children/>
+        </instanceAttribute>
+        <instanceAttribute>
+          <name>m_isDriver</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <type>bool</type>
+          <kind>ValueAttribute</kind>
+          <objectReference></objectReference>
+          <value>(MCR.MSTR == 1)</value>
+          <quantity></quantity>
+          <values/>
+          <customAttribute>
+            <name>m_isDriver</name>
+            <type>bool</type>
+            <value></value>
+            <array>false</array>
+            <resizable>true</resizable>
+            <quantity></quantity>
+            <mandatory>false</mandatory>
+            <kind>value_attribute</kind>
+            <objectReference></objectReference>
+            <description></description>
+            <values/>
+            <enumDefinition></enumDefinition>
+            <enableExpression></enableExpression>
+            <valueForExistingInstance></valueForExistingInstance>
+            <attributes/>
+            <namespace></namespace>
+            <header></header>
+            <includePaths/>
+          </customAttribute>
+          <visible>true</visible>
+          <children/>
+        </instanceAttribute>
+        <instanceAttribute>
+          <name>TX_FULL</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <type>bool</type>
+          <kind>ValueAttribute</kind>
+          <objectReference></objectReference>
+          <value>false</value>
+          <quantity></quantity>
+          <values/>
+          <customAttribute>
+            <name>TX_FULL</name>
+            <type>bool</type>
+            <value></value>
+            <array>false</array>
+            <resizable>true</resizable>
+            <quantity></quantity>
+            <mandatory>false</mandatory>
+            <kind>value_attribute</kind>
+            <objectReference></objectReference>
+            <description></description>
+            <values/>
+            <enumDefinition></enumDefinition>
+            <enableExpression></enableExpression>
+            <valueForExistingInstance></valueForExistingInstance>
+            <attributes/>
+            <namespace></namespace>
+            <header></header>
+            <includePaths/>
+          </customAttribute>
+          <visible>true</visible>
+          <action>false</action>
+          <children/>
+        </instanceAttribute>
+        <instanceAttribute>
+          <name>TX_EMPTY</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <type>bool</type>
+          <kind>ValueAttribute</kind>
+          <objectReference></objectReference>
+          <value>false</value>
+          <quantity></quantity>
+          <values/>
+          <customAttribute>
+            <name>TX_EMPTY</name>
+            <type>bool</type>
+            <value></value>
+            <array>false</array>
+            <resizable>true</resizable>
+            <quantity></quantity>
+            <mandatory>false</mandatory>
+            <kind>value_attribute</kind>
+            <objectReference></objectReference>
+            <description></description>
+            <values/>
+            <enumDefinition></enumDefinition>
+            <enableExpression></enableExpression>
+            <valueForExistingInstance></valueForExistingInstance>
+            <attributes/>
+            <namespace></namespace>
+            <header></header>
+            <includePaths/>
+          </customAttribute>
+          <visible>true</visible>
+          <action>false</action>
+          <children/>
+        </instanceAttribute>
+        <instanceAttribute>
+          <name>clk_period</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <type>sc_core::sc_time</type>
+          <kind>ValueAttribute</kind>
+          <objectReference></objectReference>
+          <value>clk_in_protocl_engine.period</value>
+          <quantity></quantity>
+          <values/>
+          <customAttribute>
+            <name>clk_period</name>
+            <type>sc_core::sc_time</type>
+            <value></value>
+            <array>false</array>
+            <resizable>true</resizable>
+            <quantity></quantity>
+            <mandatory>false</mandatory>
+            <kind>value_attribute</kind>
+            <objectReference></objectReference>
+            <description></description>
+            <values/>
+            <enumDefinition></enumDefinition>
+            <enableExpression></enableExpression>
+            <valueForExistingInstance></valueForExistingInstance>
+            <attributes/>
+            <namespace></namespace>
+            <header></header>
+            <includePaths/>
+          </customAttribute>
+          <visible>true</visible>
+          <children/>
+        </instanceAttribute>
+      </attributes>
+      <callbacks>
+        <instanceCallback>
+          <name>process_new_item</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <kind>Callback</kind>
+          <enabled>true</enabled>
+          <customCallbackDefinition>
+            <name>process_new_item</name>
+            <returnType>void</returnType>
+            <kind>Callback</kind>
+            <description></description>
+            <defaultImplementation></defaultImplementation>
+            <parameters>
+              <modelingObjectParameter>
+                <name>value</name>
+                <description></description>
+                <type>unsigned int</type>
+                <value></value>
+              </modelingObjectParameter>
+            </parameters>
+            <enableExpression></enableExpression>
+            <isAdvanced>false</isAdvanced>
+          </customCallbackDefinition>
+          <visible>true</visible>
+        </instanceCallback>
+      </callbacks>
+      <behaviors>
+        <instanceBehavior>
+          <name>push</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <customDefinition>
+            <name>push</name>
+            <returnType>void</returnType>
+            <kind>callback</kind>
+            <description></description>
+            <defaultImplementation></defaultImplementation>
+            <parameters>
+              <modelingObjectParameter>
+                <name>value</name>
+                <description></description>
+                <type>unsigned int</type>
+                <value></value>
+              </modelingObjectParameter>
+            </parameters>
+            <enableExpression></enableExpression>
+            <isAdvanced>false</isAdvanced>
+          </customDefinition>
+        </instanceBehavior>
+        <instanceBehavior>
+          <name>pop</name>
+          <parent class="instance" reference="/model/instances/instance[2]"/>
+          <customDefinition>
+            <name>pop</name>
+            <returnType>bool</returnType>
+            <kind>callback</kind>
+            <description></description>
+            <defaultImplementation></defaultImplementation>
+            <parameters>
+              <modelingObjectParameter>
+                <name>value</name>
+                <description></description>
+                <type>unsigned int &amp;</type>
+                <value></value>
+              </modelingObjectParameter>
+            </parameters>
+            <enableExpression></enableExpression>
+            <isAdvanced>false</isAdvanced>
+          </customDefinition>
+        </instanceBehavior>
+      </behaviors>
+      <arguments/>
+      <children>
+        <instance>
+          <modelingObject>event</modelingObject>
+          <name>newItemEvent</name>
+          <modelingObjectSpecifier vendor="Synopsys" library="PrimitiveObjects" name="event" version="1.0"/>
+          <attributes/>
+          <callbacks>
+            <instanceCallback>
+              <name>pre</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>post</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+          </callbacks>
+          <behaviors>
+            <instanceBehavior>
+              <name>wait</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>notify</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance"/>
+            </instanceBehavior>
+          </behaviors>
+          <arguments/>
+          <children/>
+          <base>false</base>
+        </instance>
+        <instance>
+          <modelingObject>fifo</modelingObject>
+          <name>TXFIFO</name>
+          <modelingObjectSpecifier vendor="Synopsys" library="ModelingObjects" name="fifo" version="1.0"/>
+          <attributes>
+            <instanceAttribute>
+              <name>version</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type>fifo_version</type>
+              <kind>ConstAttribute</kind>
+              <objectReference></objectReference>
+              <value>V2_0</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>size</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type>long long</type>
+              <kind>ConstAttribute</kind>
+              <objectReference></objectReference>
+              <value>m_fifo_size</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>almost_empty_level</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type>unsigned long long</type>
+              <kind>ValueAttribute</kind>
+              <objectReference></objectReference>
+              <value>UFL_TXF</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>almost_full_level</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type>unsigned long long</type>
+              <kind>ValueAttribute</kind>
+              <objectReference></objectReference>
+              <value>m_fifo_size-1</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>nr_elements</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type>unsigned long long</type>
+              <kind>ProtectedAttribute</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>max_nr_elements</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type>unsigned long long</type>
+              <kind>ProtectedAttribute</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>ctrl_flags</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type></type>
+              <kind>AttributeStruct</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children>
+                <instanceAttribute>
+                  <name>full</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[2]/attributes/instanceAttribute[7]"/>
+                  <type>bool</type>
+                  <kind>ProtectedAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>empty</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[2]/attributes/instanceAttribute[7]"/>
+                  <type>bool</type>
+                  <kind>ProtectedAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>almost_full</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[2]/attributes/instanceAttribute[7]"/>
+                  <type>bool</type>
+                  <kind>ProtectedAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>almost_empty</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[2]/attributes/instanceAttribute[7]"/>
+                  <type>bool</type>
+                  <kind>ProtectedAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>insufficient_elements</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[2]/attributes/instanceAttribute[7]"/>
+                  <type>bool</type>
+                  <kind>ProtectedAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+              </children>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>config_options</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <type></type>
+              <kind>AttributeStruct</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children>
+                <instanceAttribute>
+                  <name>fifo_overflow_style</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[2]/attributes/instanceAttribute[8]"/>
+                  <type>fifo_overflow_styles</type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>OVERWRITE</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>fifo_size_style</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[2]/attributes/instanceAttribute[8]"/>
+                  <type>fifo_size_styles</type>
+                  <kind>ValueAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>MAX_SIZE</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+              </children>
+            </instanceAttribute>
+          </attributes>
+          <callbacks>
+            <instanceCallback>
+              <name>new_item_available</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>true</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>item_popped</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>full</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>true</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>almost_full</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>true</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>empty</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>true</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>almost_empty</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>true</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>overflow</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>underflow</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>forced_pop</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>overrun</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>insufficient_elements</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+          </callbacks>
+          <behaviors>
+            <instanceBehavior>
+              <name>push</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>pop</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>peek</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>peek_back</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>front</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>back</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>is_full</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>is_empty</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>clear</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>clear_max_nr_elements</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceBehavior>
+          </behaviors>
+          <arguments>
+            <instanceArgument>
+              <name>Type</name>
+              <value>unsigned int</value>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[2]"/>
+            </instanceArgument>
+          </arguments>
+          <children/>
+          <base>false</base>
+        </instance>
+        <instance>
+          <modelingObject>process</modelingObject>
+          <name>TXControl</name>
+          <modelingObjectSpecifier vendor="Synopsys" library="ModelingObjects" name="process" version="1.0"/>
+          <attributes>
+            <instanceAttribute>
+              <name>type</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+              <type>process_type</type>
+              <kind>ConstAttribute</kind>
+              <objectReference></objectReference>
+              <value>THREAD</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>sensitivity</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+              <type></type>
+              <kind>AttributeStruct</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity>0</quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>advanced_options</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+              <type></type>
+              <kind>AttributeStruct</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children>
+                <instanceAttribute>
+                  <name>initialize</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[3]/attributes/instanceAttribute[3]"/>
+                  <type>bool</type>
+                  <kind>ConstAttribute</kind>
+                  <objectReference></objectReference>
+                  <value>true</value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>false</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>stack_size</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[3]/attributes/instanceAttribute[3]"/>
+                  <type>unsigned int</type>
+                  <kind>ConstAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity></quantity>
+                  <values/>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+                <instanceAttribute>
+                  <name>systemc_events</name>
+                  <parent class="instanceAttribute" reference="/model/instances/instance[2]/children/instance[3]/attributes/instanceAttribute[3]"/>
+                  <type>sc_core::sc_event*</type>
+                  <kind>ConstAttribute</kind>
+                  <objectReference></objectReference>
+                  <value></value>
+                  <quantity>1</quantity>
+                  <values>
+                    <string>&amp;newItemEvent</string>
+                  </values>
+                  <visible>true</visible>
+                  <children/>
+                </instanceAttribute>
+              </children>
+            </instanceAttribute>
+          </attributes>
+          <callbacks>
+            <instanceCallback>
+              <name>main</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+              <kind>Callback</kind>
+              <enabled>true</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>init</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+            <instanceCallback>
+              <name>exit</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+              <kind>CallbackIgnore</kind>
+              <enabled>false</enabled>
+              <visible>true</visible>
+            </instanceCallback>
+          </callbacks>
+          <behaviors>
+            <instanceBehavior>
+              <name>reset</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>suspend</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>resume</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>add_sensitivity</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+            </instanceBehavior>
+            <instanceBehavior>
+              <name>execute</name>
+              <parent class="instance" reference="/model/instances/instance[2]/children/instance[3]"/>
+            </instanceBehavior>
+          </behaviors>
+          <arguments/>
+          <children/>
+          <base>false</base>
+        </instance>
+      </children>
+      <base>true</base>
+    </instance>
+    <instance>
+      <modelingObject>hierarchy</modelingObject>
+      <name>RX_PATH</name>
+      <modelingObjectSpecifier vendor="Synopsys" library="PrimitiveObjects" name="hierarchy" version="1.0"/>
+      <attributes/>
+      <callbacks/>
+      <behaviors/>
+      <arguments/>
+      <children/>
+      <base>true</base>
+    </instance>
+    <instance>
+      <modelingObject>variable</modelingObject>
+      <name>SHIFT_REGISTER</name>
+      <modelingObjectSpecifier vendor="Synopsys" library="PrimitiveObjects" name="variable" version="1.0"/>
+      <attributes>
+        <instanceAttribute>
+          <name>value</name>
+          <parent class="instance" reference="/model/instances/instance[4]"/>
+          <type>Type</type>
+          <kind>ValueAttribute</kind>
+          <objectReference></objectReference>
+          <value>0</value>
+          <quantity></quantity>
+          <values/>
+          <visible>true</visible>
+          <children/>
+        </instanceAttribute>
+        <instanceAttribute>
+          <name>advanced_options</name>
+          <parent class="instance" reference="/model/instances/instance[4]"/>
+          <type></type>
+          <kind>AttributeStruct</kind>
+          <objectReference></objectReference>
+          <value></value>
+          <quantity></quantity>
+          <values/>
+          <visible>true</visible>
+          <children>
+            <instanceAttribute>
+              <name>analysis_on</name>
+              <parent class="instanceAttribute" reference="/model/instances/instance[4]/attributes/instanceAttribute[2]"/>
+              <type>bool</type>
+              <kind>ConstAttribute</kind>
+              <objectReference></objectReference>
+              <value>false</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>analysis_name</name>
+              <parent class="instanceAttribute" reference="/model/instances/instance[4]/attributes/instanceAttribute[2]"/>
+              <type>std::string</type>
+              <kind>ConstAttribute</kind>
+              <objectReference></objectReference>
+              <value>&quot;scml_variable_trace&quot;</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>command_enabled</name>
+              <parent class="instanceAttribute" reference="/model/instances/instance[4]/attributes/instanceAttribute[2]"/>
+              <type>bool</type>
+              <kind>ConstAttribute</kind>
+              <objectReference></objectReference>
+              <value>false</value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+            <instanceAttribute>
+              <name>command_name</name>
+              <parent class="instanceAttribute" reference="/model/instances/instance[4]/attributes/instanceAttribute[2]"/>
+              <type>std::string</type>
+              <kind>ConstAttribute</kind>
+              <objectReference></objectReference>
+              <value></value>
+              <quantity></quantity>
+              <values/>
+              <visible>true</visible>
+              <children/>
+            </instanceAttribute>
+          </children>
+        </instanceAttribute>
+      </attributes>
+      <callbacks>
+        <instanceCallback>
+          <name>value_update</name>
+          <parent class="instance" reference="/model/instances/instance[4]"/>
+          <kind>CallbackIgnore</kind>
+          <enabled>false</enabled>
+          <visible>true</visible>
+        </instanceCallback>
+      </callbacks>
+      <behaviors/>
+      <arguments>
+        <instanceArgument>
+          <name>Type</name>
+          <value>unsigned int</value>
+          <parent class="instance" reference="/model/instances/instance[4]"/>
+        </instanceArgument>
+      </arguments>
+      <children/>
+      <base>false</base>
+    </instance>
+  </instances>
+  <buildingBlocks/>
+  <enumDefinitions/>
+  <buildingBlockAttributes/>
+  <importMergeState>
+    <pendingChanges/>
+  </importMergeState>
+  <modelMergeState>
+    <pendingChanges/>
+  </modelMergeState>
+  <systemCImportProject>false</systemCImportProject>
+  <tlmModelingObjectProject>false</tlmModelingObjectProject>
+  <processVSProject>true</processVSProject>
+  <processTestVSUserProject>true</processTestVSUserProject>
+  <processTestVSSolution>true</processTestVSSolution>
+  <processTestVSProject>true</processTestVSProject>
+  <processVS1434Project>true</processVS1434Project>
+  <processTestVS1434UserProject>true</processTestVS1434UserProject>
+  <processTestVS1434Solution>true</processTestVS1434Solution>
+  <processTestVS1434Project>true</processTestVS1434Project>
+  <processTestMakefileWindows>true</processTestMakefileWindows>
+  <processTestMakefileLinux>true</processTestMakefileLinux>
+  <processTestHarness>true</processTestHarness>
+  <processTest>true</processTest>
+  <processPCTBuildScript>true</processPCTBuildScript>
+  <processPCTCallbackScript>true</processPCTCallbackScript>
+  <processPCTImportScript>true</processPCTImportScript>
+  <processPCTDynamicLoadAdapter>true</processPCTDynamicLoadAdapter>
+  <processModelResourceFile>true</processModelResourceFile>
+  <processMirrorDerivedHeader>true</processMirrorDerivedHeader>
+  <processMirrorBaseHeader>true</processMirrorBaseHeader>
+  <processDocumentation>true</processDocumentation>
+  <processHTMLDocumentation>true</processHTMLDocumentation>
+  <processDocumentationCSS>true</processDocumentationCSS>
+  <processDerivedSource>true</processDerivedSource>
+  <processDerivedHeader>true</processDerivedHeader>
+  <processCoverageDerivedHeader>true</processCoverageDerivedHeader>
+  <processCoverageBaseHeader>true</processCoverageBaseHeader>
+  <processBaseHeader>true</processBaseHeader>
+  <processBaseSource>true</processBaseSource>
+  <libraryPackagedItems/>
+  <testPackagedItems/>
+  <internalPackagedItems/>
+  <extensibleTlmPackagedItems/>
+  <ipLibraryPackageInfos/>
+  <buildObjects/>
+  <prioritizedCommonSettings/>
+  <nextLevelCommonSettings/>
+  <extraGeneratedFileOverwriteOverrides/>
+  <importLayers/>
+  <previousImportLayers/>
+  <importLayerSpecifications/>
+</model>

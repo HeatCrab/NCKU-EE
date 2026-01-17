@@ -1,0 +1,562 @@
+        -:    0:Source:SystemC/include/SPICtrlBase.h
+        -:    0:Graph:../../SystemC/libso-gcc-12.3-64/FastBuild/F/__up2__/src/SPICtrl.gcno
+        -:    0:Data:../../SystemC/libso-gcc-12.3-64/FastBuild/F/__up2__/src/SPICtrl.gcda
+        -:    0:Runs:3
+        -:    1:/***************************************************************************
+        -:    2: * Copyright 1996-2025 Synopsys, Inc.
+        -:    3: *
+        -:    4: * This Synopsys software and all associated documentation are proprietary
+        -:    5: * to Synopsys, Inc. and may only be used pursuant to the terms and
+        -:    6: * conditions of a written license agreement with Synopsys, Inc.
+        -:    7: * All other use, reproduction, modification, or distribution of the
+        -:    8: * Synopsys software or the associated documentation is strictly prohibited.
+        -:    9: ***************************************************************************/
+        -:   10: 
+        -:   11:
+        -:   12:/***************************************************************************
+        -:   13: * Generated snippet, used for detecting user edits.
+        -:   14: * CHECKSUM:830953336095f72f3a6647a032a1e4ae63a118d1
+        -:   15: ***************************************************************************/
+        -:   16: 
+        -:   17:
+        -:   18: 
+        -:   19: // Warning: This is an auto-generated file. All changes to this file will be overwritten.
+        -:   20:
+        -:   21:
+        -:   22:#pragma once
+        -:   23:
+        -:   24:#include <systemc>
+        -:   25:#include <scmlinc/scml_property.h>
+        -:   26:#include "scml2_objects.h"
+        -:   27:#include <TX_PATH.h>
+        -:   28:#include <RX_PATH.h>
+        -:   29:#include <scml2_base.h>
+        -:   30:#include "scml2_protocol_engines/tlm2_ft_target_port/include/tlm2_ft_target_port_pe.h"
+        -:   31:#include "tlm_ft_spi_device_socket.h"
+        -:   32:#include "tlm_ft_spi_protocol_engine.h"
+        -:   33:#include "scml2_protocol_engines/reset/include/reset_engine.h"
+        -:   34:#include "scml2_protocol_engines/clock/include/clock_engine.h"
+        -:   35:#include "scml2_protocol_engines/interrupt/include/interrupt_engine.h"
+        -:   36:#include <scml2.h>
+        -:   37:
+        -:   38:
+        -:   39:
+        -:   40:
+        -:   41:class SPICtrlCovermodelBase;
+        -:   42:
+        -:   43:
+        -:   44:class SPICtrlCovermodel;
+        -:   45:
+        -:   46:
+        -:   47:class SPICtrl;
+        -:   48:
+        -:   49:/**
+        -:   50: * Serial Protocol Interface (SPI) controller peripheral
+        -:   51: * 
+        -:   52: * \author Synopsy
+        -:   53: * \version 1.0
+        -:   54: */
+        -:   55:#ifdef _WIN32
+        -:   56:#pragma optimize("g",off)
+        -:   57:#else
+        -:   58:#pragma GCC push_options
+        -:   59:#pragma GCC optimize("O0")
+        -:   60:#endif
+        -:   61:
+        -:   62:
+        -:   63:class SPICtrlBase : public sc_core::sc_module {
+        -:   64:    typedef SPICtrlBase ModelBaseType;
+        -:   65:  public:
+        -:   66:    SC_HAS_PROCESS(SPICtrlBase);
+        -:   67:
+        6:   68:    SPICtrlBase(sc_core::sc_module_name name) 
+        6:   69:        : sc_core::sc_module(name)
+        6:   70:        , enable_check_clocks("enable_check_clocks", false)
+        6:   71:        , target_id("target_id", 0)
+        6:   72:        , fifo_size("fifo_size", 5)
+        6:   73:        , version("version", 10003)
+        6:   74:        , bus_reg_in("bus_reg_in")
+        6:   75:        , Serial_IO("Serial_IO")
+        6:   76:        , rst_in("rst_in")
+        6:   77:        , spi_clk("spi_clk")
+        6:   78:        , clk_in("clk_in")
+        6:   79:        , tfuf_irq("tfuf_irq")
+        6:   80:        , tfff_irq("tfff_irq")
+        6:   81:        , rfof_irq("rfof_irq")
+        6:   82:        , rfdf_irq("rfdf_irq")
+        6:   83:        , bus_reg_in_router("bus_reg_in_router")
+        6:   84:        , TX_PATH("TX_PATH")
+        6:   85:        , RX_PATH("RX_PATH")
+        6:   86:        , SHIFT_REGISTER("SHIFT_REGISTER")
+        6:   87:        , CRC_MOD("CRC_MOD")
+        6:   88:        , bus_reg_in_protocol_engine("bus_reg_in_protocol_engine", bus_reg_in)
+        6:   89:        , Serial_IO_protocol_engine("Serial_IO_protocol_engine", Serial_IO)
+        6:   90:        , rst_in_protocol_engine("rst_in_protocol_engine", rst_in)
+        6:   91:        , spi_clk_protocol_engine("spi_clk_protocol_engine", spi_clk)
+        6:   92:        , clk_in_protocol_engine("clk_in_protocol_engine", clk_in)
+        6:   93:        , tfuf_irq_protocol_engine("tfuf_irq_protocol_engine", tfuf_irq)
+        6:   94:        , tfff_irq_protocol_engine("tfff_irq_protocol_engine", tfff_irq)
+        6:   95:        , rfof_irq_protocol_engine("rfof_irq_protocol_engine", rfof_irq)
+        6:   96:        , rfdf_irq_protocol_engine("rfdf_irq_protocol_engine", rfdf_irq)
+        6:   97:        , mRegs("mRegs", (0x24) / scml2::sizeOf<unsigned int >())
+        6:   98:        , MCR(sc_core::sc_gen_unique_name("MCR", true), mRegs, (0x0) / scml2::sizeOf<unsigned int >())
+        6:   99:        , MCR_reset_value(0)
+        6:  100:        , MCR_reset_mask(4294967295)
+        6:  101:        , CTAR("CTAR", 4, scml2::create_reg_vector_creator< unsigned int, CTAR_type >(mRegs, (0x4) / scml2::sizeOf<unsigned int >(), 1))
+        6:  102:        , CTAR_reset_value(0)
+        6:  103:        , CTAR_reset_mask(4294967295)
+        6:  104:        , SR(sc_core::sc_gen_unique_name("SR", true), mRegs, (0x14) / scml2::sizeOf<unsigned int >(), *this)
+        6:  105:        , SR_reset_value(0)
+        6:  106:        , SR_reset_mask(4294967295)
+        6:  107:        , RSER(sc_core::sc_gen_unique_name("RSER", true), mRegs, (0x18) / scml2::sizeOf<unsigned int >())
+        6:  108:        , RSER_reset_value(0x0)
+        6:  109:        , PUSHR(sc_core::sc_gen_unique_name("PUSHR", true), mRegs, (0x1c) / scml2::sizeOf<unsigned int >())
+        6:  110:        , PUSHR_reset_value(0x0)
+        6:  111:        , POPR(sc_core::sc_gen_unique_name("POPR", true), mRegs, (0x20) / scml2::sizeOf<unsigned int >())
+       12:  112:        , POPR_reset_value(0x0) {
+        6:  113:      bus_reg_in_router.mappings.resize(1);
+        6:  114:      bus_reg_in_protocol_engine.intercepts.resize(0);
+        6:  115:      bus_reg_in_router.bound_on = bus_reg_in_protocol_engine;
+        6:  116:      bus_reg_in_router.mappings[0].base = 0x0;
+        6:  117:      bus_reg_in_router.mappings[0].size = mRegs.get_size()*mRegs.get_width();
+        6:  118:      bus_reg_in_router.mappings[0].destination = mRegs;
+        -:  119:      /* bus_reg_in_router.mappings[0].offset = ; */
+        6:  120:      bus_reg_in_router.mappings[0].type = scml2::objects::RW;
+        6:  121:      bus_reg_in_router.mappings[0].active = true;
+        -:  122:      /* bus_reg_in_router.mappings[0].name = ; */
+        6:  123:      bus_reg_in_router.finalize_construction();
+        6:  124:      TX_PATH.m_fifo_size = fifo_size;
+        6:  125:      TX_PATH.UFL_TXF = MCR.UFL_TXF;
+       6*:  126:      m_actions.add_action("TX_PATH.UFL_TXF = MCR.UFL_TXF", [&](){TX_PATH.UFL_TXF = MCR.UFL_TXF;}, MCR.UFL_TXF);
+        6:  127:      TX_PATH.m_isDriver = (MCR.MSTR == 1);
+        9:  128:      m_actions.add_action("TX_PATH.m_isDriver = (MCR.MSTR == 1)", [&](){TX_PATH.m_isDriver = (MCR.MSTR == 1);}, MCR.MSTR);
+        6:  129:      TX_PATH.TX_FULL = false;
+        6:  130:      TX_PATH.TX_EMPTY = false;
+        6:  131:      TX_PATH.clk_period = clk_in_protocol_engine.period;
+       18:  132:      m_actions.add_action("TX_PATH.clk_period = clk_in_protocol_engine.period", [&](){TX_PATH.clk_period = clk_in_protocol_engine.period;}, clk_in_protocol_engine.period);
+        6:  133:      TX_PATH.set_process_new_item_callback(SCML2_CALLBACK(handle_TX_PATH_process_new_item));
+        6:  134:      TX_PATH.finalize_construction();
+        6:  135:      RX_PATH.m_fifo_size = fifo_size;
+        6:  136:      RX_PATH.OFL_RXF = MCR.OFL_RXF;
+       6*:  137:      m_actions.add_action("RX_PATH.OFL_RXF = MCR.OFL_RXF", [&](){RX_PATH.OFL_RXF = MCR.OFL_RXF;}, MCR.OFL_RXF);
+        6:  138:      RX_PATH.RXF_FULL = false;
+        6:  139:      RX_PATH.RXF_Overflow = false;
+        6:  140:      RX_PATH.finalize_construction();
+        6:  141:      SHIFT_REGISTER.value = 0;
+        6:  142:      SHIFT_REGISTER.advanced_options.analysis_on = false;
+        6:  143:      SHIFT_REGISTER.advanced_options.analysis_name = "scml_variable_trace";
+        6:  144:      SHIFT_REGISTER.advanced_options.command_enabled = false;
+        -:  145:      /* SHIFT_REGISTER.advanced_options.command_name = ; */
+        6:  146:      SHIFT_REGISTER.finalize_construction();
+        6:  147:      CRC_MOD.set_main_callback(SCML2_CALLBACK(handle_CRC_MOD_main));
+        6:  148:      CRC_MOD.finalize_construction();
+        6:  149:      bus_reg_in_protocol_engine.abstraction = scml2::LT;
+        6:  150:      bus_reg_in_protocol_engine.consume_annotated_time = false;
+        6:  151:      bus_reg_in_protocol_engine.finalize_construction();
+        6:  152:      Serial_IO_protocol_engine.version = V3_0;
+        6:  153:      Serial_IO_protocol_engine.bit_time = sc_core::sc_time(1, SC_US);
+        6:  154:      Serial_IO_protocol_engine.check_clocks = enable_check_clocks;
+        6:  155:      Serial_IO_protocol_engine.set_start_received_transfer_64bit_V3_callback(SCML2_CALLBACK(handle_Serial_IO_protocol_engine_start_received_transfer_64bit_V3));
+        6:  156:      Serial_IO_protocol_engine.set_end_received_transfer_callback(SCML2_CALLBACK(handle_Serial_IO_protocol_engine_end_received_transfer));
+        6:  157:      Serial_IO_protocol_engine.finalize_construction();
+        6:  158:      rst_in_protocol_engine.active_level = false;
+        6:  159:      rst_in_protocol_engine.set_reset_enter_callback(SCML2_CALLBACK(handle_rst_in_protocol_engine_reset_enter));
+        6:  160:      rst_in_protocol_engine.finalize_construction();
+        6:  161:      spi_clk_protocol_engine.divider = 1;
+        -:  162:      /* spi_clk_protocol_engine.enabled = ; */
+        6:  163:      spi_clk_protocol_engine.set_period_updated_callback(SCML2_CALLBACK(handle_spi_clk_protocol_engine_period_updated));
+        6:  164:      spi_clk_protocol_engine.finalize_construction();
+        6:  165:      clk_in_protocol_engine.divider = 1;
+        -:  166:      /* clk_in_protocol_engine.enabled = ; */
+        6:  167:      clk_in_protocol_engine.finalize_construction();
+        6:  168:      tfuf_irq_protocol_engine.active_level = false;
+        6:  169:      tfuf_irq_protocol_engine.enable = (SR.TFUF == 1);
+       12:  170:      m_actions.add_action("tfuf_irq_protocol_engine.enable = (SR.TFUF == 1)", [&](){tfuf_irq_protocol_engine.enable = (SR.TFUF == 1);}, SR.TFUF);
+        6:  171:      tfuf_irq_protocol_engine.finalize_construction();
+        6:  172:      tfff_irq_protocol_engine.active_level = false;
+        6:  173:      tfff_irq_protocol_engine.enable = (SR.TFFF == 1);
+       6*:  174:      m_actions.add_action("tfff_irq_protocol_engine.enable = (SR.TFFF == 1)", [&](){tfff_irq_protocol_engine.enable = (SR.TFFF == 1);}, SR.TFFF);
+        6:  175:      tfff_irq_protocol_engine.finalize_construction();
+        6:  176:      rfof_irq_protocol_engine.active_level = false;
+        6:  177:      rfof_irq_protocol_engine.enable = (SR.RFOF == 1);
+       6*:  178:      m_actions.add_action("rfof_irq_protocol_engine.enable = (SR.RFOF == 1)", [&](){rfof_irq_protocol_engine.enable = (SR.RFOF == 1);}, SR.RFOF);
+        6:  179:      rfof_irq_protocol_engine.finalize_construction();
+        6:  180:      rfdf_irq_protocol_engine.active_level = false;
+        6:  181:      rfdf_irq_protocol_engine.enable = (SR.RFDF == 1);
+       12:  182:      m_actions.add_action("rfdf_irq_protocol_engine.enable = (SR.RFDF == 1)", [&](){rfdf_irq_protocol_engine.enable = (SR.RFDF == 1);}, SR.RFDF);
+        6:  183:      rfdf_irq_protocol_engine.finalize_construction();
+        6:  184:      scml2::set_ignore_restriction<unsigned int, scml2::reg>(MCR, (unsigned int)0ull, (unsigned int)4291625150ull);
+        6:  185:      MCR.MSTR.set_symbolic_name(MCR.MSTR.input_mode, "input_mode");
+        6:  186:      scml2::set_post_write_callback(MCR.MSTR, MCR.MSTR.input_mode, SCML2_CALLBACK(handle_post_write_MCR_MSTR_input_mode));
+        6:  187:      MCR.MSTR.set_symbolic_name(MCR.MSTR.driver_mode, "driver_mode");
+        6:  188:      scml2::set_post_write_callback(MCR.MSTR, MCR.MSTR.driver_mode, SCML2_CALLBACK(handle_post_write_MCR_MSTR_driver_mode));
+        6:  189:      MCR.PCSSE.set_symbolic_name(MCR.PCSSE.chip_select_mode, "chip_select_mode");
+        6:  190:      scml2::set_post_write_callback(MCR.PCSSE, MCR.PCSSE.chip_select_mode, SCML2_CALLBACK(handle_post_write_MCR_PCSSE_chip_select_mode));
+        6:  191:      MCR.PCSSE.set_symbolic_name(MCR.PCSSE.strobe_mode, "strobe_mode");
+        6:  192:      scml2::set_post_write_callback(MCR.PCSSE, MCR.PCSSE.strobe_mode, SCML2_CALLBACK(handle_post_write_MCR_PCSSE_strobe_mode));
+        6:  193:      scml2::set_read_no_store_callback(MCR.CLR_TXF, SCML2_CALLBACK(handle_read_MCR_CLR_TXF), scml2::AUTO_SYNCING);
+        6:  194:      scml2::set_write_callback(MCR.CLR_TXF, SCML2_CALLBACK(handle_write_MCR_CLR_TXF), scml2::AUTO_SYNCING);
+        6:  195:      scml2::set_read_no_store_callback(MCR.CLR_RXF, SCML2_CALLBACK(handle_read_MCR_CLR_RXF), scml2::AUTO_SYNCING);
+        6:  196:      scml2::set_write_callback(MCR.CLR_RXF, SCML2_CALLBACK(handle_write_MCR_CLR_RXF), scml2::AUTO_SYNCING);
+       30:  197:      for (size_t CTAR_i = 0; CTAR_i < 4; ++CTAR_i) {
+       24:  198:        scml2::set_ignore_restriction<unsigned int, scml2::reg>(CTAR[CTAR_i], (unsigned int)0ull, (unsigned int)4294966272ull);
+        -:  199:      }
+        6:  200:      scml2::set_ignore_restriction<unsigned int, scml2::reg>(SR, (unsigned int)0ull, (unsigned int)12196ull);
+       6*:  201:      SR.TFUF =  (TX_PATH.TX_EMPTY) ? 1 : 0;
+       24:  202:      m_actions.add_action("SR.TFUF =  (TX_PATH.TX_EMPTY) ? 1 : 0", [&](){SR.TFUF =  (TX_PATH.TX_EMPTY) ? 1 : 0;}, TX_PATH.TX_EMPTY);
+       6*:  203:      SR.TFFF = (TX_PATH.TX_FULL) ? 1 : 0;
+       9*:  204:      m_actions.add_action("SR.TFFF = (TX_PATH.TX_FULL) ? 1 : 0", [&](){SR.TFFF = (TX_PATH.TX_FULL) ? 1 : 0;}, TX_PATH.TX_FULL);
+       6*:  205:      SR.RFOF =  (RX_PATH.RXF_FULL) ? 1 : 0;
+      12*:  206:      m_actions.add_action("SR.RFOF =  (RX_PATH.RXF_FULL) ? 1 : 0", [&](){SR.RFOF =  (RX_PATH.RXF_FULL) ? 1 : 0;}, RX_PATH.RXF_FULL);
+       6*:  207:      SR.RFDF =  (RX_PATH.RXF_Overflow) ? 1 : 0;
+      12*:  208:      m_actions.add_action("SR.RFDF =  (RX_PATH.RXF_Overflow) ? 1 : 0", [&](){SR.RFDF =  (RX_PATH.RXF_Overflow) ? 1 : 0;}, RX_PATH.RXF_Overflow);
+        6:  209:      if (version < 10200) {
+        6:  210:        scml2::set_ignore_restriction((scml2::bitfield<unsigned int>&)SR.reserved4);
+        -:  211:      }
+        6:  212:      scml2::set_write_restriction<unsigned int, scml2::reg>(PUSHR, SCML2_CALLBACK(restrict_PUSHR));
+        6:  213:      scml2::set_write_callback<unsigned int, scml2::reg>(PUSHR, SCML2_CALLBACK(handle_write_PUSHR), scml2::AUTO_SYNCING);
+        6:  214:      scml2::set_read_callback<unsigned int, scml2::reg>(POPR, SCML2_CALLBACK(handle_read_POPR), scml2::AUTO_SYNCING);
+        6:  215:    }
+        -:  216:    
+        -:  217:// LCOV_EXCL_START
+       6*:  218:    virtual ~SPICtrlBase() {
+        6:  219:      m_actions.clear();
+       6*:  220:    }
+------------------
+_ZN11SPICtrlBaseD0Ev:
+    #####:  218:    virtual ~SPICtrlBase() {
+        -:  219:      m_actions.clear();
+    #####:  220:    }
+------------------
+_ZN11SPICtrlBaseD2Ev:
+        6:  218:    virtual ~SPICtrlBase() {
+        6:  219:      m_actions.clear();
+        6:  220:    }
+------------------
+        -:  221:// LCOV_EXCL_STOP    
+        -:  222:
+        -:  223:  protected:
+        -:  224:    /**
+        -:  225:     * This method resets all interfaces, registers, and bitfields to their reset value.
+        -:  226:     * It is typically called from end_of_elaboration(), and connected to the reset port.
+        -:  227:     */
+        -:  228:    
+       12:  229:    virtual void reset_model() {
+       12:  230:      reset_model_if_available(bus_reg_in_router);
+       12:  231:      reset_model_if_available(TX_PATH);
+       12:  232:      reset_model_if_available(RX_PATH);
+       12:  233:      reset_model_if_available(SHIFT_REGISTER);
+       12:  234:      reset_model_if_available(CRC_MOD);
+       12:  235:      MCR = (MCR & ~MCR_reset_mask) | (MCR_reset_value & MCR_reset_mask);
+       60:  236:      for (size_t CTAR_i = 0; CTAR_i < 4; ++CTAR_i) {
+       48:  237:        CTAR[CTAR_i] = (CTAR[CTAR_i] & ~CTAR_reset_mask) | (CTAR_reset_value & CTAR_reset_mask);
+        -:  238:      }
+       12:  239:      SR = (SR & ~SR_reset_mask) | (SR_reset_value & SR_reset_mask);
+       12:  240:      RSER = RSER_reset_value;
+       12:  241:      PUSHR = PUSHR_reset_value;
+       12:  242:      POPR = POPR_reset_value;
+       12:  243:    }
+        -:  244:    
+        6:  245:    virtual void end_of_elaboration() {
+        6:  246:      sc_core::sc_module::end_of_elaboration();
+        6:  247:      reset_model();
+        6:  248:    }
+        -:  249:    
+        -:  250:    ModelBaseType& model() {
+        -:  251:      return *this;
+        -:  252:    }
+        -:  253:    
+        -:  254:    virtual void handle_post_write_MCR_MSTR_input_mode(const unsigned int& old_value, const unsigned int& value, sc_core::sc_time& time) = 0;
+        -:  255:    
+        -:  256:    virtual void handle_post_write_MCR_MSTR_driver_mode(const unsigned int& old_value, const unsigned int& value, sc_core::sc_time& time) = 0;
+        -:  257:    
+        -:  258:    virtual void handle_post_write_MCR_PCSSE_chip_select_mode(const unsigned int& old_value, const unsigned int& value, sc_core::sc_time& time) = 0;
+        -:  259:    
+        -:  260:    virtual void handle_post_write_MCR_PCSSE_strobe_mode(const unsigned int& old_value, const unsigned int& value, sc_core::sc_time& time) = 0;
+        -:  261:  
+        -:  262:    virtual void handle_TX_PATH_process_new_item(unsigned int value) = 0;
+        -:  263:    virtual void handle_CRC_MOD_main() = 0;
+        -:  264:    virtual void handle_Serial_IO_protocol_engine_start_received_transfer_64bit_V3(unsigned long long data, unsigned bit_length, bool continuous_select) = 0;
+        -:  265:    virtual void handle_Serial_IO_protocol_engine_end_received_transfer() = 0;
+        -:  266:    virtual void handle_rst_in_protocol_engine_reset_enter() = 0;
+        -:  267:    virtual void handle_spi_clk_protocol_engine_period_updated(sc_core::sc_time period) = 0;
+        -:  268:    virtual bool handle_read_MCR_CLR_TXF(unsigned int& value) = 0;
+        -:  269:    virtual bool handle_write_MCR_CLR_TXF(const unsigned int& value) = 0;
+        -:  270:    virtual bool handle_read_MCR_CLR_RXF(unsigned int& value) = 0;
+        -:  271:    virtual bool handle_write_MCR_CLR_RXF(const unsigned int& value) = 0;
+        -:  272:    virtual scml2::access_restriction_result restrict_PUSHR(unsigned int& data, unsigned int& bit_enables) = 0;
+        -:  273:    virtual bool handle_write_PUSHR(const unsigned int& value, const unsigned int& byteEnables, sc_core::sc_time& time) = 0;
+        -:  274:    virtual bool handle_read_POPR(unsigned int& value, const unsigned int& byteEnables, sc_core::sc_time& time) = 0;
+        -:  275:
+        -:  276:  protected:
+        -:  277:    /* Enable/disable the check on the SPI clock communication */
+        -:  278:    scml_property<bool> enable_check_clocks;
+        -:  279:    /* Identify SPI when in input mode */
+        -:  280:    scml_property<unsigned int> target_id;
+        -:  281:    /* Size of the internal FIFOs */
+        -:  282:    scml_property<unsigned int> fifo_size;
+        -:  283:    scml_property<int> version;
+        -:  284:
+        -:  285:  public:
+        -:  286:    scml2::ft_target_socket<32> bus_reg_in;
+        -:  287:    tlm_ft_spi_device_socket Serial_IO;
+        -:  288:    sc_core::sc_in<bool> rst_in;
+        -:  289:    sc_core::sc_in<bool> spi_clk;
+        -:  290:    sc_core::sc_in<bool> clk_in;
+        -:  291:    sc_core::sc_out<bool> tfuf_irq;
+        -:  292:    sc_core::sc_out<bool> tfff_irq;
+        -:  293:    sc_core::sc_out<bool> rfof_irq;
+        -:  294:    sc_core::sc_out<bool> rfdf_irq;
+        -:  295:
+        -:  296:  protected:
+        -:  297:    friend class SPICtrlCovermodelBase;
+        -:  298:    friend class SPICtrlCovermodel;
+        -:  299:    friend class SPICtrl;
+        -:  300:    friend class TX_PATHType;
+        -:  301:    friend class TX_PATHTypeBase;
+        -:  302:    friend class RX_PATHType;
+        -:  303:    friend class RX_PATHTypeBase;
+        -:  304:
+        -:  305:    struct MCR_type : public scml2::reg< unsigned int > {
+        -:  306:      ~MCR_type();
+        -:  307:      MCR_type(const std::string& name, scml2::toplevel_memory_base& memory, unsigned long long offset);
+        -:  308:      using scml2::reg< unsigned int >::operator=;
+        -:  309:      using scml2::reg< unsigned int >::operator+=;
+        -:  310:      using scml2::reg< unsigned int >::operator-=;
+        -:  311:      using scml2::reg< unsigned int >::operator/=;
+        -:  312:      using scml2::reg< unsigned int >::operator*=;
+        -:  313:      using scml2::reg< unsigned int >::operator%=;
+        -:  314:      using scml2::reg< unsigned int >::operator^=;
+        -:  315:      using scml2::reg< unsigned int >::operator&=;
+        -:  316:      using scml2::reg< unsigned int >::operator|=;
+        -:  317:      using scml2::reg< unsigned int >::operator>>=;
+        -:  318:      using scml2::reg< unsigned int >::operator<<=;
+        -:  319:      using scml2::reg< unsigned int >::operator--;
+        -:  320:      using scml2::reg< unsigned int >::operator++;
+        -:  321:      using scml2::reg< unsigned int >::operator unsigned int;
+        -:  322:      struct MCR_MSTR_type : public scml2::bitfield< unsigned int > {
+        -:  323:        ~MCR_MSTR_type();
+        -:  324:        MCR_MSTR_type(const std::string& name, scml2::reg< unsigned int >& parent, unsigned int offset, unsigned int size);
+        -:  325:        using scml2::bitfield< unsigned int >::operator=;
+        -:  326:        using scml2::bitfield< unsigned int >::operator+=;
+        -:  327:        using scml2::bitfield< unsigned int >::operator-=;
+        -:  328:        using scml2::bitfield< unsigned int >::operator/=;
+        -:  329:        using scml2::bitfield< unsigned int >::operator*=;
+        -:  330:        using scml2::bitfield< unsigned int >::operator%=;
+        -:  331:        using scml2::bitfield< unsigned int >::operator^=;
+        -:  332:        using scml2::bitfield< unsigned int >::operator&=;
+        -:  333:        using scml2::bitfield< unsigned int >::operator|=;
+        -:  334:        using scml2::bitfield< unsigned int >::operator>>=;
+        -:  335:        using scml2::bitfield< unsigned int >::operator<<=;
+        -:  336:        using scml2::bitfield< unsigned int >::operator--;
+        -:  337:        using scml2::bitfield< unsigned int >::operator++;
+        -:  338:        using scml2::bitfield< unsigned int >::operator unsigned int;
+        -:  339:        void put_input_mode() {
+        -:  340:              put(input_mode);
+        -:  341:        }
+        -:  342:        bool is_input_mode() {
+        -:  343:              return (input_mode== get());
+        -:  344:        }
+        -:  345:        void put_driver_mode() {
+        -:  346:              put(driver_mode);
+        -:  347:        }
+        -:  348:        bool is_driver_mode() {
+        -:  349:              return (driver_mode== get());
+        -:  350:        }
+        -:  351:        enum Enums {
+        -:  352:          input_mode = 0,
+        -:  353:          driver_mode = 1,
+        -:  354:        };
+        -:  355:      };
+        -:  356:      struct MCR_PCSSE_type : public scml2::bitfield< unsigned int > {
+        -:  357:        ~MCR_PCSSE_type();
+        -:  358:        MCR_PCSSE_type(const std::string& name, scml2::reg< unsigned int >& parent, unsigned int offset, unsigned int size);
+        -:  359:        using scml2::bitfield< unsigned int >::operator=;
+        -:  360:        using scml2::bitfield< unsigned int >::operator+=;
+        -:  361:        using scml2::bitfield< unsigned int >::operator-=;
+        -:  362:        using scml2::bitfield< unsigned int >::operator/=;
+        -:  363:        using scml2::bitfield< unsigned int >::operator*=;
+        -:  364:        using scml2::bitfield< unsigned int >::operator%=;
+        -:  365:        using scml2::bitfield< unsigned int >::operator^=;
+        -:  366:        using scml2::bitfield< unsigned int >::operator&=;
+        -:  367:        using scml2::bitfield< unsigned int >::operator|=;
+        -:  368:        using scml2::bitfield< unsigned int >::operator>>=;
+        -:  369:        using scml2::bitfield< unsigned int >::operator<<=;
+        -:  370:        using scml2::bitfield< unsigned int >::operator--;
+        -:  371:        using scml2::bitfield< unsigned int >::operator++;
+        -:  372:        using scml2::bitfield< unsigned int >::operator unsigned int;
+        -:  373:        void put_chip_select_mode() {
+        -:  374:              put(chip_select_mode);
+        -:  375:        }
+        -:  376:        bool is_chip_select_mode() {
+        -:  377:              return (chip_select_mode== get());
+        -:  378:        }
+        -:  379:        void put_strobe_mode() {
+        -:  380:              put(strobe_mode);
+        -:  381:        }
+        -:  382:        bool is_strobe_mode() {
+        -:  383:              return (strobe_mode== get());
+        -:  384:        }
+        -:  385:        enum Enums {
+        -:  386:          chip_select_mode = 0,
+        -:  387:          strobe_mode = 1,
+        -:  388:        };
+        -:  389:      };
+        -:  390:      /* Bit to configure the SPI in either Initiator (value 1) or Target mode (value 0) */
+        -:  391:      MCR_MSTR_type MSTR;
+        -:  392:      /* Bit to enable the Peripheral Chip Select in Strobe mode (value 1) */
+        -:  393:      MCR_PCSSE_type PCSSE;
+        -:  394:      /*  Bitfield to set the Underflow alarm level of the Transmit Fifo */
+        -:  395:      scml2::bitfield< unsigned int > UFL_TXF;
+        -:  396:      /* : Bitfield to set the Overflow alarm level of the Receive Fifo */
+        -:  397:      scml2::bitfield< unsigned int > OFL_RXF;
+        -:  398:      /*  Bit to disable the module */
+        -:  399:      scml2::bitfield< unsigned int > MDIS;
+        -:  400:      /* Bit to clear/flush the TX FIFO */
+        -:  401:      scml2::bitfield< unsigned int > CLR_TXF;
+        -:  402:      /* Bit to clear/flush the RX FIFO */
+        -:  403:      scml2::bitfield< unsigned int > CLR_RXF;
+        -:  404:    };
+        -:  405:    struct CTAR_type : public scml2::reg< unsigned int > {
+        -:  406:      ~CTAR_type();
+        -:  407:      CTAR_type(const std::string& name, scml2::toplevel_memory_base& memory, unsigned long long offset);
+        -:  408:      using scml2::reg< unsigned int >::operator=;
+        -:  409:      using scml2::reg< unsigned int >::operator+=;
+        -:  410:      using scml2::reg< unsigned int >::operator-=;
+        -:  411:      using scml2::reg< unsigned int >::operator/=;
+        -:  412:      using scml2::reg< unsigned int >::operator*=;
+        -:  413:      using scml2::reg< unsigned int >::operator%=;
+        -:  414:      using scml2::reg< unsigned int >::operator^=;
+        -:  415:      using scml2::reg< unsigned int >::operator&=;
+        -:  416:      using scml2::reg< unsigned int >::operator|=;
+        -:  417:      using scml2::reg< unsigned int >::operator>>=;
+        -:  418:      using scml2::reg< unsigned int >::operator<<=;
+        -:  419:      using scml2::reg< unsigned int >::operator--;
+        -:  420:      using scml2::reg< unsigned int >::operator++;
+        -:  421:      using scml2::reg< unsigned int >::operator unsigned int;
+        -:  422:      /* Bit to configure the Frame Size (bits transferred equals this value plus 1) */
+        -:  423:      scml2::bitfield< unsigned int > FMSZ;
+        -:  424:      /* Bit to configure the Clock Polarity */
+        -:  425:      scml2::bitfield< unsigned int > CPOL;
+        -:  426:      /* Bit to configure the Clock Phase */
+        -:  427:      scml2::bitfield< unsigned int > bf;
+        -:  428:      /* Bit to configure the MSB or LSB transmit first option */
+        -:  429:      scml2::bitfield< unsigned int > LSBFE;
+        -:  430:      /*  Clock Prescaler */
+        -:  431:      scml2::bitfield< unsigned int > PCSSCK;
+        -:  432:    };
+        -:  433:    struct SR_type : public scml2::reg< unsigned int > {
+        -:  434:      ~SR_type();
+        -:  435:      SR_type(const std::string& name, scml2::toplevel_memory_base& memory, unsigned long long offset, ModelBaseType& model_);
+        -:  436:      using scml2::reg< unsigned int >::operator=;
+        -:  437:      using scml2::reg< unsigned int >::operator+=;
+        -:  438:      using scml2::reg< unsigned int >::operator-=;
+        -:  439:      using scml2::reg< unsigned int >::operator/=;
+        -:  440:      using scml2::reg< unsigned int >::operator*=;
+        -:  441:      using scml2::reg< unsigned int >::operator%=;
+        -:  442:      using scml2::reg< unsigned int >::operator^=;
+        -:  443:      using scml2::reg< unsigned int >::operator&=;
+        -:  444:      using scml2::reg< unsigned int >::operator|=;
+        -:  445:      using scml2::reg< unsigned int >::operator>>=;
+        -:  446:      using scml2::reg< unsigned int >::operator<<=;
+        -:  447:      using scml2::reg< unsigned int >::operator--;
+        -:  448:      using scml2::reg< unsigned int >::operator++;
+        -:  449:      using scml2::reg< unsigned int >::operator unsigned int;
+        -:  450:      /* Transfer Complete Flag */
+        -:  451:      scml2::bitfield< unsigned int > TCF;
+        -:  452:      /* Transmit and Receive Status Flag */
+        -:  453:      scml2::bitfield< unsigned int > TXRXS;
+        -:  454:      /* End of Queue Flag */
+        -:  455:      scml2::bitfield< unsigned int > EOQF;
+        -:  456:      /* Transmit FIFO Underflow Flag */
+        -:  457:      scml2::bitfield< unsigned int > TFUF;
+        -:  458:      /* Transmit FIFO Fill Flag */
+        -:  459:      scml2::bitfield< unsigned int > TFFF;
+        -:  460:      /* Receive FIFO Overflow Flag */
+        -:  461:      scml2::bitfield< unsigned int > RFOF;
+        -:  462:      /* Receive FIFO Drain Flag */
+        -:  463:      scml2::bitfield< unsigned int > RFDF;
+        -:  464:      scml2::bitfield_proxy< unsigned int > reserved4;
+        -:  465:      /* CRC Errpr bit */
+        -:  466:      scml2::bitfield_proxy< unsigned int > CRC_ERROR;
+        -:  467:      scml2::bitfield_proxy< unsigned int > reserved5;
+        -:  468:    };
+        -:  469:    struct PUSHR_type : public scml2::reg< unsigned int > {
+        -:  470:      ~PUSHR_type();
+        -:  471:      PUSHR_type(const std::string& name, scml2::toplevel_memory_base& memory, unsigned long long offset);
+        -:  472:      using scml2::reg< unsigned int >::operator=;
+        -:  473:      using scml2::reg< unsigned int >::operator+=;
+        -:  474:      using scml2::reg< unsigned int >::operator-=;
+        -:  475:      using scml2::reg< unsigned int >::operator/=;
+        -:  476:      using scml2::reg< unsigned int >::operator*=;
+        -:  477:      using scml2::reg< unsigned int >::operator%=;
+        -:  478:      using scml2::reg< unsigned int >::operator^=;
+        -:  479:      using scml2::reg< unsigned int >::operator&=;
+        -:  480:      using scml2::reg< unsigned int >::operator|=;
+        -:  481:      using scml2::reg< unsigned int >::operator>>=;
+        -:  482:      using scml2::reg< unsigned int >::operator<<=;
+        -:  483:      using scml2::reg< unsigned int >::operator--;
+        -:  484:      using scml2::reg< unsigned int >::operator++;
+        -:  485:      using scml2::reg< unsigned int >::operator unsigned int;
+        -:  486:      /* Continuous Selection Format */
+        -:  487:      scml2::bitfield< unsigned int > CONT;
+        -:  488:      /* CTAS register selection */
+        -:  489:      scml2::bitfield< unsigned int > CTAS;
+        -:  490:      /* End Of Queue */
+        -:  491:      scml2::bitfield< unsigned int > EOQ;
+        -:  492:      /* Clear Transfer Counter */
+        -:  493:      scml2::bitfield< unsigned int > CTCNT;
+        -:  494:      /* Peripheral Chip Select */
+        -:  495:      scml2::bitfield< unsigned int > PCS;
+        -:  496:      /* Data to transmit */
+        -:  497:      scml2::bitfield< unsigned int > TXDATA;
+        -:  498:    };
+        -:  499:    scml2::objects::router<unsigned int> bus_reg_in_router;
+        -:  500:    TX_PATHType TX_PATH;
+        -:  501:    RX_PATHType RX_PATH;
+        -:  502:    scml2::objects::variable<unsigned int> SHIFT_REGISTER;
+        -:  503:    scml2::objects::action CRC_MOD;
+        -:  504:    scml2::base::actions m_actions;
+        -:  505:    scml2::tlm2_ft_target_port_pe<32> bus_reg_in_protocol_engine;
+        -:  506:    tlm_ft_spi_protocol_engine Serial_IO_protocol_engine;
+        -:  507:    scml2::reset_slave_engine rst_in_protocol_engine;
+        -:  508:    scml2::clock_slave_engine spi_clk_protocol_engine;
+        -:  509:    scml2::clock_slave_engine clk_in_protocol_engine;
+        -:  510:    scml2::interrupt_master_engine tfuf_irq_protocol_engine;
+        -:  511:    scml2::interrupt_master_engine tfff_irq_protocol_engine;
+        -:  512:    scml2::interrupt_master_engine rfof_irq_protocol_engine;
+        -:  513:    scml2::interrupt_master_engine rfdf_irq_protocol_engine;
+        -:  514:    scml2::memory< unsigned int > mRegs;
+        -:  515:    /* Module Configuration Register */
+        -:  516:    MCR_type MCR;
+        -:  517:    unsigned int MCR_reset_value;
+        -:  518:    unsigned int MCR_reset_mask;
+        -:  519:    /**
+        -:  520:     * Clock and Transfer Attributes 
+        -:  521:     * Register
+        -:  522:     */
+        -:  523:    scml2::vector< CTAR_type > CTAR;
+        -:  524:    unsigned int CTAR_reset_value;
+        -:  525:    unsigned int CTAR_reset_mask;
+        -:  526:    /* Status Register */
+        -:  527:    SR_type SR;
+        -:  528:    unsigned int SR_reset_value;
+        -:  529:    unsigned int SR_reset_mask;
+        -:  530:    /* Request Select and Enable Register */
+        -:  531:    scml2::reg< unsigned int > RSER;
+        -:  532:    unsigned int RSER_reset_value;
+        -:  533:    /* Push Transmit FIFO Register */
+        -:  534:    PUSHR_type PUSHR;
+        -:  535:    unsigned int PUSHR_reset_value;
+        -:  536:    /*  Pop Receive FIFO Register */
+        -:  537:    scml2::reg< unsigned int > POPR;
+        -:  538:    unsigned int POPR_reset_value;
+        -:  539:private:
+        -:  540:};
+        -:  541:#ifdef _WIN32
+        -:  542:#pragma optimize("",on)
+        -:  543:#else
+        -:  544:#pragma GCC pop_options
+        -:  545:#endif
+        -:  546:
+        -:  547:

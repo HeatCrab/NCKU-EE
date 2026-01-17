@@ -1,0 +1,5 @@
+Synopsys/Protocols/tlm2_ft_target_port_pe/1.0
+Synopsys/Protocols/tlm_ft_spi_protocol_engine/1.0
+Synopsys/Protocols/reset_slave_engine/1.0
+Synopsys/Protocols/clock_slave_engine/1.0
+Synopsys/Protocols/interrupt_master_engine/1.0

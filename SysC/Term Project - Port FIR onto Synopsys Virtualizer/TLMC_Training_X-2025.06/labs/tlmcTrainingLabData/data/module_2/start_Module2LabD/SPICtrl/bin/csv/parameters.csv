@@ -1,0 +1,5 @@
+Identifier,Type,Default Value,Constraints,Quantity,Visibility,Value Editability,Documentation
+enable_check_clocks,bool,false,,,VISIBLE,UNTIL_SIMULATION_START,Enable/disable the check on the SPI clock communication
+target_id,unsigned int,0,,,VISIBLE,UNTIL_SIMULATION_START,Identify SPI when in input mode
+fifo_size,unsigned int,5,,,VISIBLE,UNTIL_SIMULATION_START,Size of the internal FIFOs
+version,int,10003,"{10003,10200}",,VISIBLE,UNTIL_SIMULATION_START,

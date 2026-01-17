@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.cdt.launch.attachLaunchType">
+    <stringAttribute key="org.eclipse.cdt.debug.mi.core.DEBUG_NAME" value="gdb"/>
+    <stringAttribute key="org.eclipse.cdt.debug.mi.core.commandFactory" value="org.eclipse.cdt.debug.mi.core.standardLinuxCommandFactory"/>
+    <stringAttribute key="org.eclipse.cdt.debug.mi.core.protocol" value="mi"/>
+    <stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/tools/bin/sysc_gdb_bridge -sior IOR:010000001f00000049444c3a436f576172652f5365727669636552656769737472793a312e300000010000000000000064000000010102000a0000003132372e302e302e31008f8f14000000ff6269646972fe543762690100647900000000000200000000000000080000000100000000545441010000001c00000001000000010001000100000001000105090101000100000009010100 -node_index 0"/>
+    <stringAttribute key="org.eclipse.cdt.dsf.gdb.GDB_INIT" value=""/>
+    <booleanAttribute key="org.eclipse.cdt.dsf.gdb.NON_STOP" value="false"/>
+    <intAttribute key="org.eclipse.cdt.launch.ATTACH_PROCESS_ID" value="29447"/>
+    <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="gdb"/>
+    <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="attach"/>
+    <mapAttribute key="org.eclipse.debug.core.preferred_launchers">
+        <mapEntry key="[debug]" value="org.eclipse.cdt.dsf.gdb.launch.attachCLaunch"/>
+    </mapAttribute>
+</launchConfiguration>

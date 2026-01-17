@@ -1,0 +1,21 @@
+#include <SPICtrlTestHarness.h>
+using namespace scml2::testing;
+class FuncReq_SPI_initiator: public SPICtrlTestHarness {
+ // Register the test class and all test methods
+ SCML2_BEGIN_TESTS(FuncReq_SPI_initiator);
+ SCML2_TEST(testInitiateInitiatorTransfer);
+ SCML2_END_TESTS();
+ FuncReq_SPI_initiator();
+ // initialize is...
+ virtual void initialize();
+ // Called before running each testcase
+ // Reset your model here.
+ virtual void setup();
+ // Called after running each testcase
+ virtual void teardown() {
+ }
+ // Called at the end of the complete testrun
+ virtual void shutdown() {
+ }
+ void testInitiateInitiatorTransfer();
+};

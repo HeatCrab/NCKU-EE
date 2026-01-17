@@ -1,0 +1,28 @@
+File 'SystemC/src/SPICtrl.cc'
+Lines executed:75.31% of 81
+Creating 'SPICtrl.cc.gcov'
+
+File 'SystemC/include/RX_PATH.h'
+No executable lines
+Removing 'RX_PATH.h.gcov'
+
+File 'SystemC/include/TX_PATH.h'
+No executable lines
+Removing 'TX_PATH.h.gcov'
+
+File 'SystemC/include/SPICtrl.h'
+No executable lines
+Removing 'SPICtrl.h.gcov'
+
+File 'SystemC/include/TX_PATHBase.h'
+Lines executed:100.00% of 29
+Creating 'TX_PATHBase.h.gcov'
+
+File 'SystemC/include/SPICtrlBase.h'
+Lines executed:100.00% of 162
+Creating 'SPICtrlBase.h.gcov'
+
+File 'SystemC/include/RX_PATHBase.h'
+Lines executed:100.00% of 18
+Creating 'RX_PATHBase.h.gcov'
+

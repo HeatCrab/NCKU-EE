@@ -1,0 +1,142 @@
+        -:    0:Source:SystemC/include/TX_PATHBase.h
+        -:    0:Graph:../../SystemC/libso-gcc-12.3-64/FastBuild/F/__up2__/src/SPICtrl.gcno
+        -:    0:Data:../../SystemC/libso-gcc-12.3-64/FastBuild/F/__up2__/src/SPICtrl.gcda
+        -:    0:Runs:3
+        -:    1:/***************************************************************************
+        -:    2: * Copyright 1996-2025 Synopsys, Inc.
+        -:    3: *
+        -:    4: * This Synopsys software and all associated documentation are proprietary
+        -:    5: * to Synopsys, Inc. and may only be used pursuant to the terms and
+        -:    6: * conditions of a written license agreement with Synopsys, Inc.
+        -:    7: * All other use, reproduction, modification, or distribution of the
+        -:    8: * Synopsys software or the associated documentation is strictly prohibited.
+        -:    9: ***************************************************************************/
+        -:   10: 
+        -:   11:
+        -:   12:/***************************************************************************
+        -:   13: * Generated snippet, used for detecting user edits.
+        -:   14: * CHECKSUM:43c826263a33a27d9d0abc256cd2731b6452b813
+        -:   15: ***************************************************************************/
+        -:   16: 
+        -:   17: 
+        -:   18: // Warning: This is an auto-generated file. All changes to this file will be overwritten.
+        -:   19:
+        -:   20:
+        -:   21:#pragma once
+        -:   22:
+        -:   23:#include <scml2.h>
+        -:   24:#include <scml2_base.h>
+        -:   25:#include "scml2_objects.h"
+        -:   26:
+        -:   27:
+        -:   28:
+        -:   29:
+        -:   30:
+        -:   31:class SPICtrlBase;
+        -:   32:
+        -:   33:
+        -:   34:
+        -:   35:class TX_PATHType;
+        -:   36:
+        -:   37:#ifdef _WIN32
+        -:   38:#pragma optimize("g",off)
+        -:   39:#else
+        -:   40:#pragma GCC push_options
+        -:   41:#pragma GCC optimize("O0")
+        -:   42:#endif
+        -:   43:
+        -:   44:
+        -:   45:class TX_PATHTypeBase : public scml2::base::object {
+        -:   46:    typedef TX_PATHTypeBase ObjectBaseType;
+        -:   47:  public:
+        -:   48:    SC_HAS_PROCESS(TX_PATHTypeBase);
+        -:   49:
+        -:   50:    TX_PATHTypeBase(const scml2::base::object_name& name) 
+        -:   51:        : scml2::base::object(name)
+        -:   52:        , push("push", this, &TX_PATHTypeBase::push_impl)
+        -:   53:        , pop("pop", this, &TX_PATHTypeBase::pop_impl)
+        -:   54:        , m_fifo_size("m_fifo_size")
+        -:   55:        , UFL_TXF("UFL_TXF")
+        -:   56:        , m_isDriver("m_isDriver")
+        -:   57:        , TX_FULL("TX_FULL")
+        -:   58:        , TX_EMPTY("TX_EMPTY")
+        -:   59:        , clk_period("clk_period")
+        -:   60:        , newItemEvent("newItemEvent")
+        -:   61:        , TXFIFO("TXFIFO")
+        -:   62:        , TXControl("TXControl") {
+        -:   63:    }
+        -:   64:    
+       6*:   65:    virtual ~TX_PATHTypeBase() {
+        6:   66:      m_actions.clear();
+       6*:   67:    }
+------------------
+_ZN15TX_PATHTypeBaseD0Ev:
+    #####:   65:    virtual ~TX_PATHTypeBase() {
+        -:   66:      m_actions.clear();
+    #####:   67:    }
+------------------
+_ZN15TX_PATHTypeBaseD2Ev:
+        6:   65:    virtual ~TX_PATHTypeBase() {
+        6:   66:      m_actions.clear();
+        6:   67:    }
+------------------
+        -:   68:    
+       12:   69:    virtual void reset_model() {
+       12:   70:      reset_model_if_available(newItemEvent);
+       12:   71:      reset_model_if_available(TXFIFO);
+       12:   72:      reset_model_if_available(TXControl);
+       12:   73:    }
+        -:   74:  
+        -:   75:    virtual void handle_TXFIFO_new_item_available() = 0;
+        -:   76:    virtual void handle_TXFIFO_full() = 0;
+        -:   77:    virtual void handle_TXFIFO_almost_full() = 0;
+        -:   78:    virtual void handle_TXFIFO_empty() = 0;
+        -:   79:    virtual void handle_TXFIFO_almost_empty() = 0;
+        -:   80:    virtual void handle_TXControl_main() = 0;
+        -:   81:    virtual void push_impl(unsigned int value) = 0;
+        -:   82:    virtual bool pop_impl(unsigned int & value) = 0;
+        -:   83:
+        6:   84:    SCML2_BASE_CALLBACK(process_new_item, void, unsigned int);
+        -:   85:    scml2::base::behavior<void, unsigned int> push;
+        -:   86:    scml2::base::behavior<bool, unsigned int &> pop;
+        -:   87:    scml2::base::value_attribute<long long> m_fifo_size;
+        -:   88:    scml2::base::value_attribute<unsigned long long> UFL_TXF;
+        -:   89:    scml2::base::value_attribute<bool> m_isDriver;
+        -:   90:    scml2::base::value_attribute<bool> TX_FULL;
+        -:   91:    scml2::base::value_attribute<bool> TX_EMPTY;
+        -:   92:    scml2::base::value_attribute<sc_core::sc_time> clk_period;
+        -:   93:    scml2::objects::event newItemEvent;
+        -:   94:    scml2::objects::fifo<unsigned int> TXFIFO;
+        -:   95:    scml2::objects::process TXControl;
+        -:   96:    scml2::base::actions m_actions;
+        -:   97:    
+        6:   98:    virtual void finalize_local_construction() {
+        6:   99:        TXControl.advanced_options.systemc_events.resize(1);
+        6:  100:        TXFIFO.version = scml2::objects::V2_0;
+        6:  101:        TXFIFO.size = m_fifo_size;
+        6:  102:        TXFIFO.almost_empty_level = UFL_TXF;
+       6*:  103:        m_actions.add_action("TXFIFO.almost_empty_level = UFL_TXF", [&](){TXFIFO.almost_empty_level = UFL_TXF;}, UFL_TXF);
+        6:  104:        TXFIFO.almost_full_level = m_fifo_size-1;
+       6*:  105:        m_actions.add_action("TXFIFO.almost_full_level = m_fifo_size-1", [&](){TXFIFO.almost_full_level = m_fifo_size-1;}, m_fifo_size);
+        6:  106:        TXFIFO.config_options.fifo_overflow_style = scml2::objects::OVERWRITE;
+        6:  107:        TXFIFO.config_options.fifo_size_style = scml2::objects::MAX_SIZE;
+        6:  108:        TXFIFO.set_new_item_available_callback(SCML2_CALLBACK(handle_TXFIFO_new_item_available));
+        6:  109:        TXFIFO.set_full_callback(SCML2_CALLBACK(handle_TXFIFO_full));
+        6:  110:        TXFIFO.set_almost_full_callback(SCML2_CALLBACK(handle_TXFIFO_almost_full));
+        6:  111:        TXFIFO.set_empty_callback(SCML2_CALLBACK(handle_TXFIFO_empty));
+        6:  112:        TXFIFO.set_almost_empty_callback(SCML2_CALLBACK(handle_TXFIFO_almost_empty));
+        6:  113:        TXControl.type = scml2::objects::THREAD;
+        -:  114:        /* TXControl.advanced_options.stack_size = ; */
+        6:  115:        TXControl.advanced_options.systemc_events[0] = &newItemEvent;
+        6:  116:        TXControl.set_main_callback(SCML2_CALLBACK(handle_TXControl_main));
+        6:  117:		scml2::base::object::finalize_local_construction();
+        6:  118:    }
+        -:  119:private:
+        -:  120:};
+        -:  121:#ifdef _WIN32
+        -:  122:#pragma optimize("",on)
+        -:  123:#else
+        -:  124:#pragma GCC pop_options
+        -:  125:#endif
+        -:  126:
+        -:  127:

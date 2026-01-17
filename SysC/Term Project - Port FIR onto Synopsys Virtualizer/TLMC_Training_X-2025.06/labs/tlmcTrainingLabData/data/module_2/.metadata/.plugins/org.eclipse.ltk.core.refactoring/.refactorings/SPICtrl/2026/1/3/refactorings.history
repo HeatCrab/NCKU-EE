@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SPICtrl/Tests/Unittests/FuncReq_SPI_initiator.h &apos; to &apos;FuncReq_SPI_initiator.cc&apos;" description="Rename resource &apos;FuncReq_SPI_initiator.h &apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Tests/Unittests/FuncReq_SPI_initiator.h " name="FuncReq_SPI_initiator.cc" stamp="1768123196685" updateReferences="true"/>
+</session>

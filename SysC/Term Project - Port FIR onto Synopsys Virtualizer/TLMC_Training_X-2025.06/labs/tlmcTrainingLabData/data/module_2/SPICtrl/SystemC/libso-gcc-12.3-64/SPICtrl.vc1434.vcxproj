@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CHECKSUM:11fcde4cd13dfdbdb2fae176393a2d08f8186d28 -->
+<Project DefaultTargets="Build" ToolsVersion="14.34" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8B0BA2A4-EB43-4870-93E2-AD4A0597B80B}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>SPICtrl (msvc-1434)</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v1434</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v1434</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeBuildCommandLine>pushd FastBuild
+call build.bat
+copy F\SPICtrl.dll .
+popd</NMakeBuildCommandLine>
+    <NMakeOutput>FastBuild/SPICtrl.dll</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>&quot;$(SNPS_VP_HOME)/common/include&quot;;&quot;$(SNPS_VP_HOME)/common/include/tlm&quot;;&quot;.&quot;;&quot;../include&quot;;"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_target_port/include";"../../#(SNPS_VP_HOME)#/common/include";"../../#(SNPS_VP_HOME)#/common/include/tlm";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include";"$(SNPS_VP_HOME)/common/include/tlm_serial";"$(SNPS_VP_HOME)/../../IP/tlm_ft_can_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_spi_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_lin_bus/SystemC/include"</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <NMakeBuildCommandLine>pushd FastBuild
+call build.bat
+copy F\SPICtrl.dll .
+popd</NMakeBuildCommandLine>
+    <NMakeOutput>FastBuild/SPICtrl.dll</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>&quot;$(SNPS_VP_HOME)/common/include&quot;;&quot;$(SNPS_VP_HOME)/common/include/tlm&quot;;&quot;.&quot;;&quot;../include&quot;;"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_target_port/include";"../../#(SNPS_VP_HOME)#/common/include";"../../#(SNPS_VP_HOME)#/common/include/tlm";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include";"$(SNPS_VP_HOME)/common/include/tlm_serial";"$(SNPS_VP_HOME)/../../IP/tlm_ft_can_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_spi_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_lin_bus/SystemC/include"</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="../src/SPICtrl.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="../include/SPICtrl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="../include/SPICtrlBase.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

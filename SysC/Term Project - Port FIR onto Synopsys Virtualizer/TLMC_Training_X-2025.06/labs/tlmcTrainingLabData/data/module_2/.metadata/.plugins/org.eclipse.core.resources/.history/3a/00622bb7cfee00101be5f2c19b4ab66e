@@ -1,0 +1,17 @@
+#include "FuncReq_SPI_target.h"
+
+FuncReq_SPI_target::FuncReq_SPI_target() {
+ this->target_id = 2;
+}
+void FuncReq_SPI_target::initialize() {
+ enable_logging();
+ this->rst_in.set_active_level(false);
+ this->rst_in.set_duration(sc_core::sc_time(100, sc_core::SC_NS));
+ this->clk_in.set_period_ps(10000); // 10 NS (100 MHz)
+ this->spi_clk.set_period_ps(1000000); // 1 US (1 MHz)
+}
+void FuncReq_SPI_target::setup() {
+ this->Serial_IO.clear();
+ this->rst_in.do_reset_pulse();
+ this->Serial_IO.register_as_master();
+}

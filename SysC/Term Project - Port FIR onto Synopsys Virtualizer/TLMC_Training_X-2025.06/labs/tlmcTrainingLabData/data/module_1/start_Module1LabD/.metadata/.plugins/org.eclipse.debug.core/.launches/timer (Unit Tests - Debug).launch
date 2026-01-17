@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.synopsys.tlmcreator.ui.ide.launchConfigurationType.TlmcUnitTest.debug">
+    <stringAttribute key="SOURCE_DEBUG" value="true"/>
+    <stringAttribute key="VPCFG" value="/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_1/start_Module1LabD/timer/Tests/Unittests/vpconfigs/timer/timer.vpcfg"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="timer"/>
+    <stringAttribute key="org.eclipse.cdt.launch.WORKING_DIRECTORY" value="/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_1/start_Module1LabD/timer/Tests/Unittests"/>
+</launchConfiguration>

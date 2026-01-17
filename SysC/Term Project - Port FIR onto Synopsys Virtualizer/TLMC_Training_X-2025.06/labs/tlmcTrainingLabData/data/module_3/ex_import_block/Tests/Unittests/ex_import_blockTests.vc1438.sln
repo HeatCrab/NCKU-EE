@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 1438
+# CHECKSUM:139d7caff170127226e4835b60fd527df29915f6 
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ex_import_block Checker (msvc-1438)", "ex_import_blockTests.vc1438.vcxproj", "{ED44270A-E49C-4654-A082-2E106DC36D1C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9779B137-4D15-43EE-9C60-31EA6B692796} = {9779B137-4D15-43EE-9C60-31EA6B692796}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ex_import_block (msvc-1438)", "../../SystemC/libso-gcc-12.3-64/ex_import_block.vc1438.vcxproj", "{9779B137-4D15-43EE-9C60-31EA6B692796}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED44270A-E49C-4654-A082-2E106DC36D1C}.Debug|x64.ActiveCfg = Debug|x64
+		{ED44270A-E49C-4654-A082-2E106DC36D1C}.Debug|x64.Build.0 = Debug|x64
+		{ED44270A-E49C-4654-A082-2E106DC36D1C}.Release|x64.ActiveCfg = Release|x64
+		{ED44270A-E49C-4654-A082-2E106DC36D1C}.Release|x64.Build.0 = Release|x64
+		{9779B137-4D15-43EE-9C60-31EA6B692796}.Debug|x64.ActiveCfg = Debug|x64
+		{9779B137-4D15-43EE-9C60-31EA6B692796}.Debug|x64.Build.0 = Debug|x64
+		{9779B137-4D15-43EE-9C60-31EA6B692796}.Release|x64.ActiveCfg = Release|x64
+		{9779B137-4D15-43EE-9C60-31EA6B692796}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

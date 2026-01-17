@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CHECKSUM:f52a2bf74559689d6c0e36f5b09e713f4227a895 -->
+<Project DefaultTargets="Build" ToolsVersion="14.34" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{81222BFF-B9A7-406A-BEE2-A4A1CFD5716A}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>SPICtrl Checker (msvc-1434)</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+   <PlatformToolset>v1434</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+   <PlatformToolset>v1434</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+	  <NMakeBuildCommandLine>nmake /nologo -f Makefile.SPICtrl.windows COWARE_CXX_COMPILER=msvc-14.34-64 all</NMakeBuildCommandLine>
+    <NMakeOutput>SPICtrlTests.msvc-14.34-64.exe</NMakeOutput>
+    <NMakeCleanCommandLine>nmake /nologo -f Makefile.SPICtrl.windows COWARE_CXX_COMPILER=msvc-14.34-64 clean</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>nmake /nologo -f Makefile.SPICtrl.windows COWARE_CXX_COMPILER=msvc-14.34-64 clean all</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+   <NMakeIncludeSearchPath>"$(SNPS_VP_HOME)/common/include";"$(SNPS_VP_HOME)/common/include/tlm";".";"../../SystemC/include";"..";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_target_port/include";"../../#(SNPS_VP_HOME)#/common/include";"../../#(SNPS_VP_HOME)#/common/include/tlm";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include";"$(SNPS_VP_HOME)/common/include/tlm_serial";"$(SNPS_VP_HOME)/../../IP/tlm_ft_can_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_spi_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_lin_bus/SystemC/include";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_target_port/include/testing";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include/testing";"../../#(SNPS_VP_HOME)#/../../IP/tlm_ft_spi_bus/Testing/include";"../../#(SNPS_VP_HOME)#/thirdparty_integrations/include"</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	  <NMakeBuildCommandLine>nmake /nologo -f Makefile.SPICtrl.windows COWARE_CXX_COMPILER=msvc-14.34-64 NODEBUG=1 all</NMakeBuildCommandLine>
+    <NMakeOutput>SPICtrlTests.msvc-14.34-64.exe</NMakeOutput>
+    <NMakeCleanCommandLine>nmake /nologo -f Makefile.SPICtrl.windows COWARE_CXX_COMPILER=msvc-14.34-64 NODEBUG=1 clean</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>nmake /nologo -f Makefile.SPICtrl.windows COWARE_CXX_COMPILER=msvc-14.34-64 NODEBUG=1 clean all</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+   <NMakeIncludeSearchPath>"$(SNPS_VP_HOME)/common/include";"$(SNPS_VP_HOME)/common/include/tlm";".";"../../SystemC/include";"..";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_target_port/include";"../../#(SNPS_VP_HOME)#/common/include";"../../#(SNPS_VP_HOME)#/common/include/tlm";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include";"$(SNPS_VP_HOME)/common/include/tlm_serial";"$(SNPS_VP_HOME)/../../IP/tlm_ft_can_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_spi_bus/SystemC/include";"$(SNPS_VP_HOME)/../../IP/tlm_ft_lin_bus/SystemC/include";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_target_port/include/testing";"../../#(SNPS_VP_HOME)#/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include/testing";"../../#(SNPS_VP_HOME)#/../../IP/tlm_ft_spi_bus/Testing/include";"../../#(SNPS_VP_HOME)#/thirdparty_integrations/include"</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+     <Link>
+       <SubSystem>Console</SubSystem>
+    </Link>  
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="../SPICtrlMirror.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="../SPICtrlMirrorBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SPICtrlTest.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SPICtrlTestHarness.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile.SPICtrl.windows" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

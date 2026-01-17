@@ -1,0 +1,119 @@
+!SESSION 2026-01-11 17:35:03.402 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.7
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.synopsys.vpide.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -data start_Module2LabD -product com.synopsys.vpide.product
+
+!ENTRY org.python.pydev.shared_core 1 1 2026-01-11 17:35:22.882
+!MESSAGE Restoring info for: /usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/python3/bin/python3
+!STACK 0
+java.lang.RuntimeException: Restoring info for: /usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/python3/bin/python3
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.getInterpretersFromPersistedString(AbstractInterpreterManager.java:461)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.internalRecreateCacheGetInterpreterInfos(AbstractInterpreterManager.java:287)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.setInfos(AbstractInterpreterManager.java:584)
+	at com.synopsys.vpide.Activator$InitInterpreterJob.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.IOException: Expecting: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/.metadata/.plugins/org.python.pydev/v1_de3g7ub6mmgdqurnc9hkaex7p/modulesKeys to exist (and be a file).
+	at org.python.pydev.ast.codecompletion.revisited.ModulesManager.loadFromFile(ModulesManager.java:330)
+	at org.python.pydev.ast.codecompletion.revisited.SystemModulesManager.load(SystemModulesManager.java:443)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.getInterpretersFromPersistedString(AbstractInterpreterManager.java:459)
+	... 4 more
+
+!ENTRY org.python.pydev.shared_core 1 1 2026-01-11 17:35:24.094
+!MESSAGE Finished restoring information for: /usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/python3/bin/python3 at: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/.metadata/.plugins/org.python.pydev/v1_de3g7ub6mmgdqurnc9hkaex7p
+!STACK 0
+java.lang.RuntimeException: Finished restoring information for: /usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/python3/bin/python3 at: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/.metadata/.plugins/org.python.pydev/v1_de3g7ub6mmgdqurnc9hkaex7p
+	at org.python.pydev.core.log.Log.logInfo(Log.java:45)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.getInterpretersFromPersistedString(AbstractInterpreterManager.java:506)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.internalRecreateCacheGetInterpreterInfos(AbstractInterpreterManager.java:287)
+	at org.python.pydev.ast.interpreter_managers.AbstractInterpreterManager.setInfos(AbstractInterpreterManager.java:584)
+	at com.synopsys.vpide.Activator$InitInterpreterJob.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.python.pydev.shared_core 4 4 2026-01-11 17:35:25.182
+!MESSAGE Info: Rebuilding internal caches: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/.metadata/.plugins/com.python.pydev.analysis/python_v1_de3g7ub6mmgdqurnc9hkaex7p/python.pydevsysteminfo (Expected error to be provided and got no error!)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-01-11 17:37:23.621
+!MESSAGE Indexed 'SPICtrl' (5 sources, 1,124 headers) in 90.2 sec: 132,338 declarations; 243,280 references; 14 unresolved inclusions; 13 syntax errors; 491 unresolved names (0.13%)
+
+!ENTRY com.synopsys.tlmcreator 4 0 2026-01-11 17:38:40.394
+!MESSAGE See Build Console for details.
+!STACK 0
+com.synopsys.tlmcreator.build.BuildException: See Build Console for details.
+	at com.synopsys.tlmcreator.build.Builds.buildModel(Unknown Source)
+	at com.synopsys.tlmcreator.ide.builder.TLMModelProjectBuilder.doBuild(Unknown Source)
+	at com.synopsys.tlmcreator.ide.builder.TLMModelProjectBuilder.incrementalBuild(Unknown Source)
+	at com.synopsys.tlmcreator.ide.builder.TLMModelProjectBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:860)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:232)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:281)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:334)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:337)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:392)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:417)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:517)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:413)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:291)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: com.synopsys.tlmcreator.build.BuildException: See Build Console for details.
+	at com.synopsys.tlmcreator.build.Builds.doBuildModel(Unknown Source)
+	at com.synopsys.tlmcreator.build.Builds.doBuildModel(Unknown Source)
+	... 18 more
+Caused by: com.synopsys.tlmcreator.build.PCSHException: See Build Console for details.
+	at com.synopsys.tlmcreator.ide.builder.PCSHServerInstance.run(Unknown Source)
+	... 20 more
+
+!ENTRY org.eclipse.core.resources 4 2 2026-01-11 17:38:40.439
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Build failed
+	at com.synopsys.tlmcreator.ide.builder.TLMModelProjectBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:860)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:232)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:281)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:334)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:337)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:392)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:417)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:517)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:413)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:291)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 com.synopsys.tlmcreator.ide 4 0 2026-01-11 17:38:40.445
+!MESSAGE Build failed
+!SUBENTRY 1 com.synopsys.tlmcreator.ide 4 0 2026-01-11 17:38:40.445
+!MESSAGE Build failed
+
+!ENTRY org.eclipse.core.resources 4 75 2026-01-11 17:38:40.561
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.synopsys.tlmcreator.ide 4 75 2026-01-11 17:38:40.561
+!MESSAGE Errors running builder 'TLM Creation Model Builder' on project 'SPICtrl'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Build failed
+	at com.synopsys.tlmcreator.ide.builder.TLMModelProjectBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:860)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:232)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:281)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:334)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:337)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:392)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:417)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:517)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:413)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:291)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 com.synopsys.tlmcreator.ide 4 0 2026-01-11 17:38:40.562
+!MESSAGE Build failed
+!SUBENTRY 1 com.synopsys.tlmcreator.ide 4 0 2026-01-11 17:38:40.562
+!MESSAGE Build failed

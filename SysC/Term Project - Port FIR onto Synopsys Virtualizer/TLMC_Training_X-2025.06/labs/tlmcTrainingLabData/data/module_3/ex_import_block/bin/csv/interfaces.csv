@@ -1,0 +1,5 @@
+Identifier,Protocol,Role,Category,Type,Quantity,Reset Value,Power Domain,Documentation
+in,None,,Control,sc_core::sc_in<bool>,,,,
+socket,None,,Memory,tlm::tlm_target_socket<32 >,,,,
+p_reset,None,,Reset,sc_core::sc_in<bool>,,,,
+p_clk,None,,Clock,sc_core::sc_in<bool>,,,,

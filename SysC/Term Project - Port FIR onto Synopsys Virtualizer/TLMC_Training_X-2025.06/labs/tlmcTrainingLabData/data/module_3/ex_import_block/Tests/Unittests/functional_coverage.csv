@@ -1,0 +1,22 @@
+
+Interface Coverpoints,Enabled,Coverage (%),Count,Comment,
+p_clk,YES,0,0,,
+in,YES,0,0,,
+p_reset,YES,0,0,,
+socket,YES,0,0,,
+
+Memory Coverpoints,Enabled,Coverage (%),Count,Comment,
+
+
+Coverpoint,Bin,Score,Count,Definition,Description,
+p_clk,,0%,0,,,
+,auto_bin,no,0,(0 - 18446744073709551615),,
+in,,0%,0,,,
+,auto_bin,no,0,(0 - 1),,
+p_reset,,0%,0,,,
+,auto_bin,no,0,(0 - 1),,
+socket,,0%,0,,,
+,auto_bin,no,0,f0(),,
+
+Coverpoint,Bin,Score,Count,Definition,Description,
+

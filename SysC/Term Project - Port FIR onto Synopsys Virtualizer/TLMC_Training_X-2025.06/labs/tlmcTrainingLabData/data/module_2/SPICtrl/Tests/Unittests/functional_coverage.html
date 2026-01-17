@@ -1,0 +1,257 @@
+<html>
+ <head>
+  <title>Functional coverage report</title>
+  <style>
+   table, th, td {border: 1px solid black; border-collapse: collapse;}
+   table {width:80%;}
+   th {color:white;background-color:#95c200;}
+   td {padding: 3px;}
+   .bgc0 {background-color: hsl(0,100%,50%);}
+   .bgc1 {background-color: hsl(12,100%,50%);}
+   .bgc2 {background-color: hsl(24,100%,50%);}
+   .bgc3 {background-color: hsl(36,100%,50%);}
+   .bgc4 {background-color: hsl(48,100%,50%);}
+   .bgc5 {background-color: hsl(60,100%,50%);}
+   .bgc6 {background-color: hsl(72,100%,50%);}
+   .bgc7 {background-color: hsl(84,100%,50%);}
+   .bgc8 {background-color: hsl(96,100%,50%);}
+   .bgc9 {background-color: hsl(108,100%,50%);}
+   .bgc10 {background-color: hsl(120,100%,50%);}
+   tr.noBorder td { border: 0; }
+   :target {animation: highlight 2s ease 0s 2; }
+   @keyframes highlight {0% {background-color:yellow;} 100% {background-color:white;}}
+  </style>
+ </head>
+ <body>
+<table style="font-size:125%;">
+<tr><td>Result</td>
+<td class="bgc0">Failed</td></tr>
+<tr class="noBorder"><td/><td/></tr>
+<tr><td><span title="These are coverpoints that are not fully covered. Either create a test that exercises them, or assign an exemption."># Coverpoints to be reviewed</span></td><td class="bgc0">
+<a href="#SPICtrl_holes_in_reviewed_coverage">16</a></td><td align="right"><span title="This is the percentage of coverpoints that have been reviewed or are covered by tests.">Reviewed Coverage:</span></td><td align="right">58.1081%</td></tr>
+<tr><td><span title="These are coverpoints that have been reviewed as being untested and still require a test."># Coverpoints to be tested</span></td><td class="bgc5">
+0</td><td align="right"><span title="This is the percentage of coverpoints that have been reviewed and don't require a test or are covered by tests.">Tested Coverage:</span></td><td align="right">58.1081%</td></tr>
+<tr><td><span title="These are the coverpoints that have been reviewed and don't require test coverage.">Exempt # Coverpoints</span></td><td class="bgc10">
+0</td></tr>
+<tr><td>Total # Coverpoints</td>
+<td bgcolor="#0070C0"><a href="#SPICtrl_details">37</a></td></tr>
+</table><br/>
+<table id="SPICtrl_holes_in_reviewed_coverage">
+<tr><th>Unreviewed, uncovered coverpoint</th><th>Coverage</th></tr>
+<tr><td><a href="#spi_clk">spi_clk</a></td><td>0%</td></tr>
+<tr><td><a href="#clk_in">clk_in</a></td><td>0%</td></tr>
+<tr><td><a href="#tfff_irq">tfff_irq</a></td><td>0%</td></tr>
+<tr><td><a href="#rfof_irq">rfof_irq</a></td><td>0%</td></tr>
+<tr><td><a href="#mRegs.MCR.CLR_RXF">mRegs.MCR.CLR_RXF</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.MCR.CLR_TXF">mRegs.MCR.CLR_TXF</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.MCR.MDIS">mRegs.MCR.MDIS</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.MCR.OFL_RXF">mRegs.MCR.OFL_RXF</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.MCR.UFL_TXF">mRegs.MCR.UFL_TXF</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.CTAR.PCSSCK[*]">mRegs.CTAR.PCSSCK[*]</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.CTAR.LSBFE[*]">mRegs.CTAR.LSBFE[*]</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.CTAR.bf[*]">mRegs.CTAR.bf[*]</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.CTAR.CPOL[*]">mRegs.CTAR.CPOL[*]</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.CTAR.FMSZ[*]">mRegs.CTAR.FMSZ[*]</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.SR.RFOF">mRegs.SR.RFOF</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.SR.TFFF">mRegs.SR.TFFF</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.SR.EOQF">mRegs.SR.EOQF</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.SR.TXRXS">mRegs.SR.TXRXS</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.RSER">mRegs.RSER</a></td><td>0%</td></tr>
+<tr><td><a href="#mRegs.PUSHR.PCS">mRegs.PUSHR.PCS</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.PUSHR.CTCNT">mRegs.PUSHR.CTCNT</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.PUSHR.EOQ">mRegs.PUSHR.EOQ</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.PUSHR.CONT">mRegs.PUSHR.CONT</a></td><td>50%</td></tr>
+<tr><td><a href="#mRegs.POPR">mRegs.POPR</a></td><td>50%</td></tr>
+<tr><td><a href="#enable_check_clocks">enable_check_clocks</a></td><td>50%</td></tr>
+<tr><td><a href="#version">version</a></td><td>50%</td></tr>
+</table><p/>
+  <table  id="SPICtrl_details">
+   <tr><th>Interface Coverpoints</th><th>Enabled</th><th>Coverage (%)</th><th>Count</th><th>Comment</th></tr>
+   <tr><td><a href="#spi_clk">spi_clk</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td><a href="#clk_in">clk_in</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td><a href="#tfuf_irq">tfuf_irq</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">2</td><td></td></tr>
+   <tr><td><a href="#tfff_irq">tfff_irq</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td><a href="#rfof_irq">rfof_irq</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td><a href="#rfdf_irq">rfdf_irq</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">2</td><td></td></tr>
+   <tr><td><a href="#rst_in">rst_in</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">2</td><td></td></tr>
+   <tr><td><a href="#bus_reg_in">bus_reg_in</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">7</td><td></td></tr>
+   <tr><th>Memory Coverpoints</th><th>Enabled</th><th>Coverage (%)</th><th>Count</th><th>Comment</th></tr>
+   <tr><td><a href="#mRegs">mRegs</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td>&emsp;<a href="#mRegs.MCR">MCR</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.MCR.CLR_RXF">CLR_RXF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">6</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.MCR.CLR_TXF">CLR_TXF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">6</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.MCR.MDIS">MDIS</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">6</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.MCR.OFL_RXF">OFL_RXF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">6</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.MCR.UFL_TXF">UFL_TXF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">6</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.MCR.PCSSE">PCSSE</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">6</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.MCR.MSTR">MSTR</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">6</td><td></td></tr>
+   <tr><td>&emsp;<a href="#mRegs.CTAR[*]">CTAR[*]</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.CTAR.PCSSCK[*]">PCSSCK[*]</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.CTAR.LSBFE[*]">LSBFE[*]</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.CTAR.bf[*]">bf[*]</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.CTAR.CPOL[*]">CPOL[*]</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.CTAR.FMSZ[*]">FMSZ[*]</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;<a href="#mRegs.SR">SR</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.reserved4">reserved4</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.RFDF">RFDF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">12</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.RFOF">RFOF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">12</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.TFFF">TFFF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">12</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.TFUF">TFUF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">12</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.EOQF">EOQF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">12</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.TXRXS">TXRXS</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">12</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.SR.TCF">TCF</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">12</td><td></td></tr>
+   <tr><td>&emsp;<a href="#mRegs.RSER">RSER</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td>&emsp;<a href="#mRegs.PUSHR">PUSHR</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.PUSHR.TXDATA">TXDATA</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.PUSHR.PCS">PCS</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.PUSHR.CTCNT">CTCNT</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.PUSHR.EOQ">EOQ</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.PUSHR.CTAS">CTAS</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc10">100</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;&emsp;<a href="#mRegs.PUSHR.CONT">CONT</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td>&emsp;<a href="#mRegs.POPR">POPR</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">6</td><td></td></tr>
+   <tr><th>Parameter Coverpoints</th><th>Enabled</th><th>Coverage (%)</th><th>Count</th><th>Comment</th></tr>
+   <tr><td><a href="#enable_check_clocks">enable_check_clocks</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   <tr><td><a href="#target_id">target_id</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td><a href="#fifo_size">fifo_size</a></td><td style="color:rgb(255,0,0)">NO</td><td></td><td></td><td></td></tr>
+   <tr><td><a href="#version">version</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc5">50</td><td align="right">2</td><td></td></tr>
+   </table><p/>
+  <h2>Interface Coverpoints</h2>
+   <table>
+    <tr><th>Coverpoint</th><th>Bin</th><th>Score</th><th>Count</th><th>Definition</th><th>Description</th></tr>
+    <tr><td id="spi_clk">spi_clk</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>(0 - 18446744073709551615)</td>      <td></td>     </tr>
+    <tr><td id="clk_in">clk_in</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>(0 - 18446744073709551615)</td>      <td></td>     </tr>
+    <tr><td id="tfuf_irq">tfuf_irq</td><td></td><td class="bgc10">100%</td><td align="right">2</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>(0 - 1)</td>      <td></td>     </tr>
+    <tr><td id="tfff_irq">tfff_irq</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>(0 - 1)</td>      <td></td>     </tr>
+    <tr><td id="rfof_irq">rfof_irq</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>(0 - 1)</td>      <td></td>     </tr>
+    <tr><td id="rfdf_irq">rfdf_irq</td><td></td><td class="bgc10">100%</td><td align="right">2</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>(0 - 1)</td>      <td></td>     </tr>
+    <tr><td id="rst_in">rst_in</td><td></td><td class="bgc10">100%</td><td align="right">2</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>(0 - 1)</td>      <td></td>     </tr>
+    <tr><td id="bus_reg_in">bus_reg_in</td><td></td><td class="bgc10">100%</td><td align="right">7</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">7</td>      <td>f0()</td>      <td></td>     </tr>
+   </table><p/>
+  <h2>Memory Coverpoints</h2>
+   <table>
+    <tr><th>Coverpoint</th><th>Bin</th><th>Score</th><th>Count</th><th>Definition</th><th>Description</th></tr>
+    <tr><td id="mRegs">mRegs</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="mRegs.MCR">&emsp;MCR</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="mRegs.MCR.CLR_RXF">&emsp;&emsp;CLR_RXF</td><td></td><td class="bgc5">50%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">6</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.MCR.CLR_TXF">&emsp;&emsp;CLR_TXF</td><td></td><td class="bgc5">50%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">6</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.MCR.MDIS">&emsp;&emsp;MDIS</td><td></td><td class="bgc5">50%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">6</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.MCR.OFL_RXF">&emsp;&emsp;OFL_RXF</td><td></td><td class="bgc5">50%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">6</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.MCR.UFL_TXF">&emsp;&emsp;UFL_TXF</td><td></td><td class="bgc5">50%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">6</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.MCR.PCSSE">&emsp;&emsp;PCSSE</td><td></td><td class="bgc10">100%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>chip_select_mode</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">4</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>strobe_mode</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>1</td>      <td></td>     </tr>
+    <tr><td id="mRegs.MCR.MSTR">&emsp;&emsp;MSTR</td><td></td><td class="bgc10">100%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>input_mode</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">5</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>driver_mode</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>1</td>      <td></td>     </tr>
+    <tr><td id="mRegs.CTAR[*]">&emsp;CTAR[*]</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="mRegs.CTAR.PCSSCK[*]">&emsp;&emsp;PCSSCK[*]</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>f0()</td>      <td></td>     </tr>
+     <tr><td></td><td>index_zeros</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td></td>      <td></td>     </tr>
+     <tr><td></td><td>index_one_nonzero</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td></td>      <td></td>     </tr>
+    <tr><td id="mRegs.CTAR.LSBFE[*]">&emsp;&emsp;LSBFE[*]</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+     <tr><td></td><td>index_zeros</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td></td>      <td></td>     </tr>
+     <tr><td></td><td>index_one_nonzero</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td></td>      <td></td>     </tr>
+    <tr><td id="mRegs.CTAR.bf[*]">&emsp;&emsp;bf[*]</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+     <tr><td></td><td>index_zeros</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td></td>      <td></td>     </tr>
+     <tr><td></td><td>index_one_nonzero</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td></td>      <td></td>     </tr>
+    <tr><td id="mRegs.CTAR.CPOL[*]">&emsp;&emsp;CPOL[*]</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+     <tr><td></td><td>index_zeros</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td></td>      <td></td>     </tr>
+     <tr><td></td><td>index_one_nonzero</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td></td>      <td></td>     </tr>
+    <tr><td id="mRegs.CTAR.FMSZ[*]">&emsp;&emsp;FMSZ[*]</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>f0()</td>      <td></td>     </tr>
+     <tr><td></td><td>index_zeros</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td></td>      <td></td>     </tr>
+     <tr><td></td><td>index_one_nonzero</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td></td>      <td></td>     </tr>
+    <tr><td id="mRegs.SR">&emsp;SR</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="mRegs.SR.reserved4">&emsp;&emsp;reserved4</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="mRegs.SR.RFDF">&emsp;&emsp;RFDF</td><td></td><td class="bgc10">100%</td><td align="right">12</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">7</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">5</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.SR.RFOF">&emsp;&emsp;RFOF</td><td></td><td class="bgc5">50%</td><td align="right">12</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">12</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.SR.TFFF">&emsp;&emsp;TFFF</td><td></td><td class="bgc5">50%</td><td align="right">12</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">12</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.SR.TFUF">&emsp;&emsp;TFUF</td><td></td><td class="bgc10">100%</td><td align="right">12</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">10</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.SR.EOQF">&emsp;&emsp;EOQF</td><td></td><td class="bgc5">50%</td><td align="right">12</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">12</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.SR.TXRXS">&emsp;&emsp;TXRXS</td><td></td><td class="bgc5">50%</td><td align="right">12</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">12</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.SR.TCF">&emsp;&emsp;TCF</td><td></td><td class="bgc10">100%</td><td align="right">12</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">11</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.RSER">&emsp;RSER</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.PUSHR">&emsp;PUSHR</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="mRegs.PUSHR.TXDATA">&emsp;&emsp;TXDATA</td><td></td><td class="bgc10">100%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.PUSHR.PCS">&emsp;&emsp;PCS</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.PUSHR.CTCNT">&emsp;&emsp;CTCNT</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.PUSHR.EOQ">&emsp;&emsp;EOQ</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.PUSHR.CTAS">&emsp;&emsp;CTAS</td><td></td><td class="bgc10">100%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">1</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.PUSHR.CONT">&emsp;&emsp;CONT</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+    <tr><td id="mRegs.POPR">&emsp;POPR</td><td></td><td class="bgc5">50%</td><td align="right">6</td><td>WRITES_AND_TRANSACTION_READS</td><td></td></tr>
+     <tr><td></td><td>default</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>0</td>      <td></td>     </tr>
+     <tr><td></td><td>other</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">6</td>      <td>f0()</td>      <td></td>     </tr>
+   </table><p/>
+  <h2>Parameter Coverpoints</h2>
+   <table>
+    <tr><th>Coverpoint</th><th>Bin</th><th>Score</th><th>Count</th><th>Definition</th><th>Description</th></tr>
+    <tr><td id="enable_check_clocks">enable_check_clocks</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td></td><td></td></tr>
+     <tr>
+<td></td><td>allowed_values[0]</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>{0}</td>      <td></td>     </tr>
+     <tr>
+<td></td><td>allowed_values[1]</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>{1}</td>      <td></td>     </tr>
+    <tr><td id="target_id">target_id</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="fifo_size">fifo_size</td><td></td><td style="color:rgb(255,0,0)">disabled</td><td></td><td></td><td></td></tr>
+    <tr><td id="version">version</td><td></td><td class="bgc5">50%</td><td align="right">2</td><td></td><td></td></tr>
+     <tr>
+<td></td><td>allowed_values[0]</td> <td style="background-color:rgb(0,255,0)">yes</td>      <td align="right">2</td>      <td>{10003}</td>      <td></td>     </tr>
+     <tr>
+<td></td><td>allowed_values[1]</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>{10200}</td>      <td></td>     </tr>
+     <tr><td></td><td>default_bin</td> <td style="color:rgb(255,0,0)">illegal</td>      <td align="right">0</td>      <td>default()</td>      <td></td>     </tr>
+   </table><p/>
+ </body>
+</html>

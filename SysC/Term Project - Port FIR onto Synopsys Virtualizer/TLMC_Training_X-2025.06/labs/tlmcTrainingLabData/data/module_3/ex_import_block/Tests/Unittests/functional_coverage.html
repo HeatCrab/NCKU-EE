@@ -1,0 +1,71 @@
+<html>
+ <head>
+  <title>Functional coverage report</title>
+  <style>
+   table, th, td {border: 1px solid black; border-collapse: collapse;}
+   table {width:80%;}
+   th {color:white;background-color:#95c200;}
+   td {padding: 3px;}
+   .bgc0 {background-color: hsl(0,100%,50%);}
+   .bgc1 {background-color: hsl(12,100%,50%);}
+   .bgc2 {background-color: hsl(24,100%,50%);}
+   .bgc3 {background-color: hsl(36,100%,50%);}
+   .bgc4 {background-color: hsl(48,100%,50%);}
+   .bgc5 {background-color: hsl(60,100%,50%);}
+   .bgc6 {background-color: hsl(72,100%,50%);}
+   .bgc7 {background-color: hsl(84,100%,50%);}
+   .bgc8 {background-color: hsl(96,100%,50%);}
+   .bgc9 {background-color: hsl(108,100%,50%);}
+   .bgc10 {background-color: hsl(120,100%,50%);}
+   tr.noBorder td { border: 0; }
+   :target {animation: highlight 2s ease 0s 2; }
+   @keyframes highlight {0% {background-color:yellow;} 100% {background-color:white;}}
+  </style>
+ </head>
+ <body>
+<table style="font-size:125%;">
+<tr><td>Result</td>
+<td class="bgc0">Failed</td></tr>
+<tr class="noBorder"><td/><td/></tr>
+<tr><td><span title="These are coverpoints that are not fully covered. Either create a test that exercises them, or assign an exemption."># Coverpoints to be reviewed</span></td><td class="bgc0">
+<a href="#ex_import_block<Ttn, Tb, Tint>_holes_in_reviewed_coverage">4</a></td><td align="right"><span title="This is the percentage of coverpoints that have been reviewed or are covered by tests.">Reviewed Coverage:</span></td><td align="right">0%</td></tr>
+<tr><td><span title="These are coverpoints that have been reviewed as being untested and still require a test."># Coverpoints to be tested</span></td><td class="bgc5">
+0</td><td align="right"><span title="This is the percentage of coverpoints that have been reviewed and don't require a test or are covered by tests.">Tested Coverage:</span></td><td align="right">0%</td></tr>
+<tr><td><span title="These are the coverpoints that have been reviewed and don't require test coverage.">Exempt # Coverpoints</span></td><td class="bgc10">
+0</td></tr>
+<tr><td>Total # Coverpoints</td>
+<td bgcolor="#0070C0"><a href="#ex_import_block<Ttn, Tb, Tint>_details">4</a></td></tr>
+</table><br/>
+<table id="ex_import_block<Ttn, Tb, Tint>_holes_in_reviewed_coverage">
+<tr><th>Unreviewed, uncovered coverpoint</th><th>Coverage</th></tr>
+<tr><td><a href="#p_clk">p_clk</a></td><td>0%</td></tr>
+<tr><td><a href="#in">in</a></td><td>0%</td></tr>
+<tr><td><a href="#p_reset">p_reset</a></td><td>0%</td></tr>
+<tr><td><a href="#socket">socket</a></td><td>0%</td></tr>
+</table><p/>
+  <table  id="ex_import_block<Ttn, Tb, Tint>_details">
+   <tr><th>Interface Coverpoints</th><th>Enabled</th><th>Coverage (%)</th><th>Count</th><th>Comment</th></tr>
+   <tr><td><a href="#p_clk">p_clk</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td><a href="#in">in</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td><a href="#p_reset">p_reset</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><td><a href="#socket">socket</a></td><td style="color:rgb(0,0,0)">YES</td><td class="bgc0">0</td><td align="right">0</td><td></td></tr>
+   <tr><th>Memory Coverpoints</th><th>Enabled</th><th>Coverage (%)</th><th>Count</th><th>Comment</th></tr>
+   </table><p/>
+  <h2>Interface Coverpoints</h2>
+   <table>
+    <tr><th>Coverpoint</th><th>Bin</th><th>Score</th><th>Count</th><th>Definition</th><th>Description</th></tr>
+    <tr><td id="p_clk">p_clk</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>(0 - 18446744073709551615)</td>      <td></td>     </tr>
+    <tr><td id="in">in</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>(0 - 1)</td>      <td></td>     </tr>
+    <tr><td id="p_reset">p_reset</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>(0 - 1)</td>      <td></td>     </tr>
+    <tr><td id="socket">socket</td><td></td><td class="bgc0">0%</td><td align="right">0</td><td></td><td></td></tr>
+     <tr><td></td><td>auto_bin</td> <td style="background-color:rgb(255,0,0)">no</td>      <td align="right">0</td>      <td>f0()</td>      <td></td>     </tr>
+   </table><p/>
+  <h2>Memory Coverpoints</h2>
+   <table>
+    <tr><th>Coverpoint</th><th>Bin</th><th>Score</th><th>Count</th><th>Definition</th><th>Description</th></tr>
+   </table><p/>
+ </body>
+</html>

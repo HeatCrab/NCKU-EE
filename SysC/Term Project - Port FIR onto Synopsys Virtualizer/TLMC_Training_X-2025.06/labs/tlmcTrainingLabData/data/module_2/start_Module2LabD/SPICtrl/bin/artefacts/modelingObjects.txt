@@ -1,0 +1,7 @@
+Synopsys/ModelingObjects/router
+Synopsys/PrimitiveObjects/hierarchy/1.0
+Synopsys/PrimitiveObjects/event/1.0
+Synopsys/ModelingObjects/fifo/1.0
+Synopsys/ModelingObjects/process/1.0
+Synopsys/PrimitiveObjects/variable/1.0
+Synopsys/PrimitiveObjects/action/1.0

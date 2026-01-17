@@ -1,0 +1,34 @@
+Starting the SystemC import...
+Scanning /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ImportSystemC/include/block.h...
+SystemC import finished.
+Starting the SystemC import...
+Scanning /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block/tlmc_import_tmp_function.cpp...
+SystemC import finished.
+18:39:57  Build of project 'ex_import_block' for compiler 'gcc-12.3-64' with configuration 'FastBuild' started...
+
+---- ex_import_block: model build starting ----
+Using pcsh server
+[PJA0005 Warning] Platform Creator
+Could not open the library set file /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block/workarea/cwr.lib for reading. Reverting to the default library set.
+
+[PJA0001 Info] Platform Creator
+Created a library set file /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block/workarea/cwr.lib.
+
+Building Library
+make: Warning: File 'F/Makefile.ex_import_block' has modification time 1095 s in the future
+make: Warning: File 'F/Makefile.ex_import_block' has modification time 1095 s in the future
+scc +cxx /usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/bin/g++   +O1 -fmessage-length=0 -fno-var-tracking-assignments --param inline-unit-growth=300 -Wno-deprecated   -O3   -fvisibility=hidden -DNDEBUG  -fPIC  -DSC_INCLUDE_DYNAMIC_PROCESSES   -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block" -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block/SystemC/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/tlmcreator/templates/models/common/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP_common/AMBA_TLM2_BL/AMBA-PV/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP_common/AMBA_TLM2_BL/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/tlm_serial" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/../../IP/tlm_ft_can_bus/SystemC/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/../../IP/tlm_ft_spi_bus/SystemC/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/../../IP/tlm_ft_lin_bus/SystemC/include"  -c "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block/SystemC/src/ex_import_block.dladapter.cc" -o "F/__up2__/src/ex_import_block.dladapter.o"
+/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/bin/g++ -o F/libex_import_block.so -shared -O3 F/__up2__/src/ex_import_block.dladapter.o  -fPIC -Wl,--no-undefined  -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/lib-gcc-12.3-64 -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/sd/coware/lib-gcc-12.3-64 -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/lib-any-64    -uSnpsVPExtLinkHook -lSnpsVPExt -lSnpsVPFt -lSnpsVP -ltbb -Wl,--export-dynamic  -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/libso-gcc-12.3-64 -lomniORB4 -lomniDynamic4 -lomnithread -lpthread -ldwarf -lelf -lrt -ldl
+make: warning:  Clock skew detected.  Your build may be incomplete.
+Library built successfully
+make: Warning: File '/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block/Tests/Unittests/Makefile.ex_import_block.linux' has modification time 1032 s in the future
+/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/bin/gcc -I/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include -I/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/tlm -I/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/tlm/tlm_utils      -I/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/uvmc-2.3.3-v23.0.1d -fmessage-length=0 -fno-var-tracking-assignments --param inline-unit-growth=300 -Wno-deprecated  -I/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP_common/AMBA_TLM2_BL/AMBA-PV/include -I/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP_common/AMBA_TLM2_BL/include -Wall -g -O0  -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/tlmcreator/templates/models/common/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP_common/AMBA_TLM2_BL/AMBA-PV/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/IP_common/AMBA_TLM2_BL/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/tlm_serial" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/../../IP/tlm_ft_can_bus/SystemC/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/../../IP/tlm_ft_spi_bus/SystemC/include" -I"/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/../../IP/tlm_ft_lin_bus/SystemC/include" -I"./../.."  -I"../../SystemC/include" -I".." -I"."     -o ex_import_blockTest.gcc-12.3-64.o -c ex_import_blockTest.cc
+export COWARE_CXX_COMPILER=gcc-12.3-64
+export SNPS_VP_PRODUCT=Virtualizer-Elite
+/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/bin/g++ -o ex_import_blockTests.gcc-12.3-64 ex_import_blockTest.gcc-12.3-64.o  -Wl,--start-group    -lscml2_testing_systemc_main -lscml2_testing -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/lib-gcc-12.3-64 -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/sd/coware/lib-gcc-12.3-64 -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/lib-any-64      -usc_main_hook -lsc_main -uSnpsVPExtLinkHook -lSnpsVPExt -lSnpsVPFt -lSnpsVP -ltbb -Wl,--export-dynamic  -L/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/libso-gcc-12.3-64 -lomniORB4 -lomniDynamic4 -lomnithread -lpthread -ldwarf -lelf -lrt -ldl   -Wl,--end-group -m64
+make: warning:  Clock skew detected.  Your build may be incomplete.
+---- ex_import_block: Build finished successfully ----
+18:40:49  Build of project 'ex_import_block' for compiler 'gcc-12.3-64' with configuration 'FastBuild' complete (took 52s.230ms)
+
+18:40:54  project 'ex_import_block' for compiler 'gcc-12.3-64' with configuration 'FastBuild' is up-to-date
+

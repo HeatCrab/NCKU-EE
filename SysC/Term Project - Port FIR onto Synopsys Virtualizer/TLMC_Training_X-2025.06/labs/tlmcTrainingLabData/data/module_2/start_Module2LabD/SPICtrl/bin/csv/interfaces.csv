@@ -1,0 +1,10 @@
+Identifier,Protocol,Role,Category,Type,Quantity,Reset Value,Power Domain,Documentation
+bus_reg_in,TLM2,target,Memory,scml2::ft_target_socket<32>,,,,
+Serial_IO,SPI,device,SPI,tlm_ft_spi_device_socket,,,,
+rst_in,Reset,slave,Reset,sc_core::sc_in<bool>,,,,
+spi_clk,Clock,slave,Clock,sc_core::sc_in<bool>,,,,
+clk_in,Clock,slave,Clock,sc_core::sc_in<bool>,,,,
+tfuf_irq,Interrupt,master,Control,sc_core::sc_out<bool>,,,,
+tfff_irq,Interrupt,master,Control,sc_core::sc_out<bool>,,,,
+rfof_irq,Interrupt,master,Control,sc_core::sc_out<bool>,,,,
+rfdf_irq,Interrupt,master,Control,sc_core::sc_out<bool>,,,,

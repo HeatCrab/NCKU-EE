@@ -1,0 +1,7 @@
+COWAREHOME=/usr/cad/synopsys/pa_virtualizer/W-2025.03/SLS/linux
+LDFLAGS = -fPIC -Wl,--no-undefined
+PUREFLAGS = 
+CXX=gcc-12.3-64
+
+
+

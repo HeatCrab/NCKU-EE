@@ -1,0 +1,116 @@
+<registry>
+<table n="F" b="cwr">
+  <d n="__isa__"             >config_t</d>
+  <d n="active_config"       >true</d>
+  <m n="pct_defined_symbols" >pct_defined_symbols.0</m>
+  <l n="pct_include_files"   >pct_include_files.0</l>
+  <l n="pct_lib_search_paths">pct_lib_search_paths.0</l>
+  <l n="pct_libraries"       >pct_libraries.0</l>
+  <d n="pct_linker_flags"    >-fPIC -Wl,--no-undefined</d>
+  <l n="pct_source_files"    >pct_source_files.0</l>
+</table>
+<table n="F.Build" b="F">
+  <d n="cache-objects"      >false</d>
+  <d n="enable-inno-runtime">false</d>
+  <d n="enable-scampi"      >false</d>
+  <d n="make-jobs"          >16</d>
+</table>
+<table n="F.Build.buildInfo.A" b="F.Build">
+  <d n="__isa__"  >build_info_t</d>
+  <d n="binary"   >SPICtrl</d>
+  <d n="cxx_flags">-fvisibility=hidden -DNDEBUG</d>
+  <d n="dbg_level">0</d>
+  <d n="ld_flags" >-fPIC -Wl,--no-undefined </d>
+  <l n="ld_libs"  >ld_libs.0</l>
+  <l n="ld_paths" >ld_paths.0</l>
+  <d n="library"  >3</d>
+  <d n="opt_level">3</d>
+  <m n="pp_defs"  >pp_defs.0</m>
+  <l n="pp_dirs"  >pp_dirs.0</l>
+  <l n="sources"  >sources.0</l>
+</table>
+<table n="F.Launch" b="F"/>
+<table n="F.Run.runInfo" b="F.Launch">
+  <d n="__isa__"      >run_info_t</d>
+  <d n="args"         > </d>
+  <m n="lr_dirs"      >lr_dirs.0</m>
+  <m n="vlog_compopts">vlog_compopts.0</m>
+</table>
+<table n="cwr">
+  <d n="COWARE_CXX_COMPILER">gcc-12.3-64</d>
+</table>
+<table n="ld_libs.0">
+  <d n="aaaa">tlm_ft_spi_bus</d>
+</table>
+<table n="ld_paths.0">
+  <d n="aaaa">${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/lib-gcc-12.3-64</d>
+</table>
+<table n="lr_dirs.0">
+  <d n="IP_tlm_ft_can_bus_SystemC_include"                            >/usr/cad/synopsys/pa_virtualizer/cur/IP/tlm_ft_can_bus/SystemC/include</d>
+  <d n="IP_tlm_ft_lin_bus_SystemC_include"                            >/usr/cad/synopsys/pa_virtualizer/cur/IP/tlm_ft_lin_bus/SystemC/include</d>
+  <d n="IP_tlm_ft_spi_bus_SystemC_include"                            >/usr/cad/synopsys/pa_virtualizer/cur/IP/tlm_ft_spi_bus/SystemC/include</d>
+  <d n="SLS_linux_common_include"                                     >/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include</d>
+  <d n="include_scml2_protocol_engines_tlm2_ft_initiator_port_include">/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include</d>
+  <d n="include_scml2_protocol_engines_tlm2_ft_target_port_include"   >/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/scml2_protocol_engines/tlm2_ft_target_port/include</d>
+  <d n="linux_common_include_tlm"                                     >/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/tlm</d>
+  <d n="linux_common_include_tlm_serial"                              >/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/common/include/tlm_serial</d>
+  <d n="start_Module2LabD_SPICtrl_SystemC_include"                    >/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/include</d>
+  <d n="start_Module2LabD_SPICtrl_SystemC_src"                        >/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src</d>
+  <d n="templates_models_common_include"                              >/usr/cad/synopsys/pa_virtualizer/cur/SLS/linux/tlmcreator/templates/models/common/include</d>
+</table>
+<table n="pct_defined_symbols.0">
+  <d n="SC_INCLUDE_DYNAMIC_PROCESSES"></d>
+</table>
+<table n="pct_include_files.0">
+  <d n="aaaa">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl</d>
+  <d n="aaab">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/include</d>
+  <d n="aaac">${SNPS_VP_HOME}/tlmcreator/templates/models/common/include</d>
+  <d n="aaad">${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_target_port/include</d>
+  <d n="aaae">${SNPS_VP_HOME}/common/include</d>
+  <d n="aaaf">${SNPS_VP_HOME}/common/include/tlm</d>
+  <d n="aaag">${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include</d>
+  <d n="aaah">${SNPS_VP_HOME}/common/include/tlm_serial</d>
+  <d n="aaai">${SNPS_VP_HOME}/../../IP/tlm_ft_can_bus/SystemC/include</d>
+  <d n="aaaj">${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/include</d>
+  <d n="aaak">${SNPS_VP_HOME}/../../IP/tlm_ft_lin_bus/SystemC/include</d>
+</table>
+<table n="pct_lib_search_paths.0">
+  <d n="aaaa">${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/lib-gcc-12.3-64</d>
+</table>
+<table n="pct_libraries.0">
+  <d n="aaaa">tlm_ft_spi_bus</d>
+</table>
+<table n="pct_source_files.0">
+  <d n="aaaa">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.cc</d>
+  <d n="aaab">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/TX_PATH.cc</d>
+  <d n="aaac">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/RX_PATH.cc</d>
+  <d n="aaad">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrlBase.cc</d>
+  <d n="aaae">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.dladapter.cc</d>
+</table>
+<table n="pp_defs.0">
+  <d n="SC_INCLUDE_DYNAMIC_PROCESSES"></d>
+</table>
+<table n="pp_dirs.0">
+  <d n="aaaa">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl</d>
+  <d n="aaab">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/include</d>
+  <d n="aaac">${SNPS_VP_HOME}/tlmcreator/templates/models/common/include</d>
+  <d n="aaad">${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_target_port/include</d>
+  <d n="aaae">${SNPS_VP_HOME}/common/include</d>
+  <d n="aaaf">${SNPS_VP_HOME}/common/include/tlm</d>
+  <d n="aaag">${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include</d>
+  <d n="aaah">${SNPS_VP_HOME}/common/include/tlm_serial</d>
+  <d n="aaai">${SNPS_VP_HOME}/../../IP/tlm_ft_can_bus/SystemC/include</d>
+  <d n="aaaj">${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/include</d>
+  <d n="aaak">${SNPS_VP_HOME}/../../IP/tlm_ft_lin_bus/SystemC/include</d>
+</table>
+<table n="sources.0">
+  <d n="aaaa">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.cc</d>
+  <d n="aaab">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/TX_PATH.cc</d>
+  <d n="aaac">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/RX_PATH.cc</d>
+  <d n="aaad">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrlBase.cc</d>
+  <d n="aaae">/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.dladapter.cc</d>
+</table>
+<table n="vlog_compopts.0">
+  <d n=""> </d>
+</table>
+</registry>

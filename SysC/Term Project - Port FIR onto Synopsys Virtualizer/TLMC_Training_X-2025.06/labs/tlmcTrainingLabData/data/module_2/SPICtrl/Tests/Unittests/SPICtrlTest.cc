@@ -1,0 +1,12 @@
+#include "FuncReq_SPI_initiator.h"
+#include "FuncReq_SPI_target.h"
+using namespace scml2::testing;
+
+SCML2_REGISTER_TEST_GROUP_WITH_PARAMETERS (FuncReq_SPI_initiator,
+parameter_configurations(parameter_configuration("Initiator")("version",
+10003)("enable_check_clocks", false)("target_id", 2)("fifo_size", 5)));
+SCML2_REGISTER_TEST_GROUP_WITH_PARAMETERS( FuncReq_SPI_target,
+parameter_configurations(parameter_configuration("Target")("version",
+10003)("enable_check_clocks", false)("target_id", 2)("fifo_size", 5)));
+SCML2_TESTING_PORT_TAG(FuncReq_SPI_initiator, bus_reg_in, "TLM2_GP");
+SCML2_TESTING_PORT_TAG(FuncReq_SPI_target, bus_reg_in, "TLM2_GP");

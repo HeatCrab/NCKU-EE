@@ -1,0 +1,247 @@
+## -*- Makefile -*- for SPICtrl.
+## Runs with GNU make.
+##
+
+export COWARE_CXX_COMPILER = gcc-12.3-64
+
+## Include ConvergenSC build preamble
+include $(COWAREHOME)/tools/etc/build.preamble
+
+## Program name for simulation
+PROGRAM = SPICtrl
+## Program name for elaboration
+PROGRAM_ELAB = $(PROGRAM)-elab
+## Library name for simulation
+LIBRARY = lib$(PROGRAM).a
+## Shared Library name for simulator
+SHARED_LIBRARY = $(PROGRAM).so
+
+## Shared Library name for component
+SHARED_LIBRARY_COMP = lib$(PROGRAM).so
+
+## Configuration directory
+CONFIG = F
+CSCDIR = F/ConvergenSC
+SRCDIR = /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/libso-gcc-12.3-64/FastBuild
+
+SCC_OPT_LEVEL =  +O1
+VERBOSE=
+SCCFLAGS=
+SCSIM_OPTS=
+
+## Default arguments for ConvergenSC tools
+ifdef SNPS_VP_CXX_PREFIX
+$(warning using SNPS_VP_CXX_PREFIX)
+endif
+SCC_CMD=scc +cxx $(CXX) $(VERBOSE)
+SCC=$(SCC_CMD) $(SCCFLAGS) $(SCC_OPT_LEVEL)
+SCSIM=scsim +config $(CONFIG) $(VERBOSE) $(SCSIM_OPTS)
+SCC_LINK=scc +cxx "  $(CXX)  " $(VERBOSE) $(SCCFLAGS)
+
+## Elaboration time arguments for sc_main
+CWR_ELAB_ARGS =
+
+SOURCES=\
+	$(CSCDIR)/cwr_simulation_vars.cpp\
+	/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.cc\
+	/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/TX_PATH.cc\
+	/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/RX_PATH.cc\
+	/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrlBase.cc\
+	/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.dladapter.cc
+
+CWR_SV_OBJECTS=\
+	$(CSCDIR)/cwr_simulation_vars.o
+
+OBJECTS=\
+	$(CONFIG)/__up2__/src/SPICtrl.o\
+	$(CONFIG)/__up2__/src/TX_PATH.o\
+	$(CONFIG)/__up2__/src/RX_PATH.o\
+	$(CONFIG)/__up2__/src/SPICtrlBase.o\
+	$(CONFIG)/__up2__/src/SPICtrl.dladapter.o
+
+DEPENDS=\
+	$(CSCDIR)/cwr_simulation_vars.d\
+	$(CONFIG)/__up2__/src/SPICtrl.d\
+	$(CONFIG)/__up2__/src/TX_PATH.d\
+	$(CONFIG)/__up2__/src/RX_PATH.d\
+	$(CONFIG)/__up2__/src/SPICtrlBase.d\
+	$(CONFIG)/__up2__/src/SPICtrl.dladapter.d
+
+PCHS=\
+	/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/.*.pch
+
+IP_EXTRA_DEPS =
+
+## Extra unit generated for static schedule
+CWR_SC_SOURCE=$(CSCDIR)/$(CWR_SC_UNIT)
+CWR_SC_OBJECT=$(CWR_SC_SOURCE:.cpp=.o)
+
+## Preprocessor, compiler and linker options
+CXXFLAGS = $(CWR_SYSTEMC_CXXFLAGS)  -O3  
+USER_PP_FLAGS = -DSC_INCLUDE_DYNAMIC_PROCESSES   -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl" -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/include" -I"${SNPS_VP_HOME}/tlmcreator/templates/models/common/include" -I"${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_target_port/include" -I"${SNPS_VP_HOME}/common/include" -I"${SNPS_VP_HOME}/common/include/tlm" -I"${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include" -I"${SNPS_VP_HOME}/common/include/tlm_serial" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_can_bus/SystemC/include" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/include" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_lin_bus/SystemC/include"
+USER_C_FLAGS = -fvisibility=hidden -DNDEBUG  -fPIC
+USER_LD_FLAGS = -L"${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/lib-gcc-12.3-64"  -ltlm_ft_spi_bus  -fPIC -Wl,--no-undefined
+USER_AR_FLAGS = 
+
+include $(CONFIG)/Makefile.SPICtrl.macro_include
+
+ALL_PP_FLAGS =  $(USER_PP_FLAGS) $(SUB_USER_PP_FLAGS)
+ALL_C_FLAGS = $(USER_C_FLAGS) $(SUB_USER_C_FLAGS)
+ALL_LD_FLAGS = $(USER_LD_FLAGS) $(SUB_USER_LD_FLAGS)
+ALL_AR_FLAGS = $(USER_AR_FLAGS) $(SUB_USER_AR_FLAGS)
+ALL_SOURCES = $(SOURCES) $(SUB_SOURCES)
+ALL_OBJECTS = $(OBJECTS) $(SUB_OBJECTS)
+ALL_DEPENDS = $(DEPENDS) $(SUB_DEPENDS)
+
+build: $(CONFIG)/$(PROGRAM_ELAB)
+
+library: $(CONFIG)/$(LIBRARY)
+
+$(CONFIG)/$(LIBRARY): $(ALL_OBJECTS) F/ar.cinfo
+	$(AR) $(SNPS_VP_ARFLAGS) $(ALL_AR_FLAGS) $@ $(ALL_OBJECTS)
+
+elab: $(CWR_SC_SOURCE)
+
+$(CWR_SC_SOURCE): $(CONFIG)/$(PROGRAM_ELAB) FORCE
+	$(SCSIM) +elab $(PROGRAM) $(CWR_ELAB_ARGS)
+
+final_elab: 
+
+$(CONFIG)/$(PROGRAM_ELAB): $(CWR_SV_OBJECTS) $(ALL_OBJECTS)  F/ld.cinfo $(IP_EXTRA_DEPS)
+	@rm -f $(CONFIG)/$(PROGRAM)
+	@rm -f $(CONFIG)/$(SHARED_LIBRARY)
+	@rm -f $(CONFIG)/$(SHARED_LIBRARY_COMP)
+	$(SCC_LINK) -o $@ $(CWR_SV_OBJECTS) $(ALL_OBJECTS) $(ALL_LD_FLAGS) $(CWR_COSIM_LDFLAGS) $(COWARE_ANALYSIS_LINK)
+
+program: copy_to_program
+
+all: program
+
+copy_to_program: $(CONFIG)/$(PROGRAM_ELAB)
+	@/bin/cp -f $(CONFIG)/$(PROGRAM_ELAB) $(CONFIG)/$(PROGRAM)
+
+sharedLibrary: $(CONFIG)/$(SHARED_LIBRARY)
+
+sharedLibraryComp: $(CONFIG)/$(SHARED_LIBRARY_COMP)
+
+$(CONFIG)/$(PROGRAM): $(CWR_SV_OBJECTS) $(ALL_OBJECTS)  F/ld.cinfo $(IP_EXTRA_DEPS)
+	$(SCC_LINK) -o $@ +O3  $(CWR_SV_OBJECTS) $(ALL_OBJECTS) $(ALL_LD_FLAGS) $(COWARE_ANALYSIS_LINK) 
+
+$(CONFIG)/$(SHARED_LIBRARY): $(CWR_SV_OBJECTS) $(ALL_OBJECTS)  F/ld.cinfo $(IP_EXTRA_DEPS)
+	CWR_COSIM_SHARED_LIBRARY=1; export CWR_COSIM_SHARED_LIBRARY; $(SCC_LINK) -o $@ -shared +O3  $(CWR_SV_OBJECTS) $(ALL_OBJECTS) $(ALL_LD_FLAGS) $(CWR_COSIM_LDFLAGS) $(COWARE_ANALYSIS_LINK) 
+
+$(CONFIG)/$(SHARED_LIBRARY_COMP): $(ALL_OBJECTS)  F/ld.cinfo $(IP_EXTRA_DEPS)
+	$(CXX) -o $@ -shared -O3 $(ALL_OBJECTS) $(ALL_LD_FLAGS) $(CWR_COMP_LDFLAGS)
+
+gen_pch: $(CONFIG)/cwr_systemc.h.gch
+
+$(CONFIG)/cwr_systemc.h.gch: $(CONFIG)/cwr_systemc.h F/cwr_systemc.h.cinfo
+	$(SCC_CMD) +gen-pch $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS) -c $< -o $@ -MMD -MP
+
+$(CONFIG)/cwr_systemc.h: $(COWAREHOME)/common/include/systemc.h
+	/bin/cp -f $< $@
+
+$(CONFIG)/__up2__/src/RX_PATH.o: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/RX_PATH.cc F/__up2__/src/RX_PATH.cinfo
+	$(SCC) $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS) -c "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/RX_PATH.cc" -o "$(CONFIG)/__up2__/src/RX_PATH.o"
+
+$(CONFIG)/__up2__/src/RX_PATH.d: F/__up2__/src/RX_PATH.cinfo
+	@$(CPP) -MM -MP $(ALL_PP_FLAGS) $(CXXFLAGS) $(CWR_SYSTEMC_INCLUDE)  $(ALL_C_FLAGS)  "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/RX_PATH.cc" -MT "$(CONFIG)/__up2__/src/RX_PATH.o" -MT "$(CONFIG)/__up2__/src/RX_PATH.d" -MF "$@" && [ -s "$@" ] || rm -f "$@"
+
+$(CONFIG)/__up2__/src/SPICtrl.dladapter.o: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.dladapter.cc F/__up2__/src/SPICtrl.dladapter.cinfo
+	$(SCC) $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS) -c "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.dladapter.cc" -o "$(CONFIG)/__up2__/src/SPICtrl.dladapter.o"
+
+$(CONFIG)/__up2__/src/SPICtrl.dladapter.d: F/__up2__/src/SPICtrl.dladapter.cinfo
+	@$(CPP) -MM -MP $(ALL_PP_FLAGS) $(CXXFLAGS) $(CWR_SYSTEMC_INCLUDE)  $(ALL_C_FLAGS)  "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.dladapter.cc" -MT "$(CONFIG)/__up2__/src/SPICtrl.dladapter.o" -MT "$(CONFIG)/__up2__/src/SPICtrl.dladapter.d" -MF "$@" && [ -s "$@" ] || rm -f "$@"
+
+$(CONFIG)/__up2__/src/SPICtrlBase.o: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrlBase.cc F/__up2__/src/SPICtrlBase.cinfo
+	$(SCC) $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS) -c "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrlBase.cc" -o "$(CONFIG)/__up2__/src/SPICtrlBase.o"
+
+$(CONFIG)/__up2__/src/SPICtrlBase.d: F/__up2__/src/SPICtrlBase.cinfo
+	@$(CPP) -MM -MP $(ALL_PP_FLAGS) $(CXXFLAGS) $(CWR_SYSTEMC_INCLUDE)  $(ALL_C_FLAGS)  "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrlBase.cc" -MT "$(CONFIG)/__up2__/src/SPICtrlBase.o" -MT "$(CONFIG)/__up2__/src/SPICtrlBase.d" -MF "$@" && [ -s "$@" ] || rm -f "$@"
+
+$(CONFIG)/__up2__/src/TX_PATH.o: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/TX_PATH.cc F/__up2__/src/TX_PATH.cinfo
+	$(SCC) $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS) -c "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/TX_PATH.cc" -o "$(CONFIG)/__up2__/src/TX_PATH.o"
+
+$(CONFIG)/__up2__/src/TX_PATH.d: F/__up2__/src/TX_PATH.cinfo
+	@$(CPP) -MM -MP $(ALL_PP_FLAGS) $(CXXFLAGS) $(CWR_SYSTEMC_INCLUDE)  $(ALL_C_FLAGS)  "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/TX_PATH.cc" -MT "$(CONFIG)/__up2__/src/TX_PATH.o" -MT "$(CONFIG)/__up2__/src/TX_PATH.d" -MF "$@" && [ -s "$@" ] || rm -f "$@"
+
+$(CONFIG)/__up2__/src/SPICtrl.o: /home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.cc F/__up2__/src/SPICtrl.cinfo
+	$(SCC) $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS) -c "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.cc" -o "$(CONFIG)/__up2__/src/SPICtrl.o"
+
+$(CONFIG)/__up2__/src/SPICtrl.d: F/__up2__/src/SPICtrl.cinfo
+	@$(CPP) -MM -MP $(ALL_PP_FLAGS) $(CXXFLAGS) $(CWR_SYSTEMC_INCLUDE)  $(ALL_C_FLAGS)  "/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/SystemC/src/SPICtrl.cc" -MT "$(CONFIG)/__up2__/src/SPICtrl.o" -MT "$(CONFIG)/__up2__/src/SPICtrl.d" -MF "$@" && [ -s "$@" ] || rm -f "$@"
+
+
+$(CSCDIR)/cwr_simulation_vars.o: $(CSCDIR)/cwr_simulation_vars.cpp F/ConvergenSC/cwr_simulation_vars.cinfo
+	$(CXX) $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS) -c $(CSCDIR)/cwr_simulation_vars.cpp -o $(CSCDIR)/cwr_simulation_vars.o
+
+$(CSCDIR)/cwr_simulation_vars.d: $(CSCDIR)/cwr_simulation_vars.cpp
+	@$(CPP) -MM -MP   "$<" -MT "$(CSCDIR)/cwr_simulation_vars.o" -MT "$(CSCDIR)/cwr_simulation_vars.d" -MF "$@" && [ -s "$@" ] || rm -f "$@"
+
+
+$(CWR_SC_OBJECT): $(CWR_SC_SOURCE) F/ConvergenSC/cwr_simulate.cinfo
+	$(SCC) $(CXXFLAGS) -o $@ -c -O2 -fPIC +O3 $<
+
+$(CONFIG):
+	test -d $(CONFIG) || mkdir -p $(CONFIG)
+
+clean: clean_exec clean_cosim clean_pch
+	@rm -f $(CONFIG)/*.o  $(CONFIG)/*.d
+	@rm -f $(CSCDIR)/*.o  $(CSCDIR)/*.d
+	@rm -f $(CWR_SV_OBJECTS) $(ALL_OBJECTS) $(ALL_DEPENDS) 
+
+clean_exec: clean_elab_program clean_program
+
+clean_elab_program:
+	@rm -f $(CONFIG)/$(PROGRAM_ELAB)
+
+clean_program:
+	@rm -f $(CONFIG)/$(PROGRAM)
+
+clean_scheduler:
+	@rm -f $(CSCDIR)/cwr_simulate.cpp $(CSCDIR)/cwr_simulate.o
+
+clean_cosim: clean_scheduler clean_program
+	@rm -rf $(CSCDIR)/cosim
+	@rm -f $(CONFIG)/$(SHARED_LIBRARY)
+
+clean_pch: 
+	@rm -f $(PCHS)
+
+clean_library:
+	@rm -f $(CONFIG)/$(LIBRARY)
+
+ppflags: $(CONFIG)/cwr_empty.cpp
+	@echo CXXSPEC_START
+	@$(CXX) -E -P -v $< 2>&1
+	@echo CXXSPEC_END
+	@echo PPFLAGS=$(CWR_SYSTEMC_INCLUDE) $(ALL_PP_FLAGS)
+	@rm -f $<
+
+$(CONFIG)/cwr_empty.cpp:
+	@touch $@
+
+include $(CONFIG)/Makefile.SPICtrl.obj_include
+
+-include $(ALL_DEPENDS)
+
+$(CONFIG)/$(PROGRAM) $(CONFIG)/$(PROGRAM_ELAB) $(OBJECTS): $(wildcard logicalnames.inc)
+
+ifneq ($(SNPS_VP_USER_MAKEFILE), "")
+include $(SNPS_VP_USER_MAKEFILE)
+endif
+
+
+dumpvars: $(IP_EXTRA_DEPS) 
+	@echo __sTArt_BuiLDVarDumP__
+	@echo SOURCES:
+	@echo $(SOURCES)
+	@echo BUILD_FLAGS:
+	@echo $(CWR_SYSTEMC_INCLUDE) $(CXXFLAGS) $(ALL_C_FLAGS) $(ALL_PP_FLAGS)
+	@echo LINK_FLAGS:
+	@echo $(ALL_LD_FLAGS) $(CWR_SCO2_LDFLAGS) $(CWR_COSIM_LDFLAGS) $(COWARE_ANALYSIS_LINK)
+	@echo __eND_BuiLDVarDumP__
+
+FORCE:
+
+## end Makefile for SPICtrl

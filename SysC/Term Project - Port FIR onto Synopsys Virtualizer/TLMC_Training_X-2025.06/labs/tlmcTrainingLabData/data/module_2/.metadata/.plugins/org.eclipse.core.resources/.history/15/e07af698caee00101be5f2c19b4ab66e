@@ -1,0 +1,52 @@
+/***************************************************************************
+ * Copyright 1996-2025 Synopsys, Inc.
+ *
+ * This Synopsys software and all associated documentation are proprietary
+ * to Synopsys, Inc. and may only be used pursuant to the terms and
+ * conditions of a written license agreement with Synopsys, Inc.
+ * All other use, reproduction, modification, or distribution of the
+ * Synopsys software or the associated documentation is strictly prohibited.
+ ***************************************************************************/
+ 
+
+/***************************************************************************
+ * Generated snippet, used for detecting user edits.
+ * CHECKSUM:504c1e32b3c846590dfe7f57de078fedc73a1863
+ ***************************************************************************/
+ 
+#pragma once
+
+#include "SPICtrlBase.h"
+
+
+/**
+ * \copydoc SPICtrlBase
+ */
+class SPICtrl : public SPICtrlBase {
+  public:
+    SC_HAS_PROCESS(SPICtrl);
+
+    SPICtrl(sc_core::sc_module_name name);
+
+  private:
+    friend class SPICtrlCovermodel;
+
+    virtual void handle_Serial_IO_protocol_engine_start_received_transfer_64bit_V3(unsigned long long data, unsigned bit_length, bool continuous_select);
+    virtual void handle_Serial_IO_protocol_engine_end_received_transfer();
+    virtual void handle_rst_in_protocol_engine_reset_enter();
+    
+  private:
+        
+virtual void handle_spi_clk_protocol_engine_period_updated(sc_core::sc_time period);
+virtual void handle_TX_PATH_process_new_item(unsigned int value);
+virtual bool handle_write_MCR_CLR_TXF(const unsigned int& value);
+virtual bool handle_read_MCR_CLR_TXF(unsigned int& value);
+virtual bool handle_write_PUSHR(const unsigned int& value, const unsigned int& byteEnables, sc_core::sc_time& time);
+virtual scml2::access_restriction_result restrict_PUSHR(unsigned int& data, unsigned int& bit_enables);
+virtual bool handle_read_MCR_CLR_RXF(unsigned int& value);
+virtual bool handle_write_MCR_CLR_RXF(const unsigned int& value);
+virtual bool handle_read_POPR(unsigned int& value, const unsigned int& byteEnables, sc_core::sc_time& time);
+virtual void handle_post_write_MCR_MSTR_input_mode(const unsigned int& old_value, const unsigned int& value, sc_core::sc_time& time);
+virtual void handle_post_write_MCR_MSTR_driver_mode(const unsigned int& old_value, const unsigned int& value, sc_core::sc_time& time);
+};
+

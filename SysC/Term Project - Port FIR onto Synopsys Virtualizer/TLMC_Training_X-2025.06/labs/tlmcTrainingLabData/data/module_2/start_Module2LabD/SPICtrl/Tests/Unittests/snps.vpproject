@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<com.synopsys.vp.base.vpcfg.core:VPProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.synopsys.vp.base.vpcfg.core="com.synopsys.vp.base.vpcfg.core.vpprj" platformHome="." platformName="SPICtrl" activeBuild="SPICtrl" description="Model Test Harness for gcc-12.3-64" simWorkingDir="/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/start_Module2LabD/SPICtrl/Tests/Unittests" comment="Model Test Harness">
+  <builds name="SPICtrl" simPath="SPICtrlTests.gcc-12.3-64" simExtraArgs=""/>
+</com.synopsys.vp.base.vpcfg.core:VPProject>

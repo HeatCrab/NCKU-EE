@@ -1,0 +1,12 @@
+SOURCE=/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/SPICtrl/SystemC/src/RX_PATH.cc
+COWAREHOME=/usr/cad/synopsys/pa_virtualizer/W-2025.03/SLS/linux
+PPFLAGS = -DDEBUG -DSC_INCLUDE_DYNAMIC_PROCESSES   -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/SPICtrl" -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_2/SPICtrl/SystemC/include" -I"${SNPS_VP_HOME}/tlmcreator/templates/models/common/include" -I"${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_target_port/include" -I"${SNPS_VP_HOME}/common/include" -I"${SNPS_VP_HOME}/common/include/tlm" -I"${SNPS_VP_HOME}/common/include/scml2_protocol_engines/tlm2_ft_initiator_port/include" -I"${SNPS_VP_HOME}/common/include/tlm_serial" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_can_bus/SystemC/include" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/include" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_lin_bus/SystemC/include"
+CXXFLAGS = -fvisibility=hidden -fprofile-arcs -ftest-coverage -DNDEBUG  -fPIC
+CXX=gcc-12.3-64
+OPT_LEVEL= +O1
+SCSIM_OPTS=
+CXXFLAGS= $(CWR_SYSTEMC_CXXFLAGS) -g2   
+
+
+SCCFLAGS=
+

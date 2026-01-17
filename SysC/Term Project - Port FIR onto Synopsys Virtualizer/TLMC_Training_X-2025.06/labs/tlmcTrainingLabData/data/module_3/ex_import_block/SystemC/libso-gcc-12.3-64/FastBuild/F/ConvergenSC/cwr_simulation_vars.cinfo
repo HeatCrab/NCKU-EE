@@ -1,0 +1,12 @@
+SOURCE=ConvergenSC/cwr_simulation_vars.cpp
+COWAREHOME=/usr/cad/synopsys/pa_virtualizer/W-2025.03/SLS/linux
+PPFLAGS = -DSC_INCLUDE_DYNAMIC_PROCESSES   -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block" -I"/home/user1/sc25/sc2568/TLMCreation_Quickstart_Training_X-2025.06/TLMC_Training_X-2025.06/labs/tlmcTrainingLabData/tlmcTrainingLabData/data/module_3/ex_import_block/SystemC/include" -I"${SNPS_VP_HOME}/tlmcreator/templates/models/common/include" -I"${SNPS_VP_HOME}/IP_common/AMBA_TLM2_BL/AMBA-PV/include" -I"${SNPS_VP_HOME}/IP_common/AMBA_TLM2_BL/include" -I"${SNPS_VP_HOME}/common/include/tlm_serial" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_can_bus/SystemC/include" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_spi_bus/SystemC/include" -I"${SNPS_VP_HOME}/../../IP/tlm_ft_lin_bus/SystemC/include"
+CXXFLAGS = -fvisibility=hidden -DNDEBUG  -fPIC
+CXX=gcc-12.3-64
+OPT_LEVEL= +O1
+SCSIM_OPTS=
+CXXFLAGS= $(CWR_SYSTEMC_CXXFLAGS)  -O3  
+
+
+SCCFLAGS=
+

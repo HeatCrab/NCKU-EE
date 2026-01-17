@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 1438
+# CHECKSUM:07afe3ec821f0134696a8420d836a78b07d716a3 
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SPICtrl Checker (msvc-1438)", "SPICtrlTests.vc1438.vcxproj", "{81222BFF-B9A7-406A-BEE2-A4A1CFD5716A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C2DDE91C-6DA5-42A5-A512-DBD45100F239} = {C2DDE91C-6DA5-42A5-A512-DBD45100F239}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SPICtrl (msvc-1438)", "../../SystemC/libso-gcc-12.3-64/SPICtrl.vc1438.vcxproj", "{C2DDE91C-6DA5-42A5-A512-DBD45100F239}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81222BFF-B9A7-406A-BEE2-A4A1CFD5716A}.Debug|x64.ActiveCfg = Debug|x64
+		{81222BFF-B9A7-406A-BEE2-A4A1CFD5716A}.Debug|x64.Build.0 = Debug|x64
+		{81222BFF-B9A7-406A-BEE2-A4A1CFD5716A}.Release|x64.ActiveCfg = Release|x64
+		{81222BFF-B9A7-406A-BEE2-A4A1CFD5716A}.Release|x64.Build.0 = Release|x64
+		{C2DDE91C-6DA5-42A5-A512-DBD45100F239}.Debug|x64.ActiveCfg = Debug|x64
+		{C2DDE91C-6DA5-42A5-A512-DBD45100F239}.Debug|x64.Build.0 = Debug|x64
+		{C2DDE91C-6DA5-42A5-A512-DBD45100F239}.Release|x64.ActiveCfg = Release|x64
+		{C2DDE91C-6DA5-42A5-A512-DBD45100F239}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+Identifier,Type,Default Value,Constraints,Quantity,Visibility,Value Editability,Documentation
+p_uint,unsigned int,2,,,VISIBLE,UNTIL_SIMULATION_START,
+p_bool,bool,true,,,VISIBLE,UNTIL_SIMULATION_START,
+p_double,double,3.14,,,VISIBLE,UNTIL_SIMULATION_START,
+p_string,std::string,"""one""",,,VISIBLE,UNTIL_SIMULATION_START,

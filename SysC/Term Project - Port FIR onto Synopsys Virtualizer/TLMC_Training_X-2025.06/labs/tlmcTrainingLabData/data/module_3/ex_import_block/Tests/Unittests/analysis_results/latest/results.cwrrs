@@ -1,0 +1,3 @@
+# Items are separated by comma; One line for each data item.
+#<monitor name>,<monitor type>,<object name>,<visible>,<data item name>,<data item kind>,<resource>,<resource ID),<viewer>,<viewer args>,<signature>
+FastTrack Info,FastTrack Info,TestReport,true,,cwr_string_trace_FastTrack Info,swanly_monitors.cwrdb,0,unused_viewer_name,,f5f2e0e7e7e1f2f0f8d3a7bda32324d391321776531fd5b6d9348c625e59d1c19c
