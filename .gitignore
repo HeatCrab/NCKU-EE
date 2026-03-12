@@ -48,3 +48,6 @@ CVDL/**/data/
 CVDL/**/__pycache__/
 CVDL/**/*.pth
 CVDL/**/data.zip
+
+# CLAUDE rule
+CLAUDE.md
