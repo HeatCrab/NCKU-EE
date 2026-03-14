@@ -107,7 +107,7 @@ void DMA::dma_thread() {
                 TLM_INCOMPLETE_RESPONSE);
             master->b_transport(trans, delay);
             index++;
-            if (index >= size) {
+            if (index * 4 >= size) {
                 state = DONE;
             } else {
                 state = READ;

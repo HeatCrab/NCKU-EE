@@ -43,6 +43,13 @@ int sc_main(int argc, char* argv[]) {
     sc_trace(tf, rst, "rst");
     sc_trace(tf, irq, "interrupt");
     sc_trace(tf, dma.state, "dma_state");
+    sc_trace(tf, dma.source_addr,
+             "dma_source_addr");
+    sc_trace(tf, dma.target_addr,
+             "dma_target_addr");
+    sc_trace(tf, dma.size, "dma_size");
+    sc_trace(tf, dma.start_clear,
+             "dma_start_clear");
 
     // Reset sequence
     rst.write(false);

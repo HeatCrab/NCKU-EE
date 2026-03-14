@@ -30,7 +30,7 @@ void CPU::cpu_thread() {
     uint32_t dma_base = 0x10000000;
     uint32_t src_addr = 0x0;
     uint32_t tgt_addr = 0x200;
-    uint32_t xfer_size = 8;
+    uint32_t xfer_size = 32;
 
     cout << "[CPU] Configuring DMA:" << endl;
     cout << "  Source = 0x" << hex
@@ -38,7 +38,7 @@ void CPU::cpu_thread() {
     cout << "  Target = 0x" << tgt_addr
               << endl;
     cout << "  Size   = " << dec
-              << xfer_size << " words" << endl;
+              << xfer_size << " bytes" << endl;
 
     // Write control registers
     write_dma(dma_base + 0x0, src_addr);
