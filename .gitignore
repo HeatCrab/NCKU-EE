@@ -1,7 +1,8 @@
 # macOS
 .DS_Store
 
-# Object files
+# Build artifacts
+build/
 *.o
 
 # Executables
