@@ -32,6 +32,7 @@ prog
 test
 timer
 fir
+dma
 
 # SystemC files
 *.vcd
