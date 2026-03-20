@@ -100,7 +100,7 @@ class ImprovedMonteCarloPlayer:
             aces -= 1
 
         return value
-    
+
     def get_basic_strategy_action(self, state):
         """Basic strategy as initial policy."""
         player_value, dealer_value, has_usable_ace = state
@@ -122,8 +122,8 @@ class ImprovedMonteCarloPlayer:
             elif player_value <= 16 and dealer_value <= 6:
                 return 'stand'
             else:
-                return 'hit'
-            
+                return 'hit'        
+
     def choose_action(self, state: tuple, training: bool = True) -> str:
         """Choose action using epsilon-greedy strategy.
 
@@ -134,44 +134,65 @@ class ImprovedMonteCarloPlayer:
         Returns:
             Selected action, either 'hit' or 'stand'
         """
+        if not training:
+            # In evaluation mode, always choose pure Greedy action
+            if state in self.policy and self.policy[state]:
+                return self.policy[state]
+            return self.get_basic_strategy_action(state)
+          
+        # Using epsilon-greedy strategy during training
         if training and random.random() < self.epsilon:
             return random.choice(['hit', 'stand'])
 
-        # Use Q-table if state has been visited
+        # Greedy action selection
         if state in self.q_table and self.q_table[state]:
             return max(self.q_table[state], key=self.q_table[state].get)
 
-        # Fall back to basic strategy for unseen states
+        # If the state is unseen (the state is not learned), 
+        # fall back to basic strategy as a reasonable default action
         return self.get_basic_strategy_action(state)
 
-    def update_q_table(self, episode: list, gamma: float = 1.0) -> None:
-        """Update Q-table using First-Visit Monte Carlo method.
-
-        Args:
-            episode: List of (state, action, reward) tuples
-            gamma: Discount factor
-        """
-        visited = set()
-        G = 0.0
-
-        # Traverse episode in reverse to compute returns
-        for state, action, reward in reversed(episode):
-            G = gamma * G + reward
-            sa_pair = (state, action)
-
-            # First-visit: only update on first occurrence
-            if sa_pair not in visited:
-                visited.add(sa_pair)
-                self.state_action_count[state][action] += 1
-                n = self.state_action_count[state][action]
-                # Incremental mean update
-                self.q_table[state][action] += (G - self.q_table[state][action]) / n
-
-        self.episode_count += 1
-
-        # Decay epsilon after each episode
+    def update_epsilon(self) -> None:
+        
+        # Update epsilon value
         self.epsilon = max(self.epsilon_end, self.epsilon * self.epsilon_decay)
 
+    def update_policy(self, episode: list, gamma: float = 1.0) -> None:
+        """Update Q-table using First-Visit Monte Carlo method."""
+
+        # Create a "set" to track visited state in this episode
+        sta_act_in_episode = set()
+        G = 0.0
+
+        # Traverse episode in reverse
+        for step in reversed(episode):
+            state, action, reward = step
+            G = reward + G  # No discount factor
+ 
+            # Only update state-action pair on first occurrence to avoid duplicate estimation
+            if(state, action) not in sta_act_in_episode:
+                sta_act_in_episode.add((state, action))
+
+                # Record the return for this state-action pair
+                self.state_action_count[state][action] += 1
+                self.returns[(state, action)].append(G)
+
+                # Update Q-value using incremental mean for numerical stability
+                old_q = self.q_table[state][action]
+                n = self.state_action_count[state][action]
+                self.q_table[state][action] = old_q + (G - old_q) / n
+
+                # Update policy (Greedy)
+                if self.q_table[state]:
+                    best_action = max(self.q_table[state], key=self.q_table[state].get)
+                    self.policy[state] = best_action
+
+        # Update epsilon
+        self.episode_count += 1
+        if self.episode_count % 100 == 0:
+            self.update_epsilon()
+
+    
 def play_game(player, game, training=True):
     """Play one game - improved game logic."""
     game.shuffle_deck()
@@ -241,33 +262,36 @@ def play_game(player, game, training=True):
 
     return episode, player_value, dealer_value
 
-# Main
-if __name__ == "__main__":
-    # Set random seeds for reproducibility
-    # random.seed(42)
-    # np.random.seed(42)
+def train_player(num_episodes=200000):
+    """Train a player using Monte Carlo method over many episodes.
 
-    # Create game and player
-    game = BlackjackGame()
+    Args:
+        num_episodes: Number of training episodes
+
+    Returns:
+        Tuple of (trained player, win rates list, epsilon values list)
+    """
     player = ImprovedMonteCarloPlayer()
+    game = BlackjackGame()
 
-    # --- Training phase ---
-    num_training_episodes = 5000
     wins, losses, ties = 0, 0, 0
+    win_rates = []
+    epsilon_values = []
+    recent_results = []
 
-    print("============================================")
-    print(f"Training for {num_training_episodes} episodes...")
-    print("============================================")
+    print("Starting training...")
+    print(f"Initial epsilon: {player.epsilon:.3f}")
 
-    for i in range(num_training_episodes):
-        episode, player_value, dealer_value = play_game(player, game, training=True)
+    for episode_num in range(num_episodes):
+        ep, player_value, dealer_value = play_game(player, game, training=True)
 
-        # Update Q-table with the completed episode
-        player.update_q_table(episode)
+        if ep:
+            player.update_policy(ep)
 
-        # Track outcomes from episode reward
-        if episode:
-            final_reward = episode[-1][2]
+            # Statistics results
+            final_reward = ep[-1][2]
+            recent_results.append(final_reward)
+
             if final_reward > 0:
                 wins += 1
             elif final_reward < 0:
@@ -275,53 +299,147 @@ if __name__ == "__main__":
             else:
                 ties += 1
 
-    print(f"\nTraining Results ({num_training_episodes} games):")
-    print(f"  Wins:   {wins} ({wins / num_training_episodes * 100:.1f}%)")
-    print(f"  Losses: {losses} ({losses / num_training_episodes * 100:.1f}%)")
-    print(f"  Ties:   {ties} ({ties / num_training_episodes * 100:.1f}%)")
+        # Record epsilon and win rate per 1000 episodes
+        if (episode_num + 1) % 1000 == 0:
+            recent_1000 = recent_results[-1000:] if len(recent_results) >= 1000 else recent_results
+            recent_wins = sum(1 for r in recent_1000 if r > 0)
+            recent_win_rate = recent_wins / len(recent_1000) if recent_1000 else 0
 
-    # --- Q-table status ---
-    num_states = len(player.q_table)
-    total_sa_pairs = sum(len(actions) for actions in player.q_table.values())
-    print(f"\nQ-table status:")
-    print(f"  Learned states:        {num_states}")
-    print(f"  State-action pairs:    {total_sa_pairs}")
-    print(f"  Final epsilon:         {player.epsilon:.4f}")
-    print(f"  Episodes processed:    {player.episode_count}")
+            win_rates.append(recent_win_rate)
+            epsilon_values.append(player.epsilon)
 
-    # --- Show a few sample Q-values ---
-    print("\nSample Q-values (state -> action: value):")
-    sample_states = list(player.q_table.keys())[:5]
-    for state in sample_states:
-        player_sum, dealer_up, usable_ace = state
-        actions = player.q_table[state]
-        best_action = max(actions, key=actions.get)
-        print(f"  Player={player_sum}, Dealer={dealer_up}, "
-              f"Ace={usable_ace} -> ", end="")
-        for action, value in actions.items():
-            marker = " *" if action == best_action else ""
-            print(f"{action}: {value:.3f}{marker}  ", end="")
-        print()
+            if (episode_num + 1) % 10000 == 0:
+                total_win_rate = wins / (wins + losses + ties) if (wins + losses + ties) > 0 else 0
+                print(f"Progress: {episode_num + 1}/{num_episodes}")
+                print(f"  Recent 1000 games win rate: {recent_win_rate:.3f}")
+                print(f"  Overall win rate: {total_win_rate:.3f}")
+                print(f"  Current epsilon: {player.epsilon:.3f}")
+                print(f"  States learned: {len(player.policy)}")
 
-    # --- Play one demo game with learned policy ---
-    print("\n============================================")
-    print("Demo game (using learned policy, no exploration):")
-    print("============================================")
+    total_win_rate = wins / num_episodes
+    print(f"\nTraining complete!")
+    print(f"Total games: {num_episodes}")
+    print(f"Win: {wins}, Loss: {losses}, Tie: {ties}")
 
-    episode, player_value, dealer_value = play_game(player, game, training=False)
+    return player, win_rates, epsilon_values
 
-    print(f"Player's final hand value: {player_value}")
-    print(f"Dealer's final hand value: {dealer_value}")
 
-    print("\nEpisode details:")
-    for i, step in enumerate(episode):
-        state, action, reward = step
-        player_sum, dealer_up, usable_ace = state
+def plot_training_results(win_rates, epsilon_values):
+    """Plot training progress and epsilon decay as two separate figures.
 
-        print("--------------------------------------------")
-        print(f"Step {i + 1}")
-        print(f"  Player's hand value:    {player_sum}")
-        print(f"  Dealer's up card value: {dealer_up}")
-        print(f"  Usable Ace:             {usable_ace}")
-        print(f"  Action:                 {action}")
-        print(f"  Reward:                 {reward}")
+    Args:
+        win_rates: List of win rates recorded every 1000 episodes
+        epsilon_values: List of epsilon values recorded every 1000 episodes
+    """
+    episodes = [(i + 1) * 1000 for i in range(len(win_rates))]
+    theoretical_optimal = 0.4268  # Blackjack theoretical optimal win rate
+
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
+
+    # Top: Win Rate Progress
+    ax1.plot(episodes, win_rates, color='blue', linewidth=1, label='MC Win Rate')
+    ax1.axhline(y=theoretical_optimal, color='red', linestyle='--',
+                linewidth=1, label='Theoretical Optimal (~43%)')
+    ax1.set_title('Monte Carlo Blackjack Learning - Win Rate Progress')
+    ax1.set_xlabel('Episode')
+    ax1.set_ylabel('Win Rate')
+    ax1.legend()
+    ax1.grid(True, alpha=0.3)
+
+    # Bottom: Epsilon Decay
+    ax2.plot(episodes, epsilon_values, color='green', linewidth=1)
+    ax2.set_title('Epsilon Decay During Training')
+    ax2.set_xlabel('Episode')
+    ax2.set_ylabel('Epsilon')
+    ax2.grid(True, alpha=0.3)
+
+    fig.tight_layout()
+    fig.savefig('RL/Ch3/results/training_results.png', dpi=150)
+    print("Saved: RL/Ch3/results/training_results.png")
+    plt.close()
+
+
+def test_player(player, num_games=10000):
+    """Test a trained player without exploration.
+
+    Args:
+        player: Trained player instance
+        num_games: Number of test games
+
+    Returns:
+        Win rate as a float
+    """
+    game = BlackjackGame()
+    wins = 0
+
+    for _ in range(num_games):
+        ep, player_value, dealer_value = play_game(player, game, training=False)
+        if ep and ep[-1][2] > 0:
+            wins += 1
+
+    win_rate = wins / num_games
+    print(f"\nTest results ({num_games} games):")
+    print(f"  Win rate: {win_rate:.3f}")
+    return win_rate
+
+
+def compare_with_basic_strategy(trained_player, num_games=10000):
+    """Compare MC-learned policy against basic strategy."""
+    game = BlackjackGame()
+    basic_player = ImprovedMonteCarloPlayer(epsilon_start=0.0)
+    basic_wins = 0
+
+    for _ in range(num_games):
+        game.shuffle_deck()
+        player_hand = [game.deal_card(), game.deal_card()]
+        dealer_hand = [game.deal_card(), game.deal_card()]
+
+        # Player phase using basic strategy
+        while True:
+            state = basic_player.get_state(player_hand, dealer_hand[0])
+            action = basic_player.get_basic_strategy_action(state)
+            if action == 'hit':
+                player_hand.append(game.deal_card())
+                if game.is_bust(player_hand):
+                    break
+            else:
+                break
+
+        # Skip if player busted
+        if game.is_bust(player_hand):
+            continue
+
+        # Dealer phase
+        while game.calculate_hand_value(dealer_hand) < 17:
+            dealer_hand.append(game.deal_card())
+
+        player_final = game.calculate_hand_value(player_hand)
+        dealer_final = game.calculate_hand_value(dealer_hand)
+
+        if game.is_bust(dealer_hand) or player_final > dealer_final:
+            basic_wins += 1
+
+    basic_win_rate = basic_wins / num_games
+
+    # Test Monte Carlo Strategy
+    mc_win_rate = test_player(trained_player, num_games)
+    
+    print(f"Basic Strategy Win Rate: {basic_win_rate:.3f}")
+    print(f"Monte Carlo Strategy Win Rate: {mc_win_rate:.3f}")
+    print(f"Improvement: {((mc_win_rate - basic_win_rate) / basic_win_rate) * 100:.2f}%")
+
+
+# Main
+if __name__ == "__main__":
+
+    # Train player - Use more episodes
+    trained_player, win_rates, epsilon_values = train_player(200000)
+
+    # Test player
+    test_win_rate = test_player(trained_player, 10000)
+
+    # Plot training results
+    plot_training_results(win_rates, epsilon_values)
+
+    # Compare with basic strategy
+    compare_with_basic_strategy(trained_player, 10000)
