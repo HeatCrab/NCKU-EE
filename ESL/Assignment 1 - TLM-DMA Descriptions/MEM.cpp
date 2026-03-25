@@ -24,4 +24,5 @@ void MEM::b_transport(
     }
 
     trans.set_response_status(TLM_OK_RESPONSE);
+    wait(3);
 }
