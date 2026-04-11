@@ -47,9 +47,12 @@ adder
 
 # CVDL - exclude datasets, weights, and cache
 CVDL/**/data/
-CVDL/**/__pycache__/
+**/__pycache__/
 CVDL/**/*.pth
 CVDL/**/data.zip
+
+# Python virtual environments
+**/.venv/
 
 # CLAUDE rule
 CLAUDE.md
