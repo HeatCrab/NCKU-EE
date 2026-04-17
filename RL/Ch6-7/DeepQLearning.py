@@ -28,12 +28,12 @@ class GridWorldWrapper:
         """ Turn player staet to state index """
         pos = self.game.board.components['Player'].pos
         return pos[0] * self.size + pos[1]
-        
+
     def step(self, action):
         """ Take an action in the environment and return the next state, reward, and done flag """
         # Do Action
         self.game.makeMove(self.action_map[action])
-        
+
         # Get reward
         reward = self.game.reward()
 
@@ -49,21 +49,19 @@ class GridWorldWrapper:
         """ Render the current state of the environment """
         print(self.game.display())
 
-class QNetwork(nn.Module):
-    """Fully connected Q-network for approximating Q(s, a)."""
-    def __init__(self, state_size: int, action_size: int):
-        super(QNetwork, self).__init__()
-        self.layers = nn.Sequential(
-            nn.Linear(state_size, 64),
-            nn.ReLU(),
-            nn.Linear(64, 64),
-            nn.ReLU(),
-            nn.Linear(64, action_size)
-        )
+class DQN(nn.Module):
+    """Deep Q-Network neural network model"""
+    def __init__(self, state_size, action_size, hidden_size):
+        super(DQN, self).__init__()
+        self.fc1 = nn.Linear(state_size, hidden_size)
+        self.fc2 = nn.Linear(hidden_size, hidden_size)
+        self.fc3 = nn.Linear(hidden_size, action_size)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return self.layers(x)
-
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
 
 class ReplayBuffer:
     """Fixed-capacity experience replay buffer."""
@@ -85,7 +83,6 @@ class ReplayBuffer:
     def __len__(self) -> int:
         return len(self.buffer)
 
-
 class DQNAgent:
     """Deep Q-Network agent with experience replay and a target network."""
     def __init__(self, state_size: int, action_size: int,
@@ -96,7 +93,8 @@ class DQNAgent:
                  epsilon_min: float = 0.01,
                  buffer_size: int = 10000,
                  batch_size: int = 32,
-                 target_update_freq: int = 100):
+                 target_update_freq: int = 100,
+                 hidden_size: int = 64):
         self.state_size = state_size
         self.action_size = action_size
         self.learning_rate = learning_rate
@@ -110,14 +108,14 @@ class DQNAgent:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         # Main network (trained every step) and frozen target network
-        self.q_network = QNetwork(state_size, action_size).to(self.device)
-        self.target_network = QNetwork(state_size, action_size).to(self.device)
+        self.q_network = DQN(state_size, action_size, hidden_size).to(self.device)
+        self.target_network = DQN(state_size, action_size, hidden_size).to(self.device)
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
 
         self.optimizer = optim.Adam(self.q_network.parameters(), lr=learning_rate)
         self.memory = ReplayBuffer(buffer_size)
-        self.step_count = 0  # tracks when to sync target network
+        self.steps = 0
 
     def encode_state(self, state: int) -> np.ndarray:
         """Convert a state index to a one-hot vector."""
@@ -125,12 +123,18 @@ class DQNAgent:
         vec[state] = 1.0
         return vec
 
+    def _states_to_matrix(self, states) -> np.ndarray:
+        """Convert a list of state indices to a matrix of one-hot vectors."""
+        matrix = np.zeros((len(states), self.state_size), dtype=np.float32)
+        for i, s in enumerate(states):
+            matrix[i][s] = 1.0
+        return matrix
+
     def select_action(self, state: int) -> int:
         """Epsilon-greedy action selection."""
         if random.random() < self.epsilon:
             return random.randrange(self.action_size)
-        state_vec = self.encode_state(state)
-        state_tensor = torch.FloatTensor(state_vec).unsqueeze(0).to(self.device)
+        state_tensor = torch.FloatTensor(self.encode_state(state)).unsqueeze(0).to(self.device)
         with torch.no_grad():
             q_values = self.q_network(state_tensor)
         return int(q_values.argmax(dim=1).item())
@@ -138,37 +142,53 @@ class DQNAgent:
     def remember(self, state: int, action: int, reward: float,
                  next_state: int, done: bool) -> None:
         """Store a transition in the replay buffer."""
-        self.memory.push(self.encode_state(state), action, reward,
-                         self.encode_state(next_state), done)
+        self.memory.push(state, action, reward, next_state, done)
 
     def learn(self) -> None:
         """Sample a mini-batch and perform one gradient descent step."""
         if len(self.memory) < self.batch_size:
             return
 
+        # Smapling from buffer
         states, actions, rewards, next_states, dones = self.memory.sample(self.batch_size)
 
-        states_t = torch.FloatTensor(states).to(self.device)
-        actions_t = torch.LongTensor(actions).to(self.device)
-        rewards_t = torch.FloatTensor(rewards).to(self.device)
-        next_states_t = torch.FloatTensor(next_states).to(self.device)
-        dones_t = torch.FloatTensor(dones).to(self.device)
+        # turn to tensors
+        states = torch.FloatTensor(self._states_to_matrix(states)).to(self.device)
+        actions = torch.LongTensor(actions).to(self.device)
+        rewards = torch.FloatTensor(rewards).to(self.device)
+        next_states = torch.FloatTensor(self._states_to_matrix(next_states)).to(self.device)
+        dones = torch.BoolTensor(dones).to(self.device)
 
-        # Current Q estimates from main network
-        current_q = self.q_network(states_t).gather(1, actions_t.unsqueeze(1)).squeeze(1)
+        # Compute current Q values
+        current_q_values = self.q_network(states).gather(1, actions.unsqueeze(1))
 
-        # TD target from frozen target network
-        with torch.no_grad():
-            max_next_q = self.target_network(next_states_t).max(dim=1)[0]
-            target_q = rewards_t + self.discount_factor * max_next_q * (1 - dones_t)
+        # Compute target Q values (detach() is to prvent backprop through target network,
+        # which is the main point of DQN algorithm design)
+        next_q_values = self.target_network(next_states).max(1)[0].detach()
 
-        loss = F.mse_loss(current_q, target_q)
+        # Bellman equation: Q*(s, a) = R(s, a) + gamma * max Q*(s', a')
+        # dones == True (~dones == false) no future reward if game ends,
+        # no consideration of next_q_values, set to 0
+        target_q_values = rewards + (self.discount_factor * next_q_values * ~dones)
+
+        # Calculate loss by shorten the distance between current q_values prediction and real q_values,
+        # (squeeze() is to turn redundant dimension in Tensor, which is the result of gather() function, back to original shape)
+        loss = F.mse_loss(current_q_values.squeeze(), target_q_values)
+
+        # Backpropagation and optimization step
+        # self.optimizer.zero_grad() is to clear the gradients of all optimized tensors before backpropagation,
+        # which is necessary in Pytorch taining
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
 
-        self.step_count += 1
-        if self.step_count % self.target_update_freq == 0:
+        # Update step
+        self.steps += 1
+
+        # Update target network regularly (default every 100 steps)
+        if self.steps % self.target_update_freq == 0:
+            # self.q_network.state_dict() extracts all weights and biases from the main network
+            # self.target_network.load_state_dict() reloads the weights into the target network
             self.target_network.load_state_dict(self.q_network.state_dict())
 
     def decay_epsilon(self) -> None:
@@ -176,108 +196,180 @@ class DQNAgent:
         self.epsilon = max(self.epsilon_min, self.epsilon * self.epsilon_decay)
 
 
+def train_dqn(num_episodes=1000, max_steps=200):
+    """
+    Train DQN agent
+    """
+    env = GridWorldWrapper(size=4, mode='static')
+    agent = DQNAgent(state_size=16, action_size=4)
+
+    scores = []
+    epsilons = []
+
+    for episode in range(num_episodes):
+        state = env.reset()
+        total_reward = 0
+
+        for _ in range(max_steps):
+            action = agent.select_action(state)
+            next_state, reward, done = env.step(action)
+            agent.remember(state, action, reward, next_state, done)
+            agent.learn()
+            state = next_state
+            total_reward += reward
+            if done:
+                break
+
+        agent.decay_epsilon()
+        scores.append(total_reward)
+        epsilons.append(agent.epsilon)
+
+        if (episode + 1) % 100 == 0:
+            avg = np.mean(scores[-100:])
+            print(f"Episode {episode+1}/{num_episodes}, Avg Score: {avg:.1f}, Epsilon: {agent.epsilon:.3f}")
+
+    return agent, scores, epsilons, env
+
+
+def test_agent(agent, env, epsilons=5):
+    temp_epsilon = agent.epsilon
+    agent.epsilon = 0
+    test_scores = []
+
+    for _ in range(epsilons):
+        state = env.reset()
+        total_reward = 0
+        steps = 0
+        path = [state]
+
+        for _ in range(200):
+            action = agent.select_action(state)
+            next_state, reward, done = env.step(action)
+
+            state = next_state
+            total_reward += reward
+            steps += 1
+            path.append(state)
+
+            if done:
+                break
+
+        # recover original epsilon
+        agent.epsilon = temp_epsilon
+
+        test_scores.append(total_reward)
+        print(f"Final State")
+        env.vender()
+        print(f"Score = {total_reward}, Steps = {steps}")
+        print(f"Path: {' -> '.join(map(str, path))}")
+
+    print(f"\nAverage Test Score: {np.mean(test_scores):.2f}")
+    return test_scores
+
+
+def analyze_environment(env):
+    print("\n" + "=" * 60)
+    print("Environment Analysis")
+    print("=" * 60)
+    print(f"Grid size: {env.size}x{env.size}")
+    print(f"State space: {env.size ** 2} states")
+    print(f"Action space: {len(env.action_map)} actions {list(env.action_map.values())}")
+    env.reset()
+    env.render()
+
+
+def visualize_results(scores, epsilons):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+    ax1.plot(scores, alpha=0.6, color='blue')
+    window = 100
+    if len(scores) >= window:
+        moving_avg = np.convolve(scores, np.ones(window) / window, mode='valid')
+        ax1.plot(range(window - 1, len(scores)), moving_avg, color='red',
+                 label=f'Moving Average ({window})')
+        ax1.legend()
+    ax1.set_title('DQN Training Scores')
+    ax1.set_xlabel('Episode')
+    ax1.set_ylabel('Score')
+
+    ax2.plot(epsilons, color='blue')
+    ax2.set_title('Epsilon Decay')
+    ax2.set_xlabel('Episode')
+    ax2.set_ylabel('Epsilon')
+
+    plt.tight_layout()
+    plt.savefig('dqn_results.png')
+    plt.show()
+
+
+def print_q_values(agent):
+    print("\n" + "=" * 60)
+    print("Q-Values for each state")
+    print("=" * 60)
+    action_names = ['up', 'down', 'left', 'right']
+    for state in range(agent.state_size):
+        state_tensor = torch.FloatTensor(agent.encode_state(state)).unsqueeze(0).to(agent.device)
+        with torch.no_grad():
+            q_vals = agent.q_network(state_tensor).cpu().numpy()[0]
+        best = int(np.argmax(q_vals))
+        print(f"State {state:2d}: {[f'{q:.2f}' for q in q_vals]} -> {action_names[best]}")
+
+
+def print_policy(agent):
+    print("\n" + "=" * 60)
+    print("Policy (best action per state)")
+    print("=" * 60)
+    action_symbols = {0: '↑', 1: '↓', 2: '←', 3: '→'}
+    size = int(agent.state_size ** 0.5)
+    for row in range(size):
+        line = ''
+        for col in range(size):
+            state = row * size + col
+            state_tensor = torch.FloatTensor(agent.encode_state(state)).unsqueeze(0).to(agent.device)
+            with torch.no_grad():
+                q_vals = agent.q_network(state_tensor)
+            action = int(q_vals.argmax().item())
+            line += action_symbols[action] + ' '
+        print(line)
+
+
+def print_state_values(agent):
+    print("\n" + "=" * 60)
+    print("State Values (max Q-value per state)")
+    print("=" * 60)
+    size = int(agent.state_size ** 0.5)
+    for row in range(size):
+        line = ''
+        for col in range(size):
+            state = row * size + col
+            state_tensor = torch.FloatTensor(agent.encode_state(state)).unsqueeze(0).to(agent.device)
+            with torch.no_grad():
+                q_vals = agent.q_network(state_tensor)
+            value = float(q_vals.max().item())
+            line += f'{value:6.2f} '
+        print(line)
+
+
 # main function
 if __name__ == "__main__":
 
-    # create environment wrapper
-    env = GridWorldWrapper(size=4, mode='static')
-    # Get state and action space size
-    state_size = 16 # 4x4 grid
-    action_size = 4 # 4 actions: up, down, left, right
-
-    # Create DQN agent
-    agent = DQNAgent(state_size, action_size,
-                     learning_rate=0.001,
-                     discount_factor=0.95,
-                     epsilon=1.0,
-                     epsilon_decay=0.995,
-                     epsilon_min=0.01,
-                     buffer_size=10000,
-                     batch_size=32,
-                     target_update_freq=100)
-    
-    print("\n" + "=" * 60)
-    print("Test DQN Agent")
+    print("=" * 60)
+    print("Train DQN (Deep Q-Network) Gridworld")
     print("=" * 60)
 
-    # ------------------------------------------------------------
-    # 1. Test agent create successfully or not
-    # ------------------------------------------------------------
-    print("\n[Step 1] Check agent basic parameters")
-    print("state_size =", agent.state_size)
-    print("action_size =", agent.action_size)
-    print("learning_rate =", agent.learning_rate)
-    print("discount_factor =", agent.discount_factor)
-    print("epsilon =", agent.epsilon)
-    print("batch_size =", agent.batch_size)
-    print("target_update_freq =", agent.target_update_freq)
+    # Train DQN agent
+    agent, scores, epsilons, env = train_dqn(num_episodes=1000)
 
-    # ------------------------------------------------------------
-    # 2. Test intial state of the environment
-    # ------------------------------------------------------------
-    print("\n[Step 2] Get initial state of the environment")
-    state = env.reset()
-    print("Initial state index =", state)
+    # Analyze environment
+    analyze_environment(env)
 
-    # one-hot encode
-    state_vector = np.zeros(state_size)
-    state_vector[state] = 1
-    print("One-hot state =", state_vector)
+    # Visualize results
+    visualize_results(scores, epsilons)
 
-    # ------------------------------------------------------------
-    # 3. Test foward propagation of the q_network
-    # ------------------------------------------------------------
-    print("\n[Step 3] Test forward pass of the Q-network")
-    state_tensor = torch.FloatTensor(state_vector).unsqueeze(0).to(agent.device) # Add batch dimension
-    q_values = agent.q_network(state_tensor)
+    # print q_values and strategy
+    print_q_values(agent)
+    print_policy(agent)
+    print_state_values(agent)
 
-    print("q_values =")
-    print(q_values)
-    print("q_values shape =", q_values.shape)
-
-    # ------------------------------------------------------------
-    # 4. Get the Q values for each action
-    # ------------------------------------------------------------
-    print("\n[Step 4] Show Q values for each action")
-    q_values_np = q_values.cpu().detach().numpy()[0]
-    action_names = ['up', 'down', 'left', 'right']
-
-    for i in range(action_size):
-        print(f"Action{i} {action_names[i]}: Q = {q_values_np[i]:.4f}")
-
-    best_action = np.argmax(q_values_np)
-    print(f"\nCurrent biggest Q value is for action: {best_action} ({action_names[best_action]}))")
-
-    # ------------------------------------------------------------
-    # 5. Test target_network same as initial q_network or not
-    # ------------------------------------------------------------
-    print("\n[Step 5] Check if target network has same initial weights as Q-network")
-
-    same = True
-    for param_q, param_target in zip(agent.q_network.parameters(), agent.target_network.parameters()):
-        if not torch.equal(param_q.data, param_target.data):
-            same = False
-            break
-    
-    print("Two weight networks have same initial weights or not:", same)
-
-    # ------------------------------------------------------------
-    # 6. Use target_network to do a forward pass
-    # ------------------------------------------------------------
-    print("\n[Step 6] Test forward pass of the target_network")
-    target_q_values = agent.target_network(state_tensor)
-    print("target_q_values =")
-    print(target_q_values)
-
-    # ------------------------------------------------------------
-    # 7. Compare q_network and target_network outputs same or not
-    # ------------------------------------------------------------
-    print("\n[Step 7] Compare Q-network and target_network outputs")
-    print("Ouputs are the same or not:", torch.allclose(q_values, target_q_values))
-
-    print("\nDQNAgent tests complete!")
-
-
-
-
-
+    # Test trained agent
+    test_score = test_agent(agent, env, epsilons=5)
