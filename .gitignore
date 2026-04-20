@@ -54,5 +54,11 @@ CVDL/**/data.zip
 # Python virtual environments
 **/.venv/
 
+# Word intermediate files (keep PDF as the source of truth)
+*.docx
+
+# NCKU submission bundles (學號_姓名_*.zip)
+N[0-9]*_*.zip
+
 # CLAUDE rule
 CLAUDE.md
