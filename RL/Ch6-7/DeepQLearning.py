@@ -259,7 +259,7 @@ def test_agent(agent, env, epsilons=5):
 
         test_scores.append(total_reward)
         print(f"Final State")
-        env.vender()
+        env.render()
         print(f"Score = {total_reward}, Steps = {steps}")
         print(f"Path: {' -> '.join(map(str, path))}")
 
