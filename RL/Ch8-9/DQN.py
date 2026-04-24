@@ -103,7 +103,7 @@ def optimize_model():
 
 def plot_durations(show_result=False):
     """ Plot training progress """
-    if not SHOW_TRAINING_PROGRESS:
+    if not show_result and not SHOW_TRAINING_PROGRESS:
         return
 
     plt.figure(1)
@@ -132,7 +132,12 @@ def plot_durations(show_result=False):
     plt.legend()
     plt.grid(True, alpha=0.3)
 
-    plt.pause(0.001)  # pause a bit so that plots are updated
+    if show_result:
+        os.makedirs("results", exist_ok=True)
+        plt.savefig("results/dqn_results.png", dpi=150, bbox_inches="tight")
+
+    if SHOW_TRAINING_PROGRESS:
+        plt.pause(0.001)  # pause a bit so that plots are updated
 
 # main function
 if __name__ == "__main__":

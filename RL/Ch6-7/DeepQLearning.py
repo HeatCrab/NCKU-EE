@@ -298,7 +298,8 @@ def visualize_results(scores, epsilons):
     ax2.set_ylabel('Epsilon')
 
     plt.tight_layout()
-    plt.savefig('dqn_results.png')
+    os.makedirs("results", exist_ok=True)
+    plt.savefig("results/dqn_results.png", dpi=150, bbox_inches="tight")
     plt.show()
 
 
