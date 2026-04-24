@@ -51,6 +51,11 @@ CVDL/**/data/
 CVDL/**/*.pth
 CVDL/**/data.zip
 
+# RL - exclude trained model weights
+RL/**/*.pth
+RL/**/dqn_models/
+RL/**/ddqn_models/
+
 # Python virtual environments
 **/.venv/
 

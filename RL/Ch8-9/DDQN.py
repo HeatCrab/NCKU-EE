@@ -82,10 +82,12 @@ def optimize_model():
     # Q(s_t, a) - Q-value from policy_net for the action taken at the current state.
     state_action_values = policy_net(state_batch).gather(1, action_batch)
 
-    # V(s_{t+1}) = max_a' Q_target(s_{t+1}, a'); 0 for terminal states.
+    # Double DQN: policy_net selects the best action, target_net evaluates its value.
+    # y = r + γ * Q_target(s', argmax_a' Q_policy(s', a'))
     next_state_values = torch.zeros(BATCH_SIZE, device=device)
     with torch.no_grad():
-        next_state_values[non_final_mask] = target_net(non_final_next_states).max(1).values
+        best_actions = policy_net(non_final_next_states).max(1).indices.unsqueeze(1)
+        next_state_values[non_final_mask] = target_net(non_final_next_states).gather(1, best_actions).squeeze(1)
     # Bellman target: r + γ * V(s_{t+1})
     expected_state_action_values = (next_state_values * Discount_Factor) + reward_batch
 
@@ -163,7 +165,7 @@ if __name__ == "__main__":
     target_net = DQN(n_observations, n_actions).to(device)
 
     # model preservation path
-    MODEL_SAVE_DIR = "dqn_models"
+    MODEL_SAVE_DIR = "ddqn_models"
     POLICY_MODEL_PATH = os.path.join(MODEL_SAVE_DIR, "policy_model.pth")
     TARGET_MODEL_PATH = os.path.join(MODEL_SAVE_DIR, "target_model.pth")
     TRAINING_INFO_PATH = os.path.join(MODEL_SAVE_DIR, "training_info.pth")
@@ -173,7 +175,7 @@ if __name__ == "__main__":
     # Mode Selection
     ###########################################################################
     print("=" * 60)
-    print("DQN CartPole - Mode Selection")
+    print("DDQN CartPole - Mode Selection")
     print("=" * 60)
     print("1. Train new model")
     print("2. Demo with existing model")
@@ -247,12 +249,13 @@ if __name__ == "__main__":
 
 
         print(f"\n{'=' * 50}")
-        print("=== TRAINING MODE ===")
+        print("=== TRAINING MODE (Double DQN) ===")
         print("=" * 50)
+        print("Starting Double DQN training")
     
         # Training Configurations
-        SHOW_GAME_DURING_TRAINING = True    # Whether to render the game during training
-        SHOW_TRAINING_PROGRESS = True       # Whether to show the training progress chart
+        SHOW_GAME_DURING_TRAINING = False   # Whether to render the game during training
+        SHOW_TRAINING_PROGRESS = False      # Whether to show the training progress chart
 
         # Rendering parameters (used only when SHOW_GAME_* is True)
         RENDER_EVERY = 10       # Render the game every N episodes (during training)
