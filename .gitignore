@@ -65,5 +65,22 @@ RL/**/ddqn_models/
 # NCKU submission bundles (學號_姓名_*.zip)
 N[0-9]*_*.zip
 
+# ESL Project 1 - unpacked Synopsys VDK package (large, regenerable from .vdk.zip)
+ESL/Project 1 - Dual ARMv8 with DMA2/Teacher_approaches/_unpack_pkg3/
+
+# ESL Project 1 - NDA & large binaries (Virtualizer is under enterprise NDA)
+ESL/Project 1 - Dual ARMv8 with DMA2/Soc/Pics/
+ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.zip
+ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.bak
+ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.pdf
+ESL/Virtualizer_Docs/
+
+# Private LINE chat exports (group conversations, never commit)
+ESL/\[LINE\]*
+
+# RTK SSH key (private key — never commit)
+esl_key
+esl_key.pub
+
 # CLAUDE rule
 CLAUDE.md
