@@ -24,7 +24,7 @@ from lib.data import (
     mask_to_columns,
 )
 
-RESULTS_DIR = Path(__file__).resolve().parent.parent / "Results"
+RESULTS_DIR = Path(__file__).resolve().parent.parent / "Results" / "exhaustive"
 
 
 def _mask_features(mask: int) -> list[str]:
@@ -136,9 +136,9 @@ def main() -> None:
     for k, v in metrics.as_dict().items():
         print(f"  {k}: {v:.4f}")
 
-    RESULTS_DIR.mkdir(exist_ok=True)
-    np.save(RESULTS_DIR / "exhaustive_accuracies.npy", accuracies)
-    with (RESULTS_DIR / "exhaustive_summary.json").open("w") as f:
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    np.save(RESULTS_DIR / "accuracies.npy", accuracies)
+    with (RESULTS_DIR / "summary.json").open("w") as f:
         json.dump(
             {**summary, "best_mask_metrics": metrics.as_dict()},
             f,

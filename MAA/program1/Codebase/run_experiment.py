@@ -10,15 +10,15 @@ import time
 import numpy as np
 from pathlib import Path
 
-from benchmark import FUNCTIONS
-from ga import ga_minimize
-from pso import pso_minimize
+from lib.benchmark import FUNCTIONS
+from lib.ga import ga_minimize
+from lib.pso import pso_minimize
 
 
 NUM_RUNS = 50
 POP_SIZE = 50
 MAX_ITERS = [100, 1000]
-OUTPUT_DIR = Path(__file__).parent / "results"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "Results"
 
 
 def run_single(algo_func, func, bounds, pop_size, max_iter, seed, save_full=False):

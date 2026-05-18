@@ -14,10 +14,10 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 from pathlib import Path
 
-from benchmark import FUNCTIONS
+from lib.benchmark import FUNCTIONS
 
 
-RESULTS_DIR = Path(__file__).parent / "results"
+RESULTS_DIR = Path(__file__).resolve().parent.parent / "Results"
 PLOTS_DIR = RESULTS_DIR / "plots"
 
 
