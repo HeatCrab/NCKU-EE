@@ -14,8 +14,8 @@ from pathlib import Path
 
 import numpy as np
 
-from classifier import fit_predict_accuracy, fit_predict_full
-from data import (
+from lib.classifier import fit_predict_accuracy, fit_predict_full
+from lib.data import (
     FEATURE_ORDER,
     N_FEATURES,
     apply_age_scaler,
@@ -24,7 +24,7 @@ from data import (
     mask_to_columns,
 )
 
-RESULTS_DIR = Path(__file__).resolve().parent / "results"
+RESULTS_DIR = Path(__file__).resolve().parent.parent / "Results"
 
 
 def _mask_features(mask: int) -> list[str]:
