@@ -1,0 +1,208 @@
+{
+  "n_masks_evaluated": 65535,
+  "best_mask": 12239,
+  "best_accuracy": 0.949999988079071,
+  "best_n_features": 11,
+  "best_features": [
+    "Age",
+    "Gender",
+    "Polyuria",
+    "Polydipsia",
+    "Polyphagia",
+    "Genital thrush",
+    "visual blurring",
+    "Itching",
+    "Irritability",
+    "delayed healing",
+    "muscle stiffness"
+  ],
+  "tiebreak_rule": "accuracy desc, then n_features asc, then mask asc",
+  "top_k": [
+    {
+      "mask": 12239,
+      "accuracy": 0.949999988079071,
+      "n_features": 11,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Polyphagia",
+        "Genital thrush",
+        "visual blurring",
+        "Itching",
+        "Irritability",
+        "delayed healing",
+        "muscle stiffness"
+      ]
+    },
+    {
+      "mask": 61135,
+      "accuracy": 0.949999988079071,
+      "n_features": 12,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Polyphagia",
+        "Genital thrush",
+        "Itching",
+        "Irritability",
+        "delayed healing",
+        "muscle stiffness",
+        "Alopecia",
+        "Obesity"
+      ]
+    },
+    {
+      "mask": 36559,
+      "accuracy": 0.9480769038200378,
+      "n_features": 10,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Polyphagia",
+        "Genital thrush",
+        "Itching",
+        "Irritability",
+        "delayed healing",
+        "Obesity"
+      ]
+    },
+    {
+      "mask": 26575,
+      "accuracy": 0.9480769038200378,
+      "n_features": 11,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Polyphagia",
+        "Genital thrush",
+        "visual blurring",
+        "Itching",
+        "Irritability",
+        "muscle stiffness",
+        "Alopecia"
+      ]
+    },
+    {
+      "mask": 28623,
+      "accuracy": 0.9480769038200378,
+      "n_features": 12,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Polyphagia",
+        "Genital thrush",
+        "visual blurring",
+        "Itching",
+        "Irritability",
+        "delayed healing",
+        "muscle stiffness",
+        "Alopecia"
+      ]
+    },
+    {
+      "mask": 61391,
+      "accuracy": 0.9480769038200378,
+      "n_features": 13,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Polyphagia",
+        "Genital thrush",
+        "visual blurring",
+        "Itching",
+        "Irritability",
+        "delayed healing",
+        "muscle stiffness",
+        "Alopecia",
+        "Obesity"
+      ]
+    },
+    {
+      "mask": 26382,
+      "accuracy": 0.9461538195610046,
+      "n_features": 8,
+      "features": [
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "visual blurring",
+        "Itching",
+        "Irritability",
+        "muscle stiffness",
+        "Alopecia"
+      ]
+    },
+    {
+      "mask": 26222,
+      "accuracy": 0.9461538195610046,
+      "n_features": 9,
+      "features": [
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "weakness",
+        "Polyphagia",
+        "Itching",
+        "Irritability",
+        "muscle stiffness",
+        "Alopecia"
+      ]
+    },
+    {
+      "mask": 50895,
+      "accuracy": 0.9461538195610046,
+      "n_features": 10,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Polyphagia",
+        "Genital thrush",
+        "Itching",
+        "Irritability",
+        "Alopecia",
+        "Obesity"
+      ]
+    },
+    {
+      "mask": 40847,
+      "accuracy": 0.9461538195610046,
+      "n_features": 11,
+      "features": [
+        "Age",
+        "Gender",
+        "Polyuria",
+        "Polydipsia",
+        "Genital thrush",
+        "visual blurring",
+        "Itching",
+        "Irritability",
+        "delayed healing",
+        "partial paresis",
+        "Obesity"
+      ]
+    }
+  ],
+  "all_features_accuracy": 0.9307692307692308,
+  "majority_class_accuracy": 0.6153846153846154,
+  "best_mask_metrics": {
+    "accuracy": 0.95,
+    "sensitivity": 0.95,
+    "specificity": 0.95,
+    "precision": 0.9681528662420382,
+    "f_measure": 0.9589905362776026
+  }
+}
