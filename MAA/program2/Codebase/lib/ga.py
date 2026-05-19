@@ -38,6 +38,7 @@ def ga_maximize(
     best_pos = pop[best_idx].copy()
     best_val = float(fitness[best_idx])
     convergence = np.zeros(max_iter)
+    best_pos_history = np.zeros((max_iter, n_features), dtype=int)
 
     for gen in range(max_iter):
         new_pop = np.empty_like(pop)
@@ -71,11 +72,13 @@ def ga_maximize(
             best_pos = pop[gen_best_idx].copy()
 
         convergence[gen] = best_val
+        best_pos_history[gen] = best_pos
 
     return {
         "best_pos": best_pos,
         "best_val": best_val,
         "convergence": convergence,
+        "best_pos_history": best_pos_history,
         "final_pop": pop,
         "final_fitness": fitness,
     }

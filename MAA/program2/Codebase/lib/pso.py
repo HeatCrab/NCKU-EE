@@ -47,6 +47,7 @@ def pso_maximize(
     gbest_val = float(fitness[gbest_idx])
 
     convergence = np.zeros(max_iter)
+    best_pos_history = np.zeros((max_iter, n_features), dtype=int)
 
     for t in range(max_iter):
         w = w_max - (w_max - w_min) * t / (max_iter - 1) if max_iter > 1 else w_min
@@ -75,12 +76,14 @@ def pso_maximize(
                 gbest_pos = pos[i].copy()
 
         convergence[t] = gbest_val
+        best_pos_history[t] = threshold(gbest_pos)
 
     return {
         "best_pos": threshold(gbest_pos),
         "best_pos_continuous": gbest_pos,
         "best_val": gbest_val,
         "convergence": convergence,
+        "best_pos_history": best_pos_history,
         "final_pop": pos,
         "final_fitness": fitness,
     }

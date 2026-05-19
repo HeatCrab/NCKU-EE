@@ -85,12 +85,17 @@ def run_one_fold(X_tr, y_tr, X_te, y_te, fold_seed):
         f = make_cv_fitness(X_tr, y_tr, seed=fold_seed)
         r = algo(f, pop_size=POP_SIZE, max_iter=MAX_ITER, seed=fold_seed)
         mask = bits_to_int(r["best_pos"])
+        history_masks = [bits_to_int(b) for b in r["best_pos_history"]]
+        raw_convergence = [
+            float(f.raw_accuracy.get(m, float("nan"))) for m in history_masks
+        ]
         train_m, test_m, clust = evaluate_mask(mask, X_tr, y_tr, X_te, y_te)
         fold[name] = {
             "mask": int(mask),
             "n_features": int(r["best_pos"].sum()),
             "best_val": float(r["best_val"]),
             "convergence": r["convergence"].tolist(),
+            "raw_convergence": raw_convergence,
             "train_metrics": train_m,
             "test_metrics": test_m,
             "clustering_test_acc": clust,

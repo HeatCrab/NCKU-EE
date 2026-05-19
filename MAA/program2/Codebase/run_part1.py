@@ -43,6 +43,10 @@ def run_one_algo(algorithm, X, y):
         f = make_resub_fitness(X, y, lambda_penalty=LAMBDA)
         r = algorithm(f, pop_size=POP_SIZE, max_iter=MAX_ITER, seed=seed)
         mask = bits_to_int(r["best_pos"])
+        history_masks = [bits_to_int(b) for b in r["best_pos_history"]]
+        raw_convergence = [
+            float(f.raw_accuracy.get(m, float("nan"))) for m in history_masks
+        ]
         runs.append(
             {
                 "seed": seed,
@@ -51,6 +55,7 @@ def run_one_algo(algorithm, X, y):
                 "mask": int(mask),
                 "n_features": int(r["best_pos"].sum()),
                 "convergence": r["convergence"].tolist(),
+                "raw_convergence": raw_convergence,
                 "evals": int(f.n_evaluations),
                 "cache_hits": int(f.n_cache_hits),
             }
