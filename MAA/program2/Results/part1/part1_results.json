@@ -18,7 +18,7 @@
     "all_features_rf_accuracy": 1.0
   },
   "ga": {
-    "elapsed_seconds": 62.12,
+    "elapsed_seconds": 32.06,
     "runs": [
       {
         "seed": 0,
@@ -6424,7 +6424,13 @@
       "specificity": 0.95,
       "precision": 0.9681528662420382,
       "f_measure": 0.9589905362776026,
-      "clustering_accuracy": 0.6153846153846154
+      "clustering": {
+        "accuracy": 0.6153846153846154,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "precision": 0.6153846153846154,
+        "f_measure": 0.761904761904762
+      }
     },
     "stats_across_seeds": {
       "raw_acc_mean": 0.9499999999999997,
@@ -6435,7 +6441,7 @@
     }
   },
   "pso": {
-    "elapsed_seconds": 17.62,
+    "elapsed_seconds": 9.1,
     "runs": [
       {
         "seed": 0,
@@ -12841,7 +12847,13 @@
       "specificity": 0.95,
       "precision": 0.9681528662420382,
       "f_measure": 0.9589905362776026,
-      "clustering_accuracy": 0.6153846153846154
+      "clustering": {
+        "accuracy": 0.6153846153846154,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "precision": 0.6153846153846154,
+        "f_measure": 0.761904761904762
+      }
     },
     "stats_across_seeds": {
       "raw_acc_mean": 0.9450641025641027,

@@ -2,9 +2,9 @@
 Part I run (spec: train=test resubstitution).
 
 30 seeded runs of GA and PSO at pop=50, max_iter=100. For each algorithm's
-best mask across the 30 runs, reports the five spec classification metrics
-plus KMeans clustering accuracy. Also fits an all-features Random Forest
-once as a strong-baseline reference (PLAN §6.3).
+best mask across the 30 runs, reports the five spec metrics for both the
+classification and the KMeans clustering branch. Also fits an all-features
+Random Forest once as a strong-baseline reference (PLAN §6.3).
 
 Writes Results/part1/part1_results.json with the full per-seed log and the
 aggregated stats needed by the report.
@@ -23,7 +23,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 from lib.classifier import fit_predict_full
-from lib.cluster import cluster_classify
+from lib.cluster import cluster_classify_full
 from lib.data import apply_age_scaler, fit_age_scaler, load_dataset, mask_to_columns
 from lib.fitness import bits_to_int, make_resub_fitness
 from lib.ga import ga_maximize
@@ -77,8 +77,8 @@ def summarise_seeds(runs):
 def best_run_metrics(best_run, X, y):
     cols = mask_to_columns(best_run["mask"])
     metrics = fit_predict_full(X[:, cols], y, X[:, cols], y)
-    clustering_acc = cluster_classify(X[:, cols], y)
-    return {**metrics.as_dict(), "clustering_accuracy": clustering_acc}
+    clustering = cluster_classify_full(X[:, cols], y)
+    return {**metrics.as_dict(), "clustering": clustering.as_dict()}
 
 
 def rf_baseline(X, y, random_state=0):
@@ -143,7 +143,7 @@ def main():
             f"specificity {best_metrics['specificity']:.4f}, "
             f"precision {best_metrics['precision']:.4f}, "
             f"F-measure {best_metrics['f_measure']:.4f}, "
-            f"clustering {best_metrics['clustering_accuracy']:.4f}\n"
+            f"clustering acc {best_metrics['clustering']['accuracy']:.4f}\n"
         )
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)

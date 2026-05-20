@@ -4,8 +4,9 @@ Part II run (spec: 10 repeats × 5-fold stratified CV).
 Per outer fold: fit Age scaler on the outer training fold only, run GA and
 PSO once each with inner 3-fold StratifiedKFold fitness on the outer
 training data, take the best mask, retrain LR on the full outer training
-fold with that mask, and evaluate classification (5 metrics) plus KMeans
-clustering on the outer test fold.
+fold with that mask, and evaluate both the classification and the KMeans
+clustering branch on the five spec metrics, on both the outer training and
+test folds.
 
 Writes Results/part2/part2_results.json with per-fold logs and aggregated
 mean ± std across the 50 outer folds, for both algorithms.
@@ -24,7 +25,7 @@ import numpy as np
 from sklearn.model_selection import RepeatedStratifiedKFold, StratifiedKFold
 
 from lib.classifier import compute_metrics, fit_predict_accuracy, make_lr
-from lib.cluster import cluster_classify
+from lib.cluster import cluster_classify_full
 from lib.data import (
     N_FEATURES,
     apply_age_scaler,
@@ -75,8 +76,14 @@ def evaluate_mask(mask, X_tr, y_tr, X_te, y_te):
     test_pred = model.predict(Xte_sub)
     train_metrics = compute_metrics(y_tr, train_pred)
     test_metrics = compute_metrics(y_te, test_pred)
-    clustering_test_acc = cluster_classify(Xtr_sub, y_tr, X_eval=Xte_sub, y_eval=y_te)
-    return train_metrics.as_dict(), test_metrics.as_dict(), float(clustering_test_acc)
+    clustering_train = cluster_classify_full(Xtr_sub, y_tr)
+    clustering_test = cluster_classify_full(Xtr_sub, y_tr, X_eval=Xte_sub, y_eval=y_te)
+    return (
+        train_metrics.as_dict(),
+        test_metrics.as_dict(),
+        clustering_train.as_dict(),
+        clustering_test.as_dict(),
+    )
 
 
 def run_one_fold(X_tr, y_tr, X_te, y_te, fold_seed):
@@ -89,7 +96,9 @@ def run_one_fold(X_tr, y_tr, X_te, y_te, fold_seed):
         raw_convergence = [
             float(f.raw_accuracy.get(m, float("nan"))) for m in history_masks
         ]
-        train_m, test_m, clust = evaluate_mask(mask, X_tr, y_tr, X_te, y_te)
+        train_m, test_m, clust_tr, clust_te = evaluate_mask(
+            mask, X_tr, y_tr, X_te, y_te
+        )
         fold[name] = {
             "mask": int(mask),
             "n_features": int(r["best_pos"].sum()),
@@ -98,7 +107,8 @@ def run_one_fold(X_tr, y_tr, X_te, y_te, fold_seed):
             "raw_convergence": raw_convergence,
             "train_metrics": train_m,
             "test_metrics": test_m,
-            "clustering_test_acc": clust,
+            "clustering_train_metrics": clust_tr,
+            "clustering_test_metrics": clust_te,
         }
     return fold
 
@@ -151,14 +161,16 @@ def main():
     stats = {}
     for name in ("ga", "pso"):
         algo_stats = {}
-        for which in ("train_metrics", "test_metrics"):
+        for which in (
+            "train_metrics",
+            "test_metrics",
+            "clustering_train_metrics",
+            "clustering_test_metrics",
+        ):
             for metric in ("accuracy", "sensitivity", "specificity", "precision", "f_measure"):
                 m, s = aggregate_metric(folds, name, which, metric)
                 algo_stats[f"{which}_{metric}_mean"] = m
                 algo_stats[f"{which}_{metric}_std"] = s
-        ct_m, ct_s = aggregate(folds, name, "clustering_test_acc")
-        algo_stats["clustering_test_acc_mean"] = ct_m
-        algo_stats["clustering_test_acc_std"] = ct_s
         nf_m, nf_s = aggregate(folds, name, "n_features")
         algo_stats["n_features_mean"] = nf_m
         algo_stats["n_features_std"] = nf_s
@@ -173,7 +185,10 @@ def main():
             f"± {algo_stats['test_metrics_accuracy_std']:.4f}\n"
             f"  test  F-measure:   {algo_stats['test_metrics_f_measure_mean']:.4f} "
             f"± {algo_stats['test_metrics_f_measure_std']:.4f}\n"
-            f"  clustering test:   {ct_m:.4f} ± {ct_s:.4f}\n"
+            f"  clustering train:  {algo_stats['clustering_train_metrics_accuracy_mean']:.4f} "
+            f"± {algo_stats['clustering_train_metrics_accuracy_std']:.4f}\n"
+            f"  clustering test:   {algo_stats['clustering_test_metrics_accuracy_mean']:.4f} "
+            f"± {algo_stats['clustering_test_metrics_accuracy_std']:.4f}\n"
             f"  n_features:        {nf_m:.1f} ± {nf_s:.1f}\n"
         )
 

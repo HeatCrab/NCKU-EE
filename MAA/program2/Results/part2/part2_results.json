@@ -8,7 +8,7 @@
     "lambda_penalty": 0.005,
     "n_features": 16,
     "preprocessing": "Age z-score fit on outer training fold only",
-    "elapsed_seconds": 322.46
+    "elapsed_seconds": 179.14
   },
   "folds": [
     {
@@ -234,7 +234,20 @@
           "precision": 0.9230769230769231,
           "f_measure": 0.9302325581395349
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 64446,
@@ -458,7 +471,20 @@
           "precision": 0.9523809523809523,
           "f_measure": 0.9448818897637795
         },
-        "clustering_test_acc": 0.8365384615384616
+        "clustering_train_metrics": {
+          "accuracy": 0.7932692307692307,
+          "sensitivity": 0.67578125,
+          "specificity": 0.98125,
+          "precision": 0.9829545454545454,
+          "f_measure": 0.8009259259259258
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8365384615384616,
+          "sensitivity": 0.734375,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "f_measure": 0.8468468468468469
+        }
       },
       "fold_index": 0
     },
@@ -685,7 +711,20 @@
           "precision": 0.9666666666666667,
           "f_measure": 0.9354838709677419
         },
-        "clustering_test_acc": 0.5480769230769231
+        "clustering_train_metrics": {
+          "accuracy": 0.6442307692307693,
+          "sensitivity": 0.6328125,
+          "specificity": 0.6625,
+          "precision": 0.75,
+          "f_measure": 0.6864406779661016
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.5480769230769231,
+          "sensitivity": 0.515625,
+          "specificity": 0.6,
+          "precision": 0.673469387755102,
+          "f_measure": 0.5840707964601769
+        }
       },
       "pso": {
         "mask": 28367,
@@ -909,7 +948,20 @@
           "precision": 0.9516129032258065,
           "f_measure": 0.9365079365079365
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 1
     },
@@ -1136,7 +1188,20 @@
           "precision": 0.9180327868852459,
           "f_measure": 0.8959999999999999
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 21151,
@@ -1360,7 +1425,20 @@
           "precision": 0.9166666666666666,
           "f_measure": 0.8870967741935484
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 2
     },
@@ -1587,7 +1665,20 @@
           "precision": 0.9076923076923077,
           "f_measure": 0.9147286821705427
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 57295,
@@ -1811,7 +1902,20 @@
           "precision": 0.9538461538461539,
           "f_measure": 0.9612403100775193
         },
-        "clustering_test_acc": 0.7115384615384616
+        "clustering_train_metrics": {
+          "accuracy": 0.7019230769230769,
+          "sensitivity": 0.71875,
+          "specificity": 0.675,
+          "precision": 0.7796610169491526,
+          "f_measure": 0.7479674796747967
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7115384615384616,
+          "sensitivity": 0.78125,
+          "specificity": 0.6,
+          "precision": 0.7575757575757576,
+          "f_measure": 0.7692307692307692
+        }
       },
       "fold_index": 3
     },
@@ -2038,7 +2142,20 @@
           "precision": 0.8714285714285714,
           "f_measure": 0.9104477611940298
         },
-        "clustering_test_acc": 0.8076923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.8125,
+          "sensitivity": 0.69921875,
+          "specificity": 0.99375,
+          "precision": 0.9944444444444445,
+          "f_measure": 0.8211009174311926
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8076923076923077,
+          "sensitivity": 0.71875,
+          "specificity": 0.95,
+          "precision": 0.9583333333333334,
+          "f_measure": 0.8214285714285714
+        }
       },
       "pso": {
         "mask": 54030,
@@ -2262,7 +2379,20 @@
           "precision": 0.8676470588235294,
           "f_measure": 0.893939393939394
         },
-        "clustering_test_acc": 0.7596153846153846
+        "clustering_train_metrics": {
+          "accuracy": 0.8317307692307693,
+          "sensitivity": 0.75,
+          "specificity": 0.9625,
+          "precision": 0.9696969696969697,
+          "f_measure": 0.8458149779735683
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7596153846153846,
+          "sensitivity": 0.734375,
+          "specificity": 0.8,
+          "precision": 0.8545454545454545,
+          "f_measure": 0.7899159663865547
+        }
       },
       "fold_index": 4
     },
@@ -2489,7 +2619,20 @@
           "precision": 0.9402985074626866,
           "f_measure": 0.9618320610687023
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 63918,
@@ -2713,7 +2856,20 @@
           "precision": 0.9402985074626866,
           "f_measure": 0.9618320610687023
         },
-        "clustering_test_acc": 0.8365384615384616
+        "clustering_train_metrics": {
+          "accuracy": 0.7451923076923077,
+          "sensitivity": 0.67578125,
+          "specificity": 0.85625,
+          "precision": 0.8826530612244898,
+          "f_measure": 0.7654867256637169
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8365384615384616,
+          "sensitivity": 0.78125,
+          "specificity": 0.925,
+          "precision": 0.9433962264150944,
+          "f_measure": 0.8547008547008547
+        }
       },
       "fold_index": 5
     },
@@ -2940,7 +3096,20 @@
           "precision": 0.9253731343283582,
           "f_measure": 0.9465648854961832
         },
-        "clustering_test_acc": 0.6826923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.6778846153846154,
+          "sensitivity": 0.71875,
+          "specificity": 0.6125,
+          "precision": 0.7479674796747967,
+          "f_measure": 0.7330677290836652
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6826923076923077,
+          "sensitivity": 0.8125,
+          "specificity": 0.475,
+          "precision": 0.7123287671232876,
+          "f_measure": 0.7591240875912408
+        }
       },
       "pso": {
         "mask": 59231,
@@ -3164,7 +3333,20 @@
           "precision": 0.8955223880597015,
           "f_measure": 0.9160305343511451
         },
-        "clustering_test_acc": 0.6442307692307693
+        "clustering_train_metrics": {
+          "accuracy": 0.6201923076923077,
+          "sensitivity": 0.59765625,
+          "specificity": 0.65625,
+          "precision": 0.7355769230769231,
+          "f_measure": 0.6594827586206897
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6442307692307693,
+          "sensitivity": 0.703125,
+          "specificity": 0.55,
+          "precision": 0.7142857142857143,
+          "f_measure": 0.7086614173228346
+        }
       },
       "fold_index": 6
     },
@@ -3391,7 +3573,20 @@
           "precision": 1.0,
           "f_measure": 0.959349593495935
         },
-        "clustering_test_acc": 0.7596153846153846
+        "clustering_train_metrics": {
+          "accuracy": 0.7548076923076923,
+          "sensitivity": 0.72265625,
+          "specificity": 0.80625,
+          "precision": 0.8564814814814815,
+          "f_measure": 0.7838983050847458
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7596153846153846,
+          "sensitivity": 0.734375,
+          "specificity": 0.8,
+          "precision": 0.8545454545454545,
+          "f_measure": 0.7899159663865547
+        }
       },
       "pso": {
         "mask": 4047,
@@ -3615,7 +3810,20 @@
           "precision": 1.0,
           "f_measure": 0.9508196721311475
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 7
     },
@@ -3842,7 +4050,20 @@
           "precision": 0.9206349206349206,
           "f_measure": 0.9133858267716536
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 24223,
@@ -4066,7 +4287,20 @@
           "precision": 0.9206349206349206,
           "f_measure": 0.9133858267716536
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 8
     },
@@ -4293,7 +4527,20 @@
           "precision": 0.9516129032258065,
           "f_measure": 0.9365079365079365
         },
-        "clustering_test_acc": 0.7692307692307693
+        "clustering_train_metrics": {
+          "accuracy": 0.8293269230769231,
+          "sensitivity": 0.76953125,
+          "specificity": 0.925,
+          "precision": 0.9425837320574163,
+          "f_measure": 0.8473118279569892
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7692307692307693,
+          "sensitivity": 0.671875,
+          "specificity": 0.925,
+          "precision": 0.9347826086956522,
+          "f_measure": 0.7818181818181819
+        }
       },
       "pso": {
         "mask": 40879,
@@ -4517,7 +4764,20 @@
           "precision": 0.9516129032258065,
           "f_measure": 0.9365079365079365
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 9
     },
@@ -4744,7 +5004,20 @@
           "precision": 0.8923076923076924,
           "f_measure": 0.8992248062015504
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 19614,
@@ -4968,7 +5241,20 @@
           "precision": 0.9076923076923077,
           "f_measure": 0.9147286821705427
         },
-        "clustering_test_acc": 0.8173076923076923
+        "clustering_train_metrics": {
+          "accuracy": 0.8317307692307693,
+          "sensitivity": 0.74609375,
+          "specificity": 0.96875,
+          "precision": 0.9744897959183674,
+          "f_measure": 0.8451327433628318
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8173076923076923,
+          "sensitivity": 0.734375,
+          "specificity": 0.95,
+          "precision": 0.9591836734693877,
+          "f_measure": 0.831858407079646
+        }
       },
       "fold_index": 10
     },
@@ -5195,7 +5481,20 @@
           "precision": 0.9076923076923077,
           "f_measure": 0.9147286821705427
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 19391,
@@ -5419,7 +5718,20 @@
           "precision": 0.9354838709677419,
           "f_measure": 0.9206349206349206
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 11
     },
@@ -5646,7 +5958,20 @@
           "precision": 0.9682539682539683,
           "f_measure": 0.9606299212598425
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 3791,
@@ -5870,7 +6195,20 @@
           "precision": 0.953125,
           "f_measure": 0.953125
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 12
     },
@@ -6097,7 +6435,20 @@
           "precision": 0.9152542372881356,
           "f_measure": 0.8780487804878049
         },
-        "clustering_test_acc": 0.75
+        "clustering_train_metrics": {
+          "accuracy": 0.7764423076923077,
+          "sensitivity": 0.71875,
+          "specificity": 0.86875,
+          "precision": 0.8975609756097561,
+          "f_measure": 0.7982646420824295
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.75,
+          "sensitivity": 0.65625,
+          "specificity": 0.9,
+          "precision": 0.9130434782608695,
+          "f_measure": 0.7636363636363634
+        }
       },
       "pso": {
         "mask": 65022,
@@ -6321,7 +6672,20 @@
           "precision": 0.9152542372881356,
           "f_measure": 0.8780487804878049
         },
-        "clustering_test_acc": 0.75
+        "clustering_train_metrics": {
+          "accuracy": 0.7764423076923077,
+          "sensitivity": 0.71875,
+          "specificity": 0.86875,
+          "precision": 0.8975609756097561,
+          "f_measure": 0.7982646420824295
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.75,
+          "sensitivity": 0.65625,
+          "specificity": 0.9,
+          "precision": 0.9130434782608695,
+          "f_measure": 0.7636363636363634
+        }
       },
       "fold_index": 13
     },
@@ -6548,7 +6912,20 @@
           "precision": 0.9682539682539683,
           "f_measure": 0.9606299212598425
         },
-        "clustering_test_acc": 0.75
+        "clustering_train_metrics": {
+          "accuracy": 0.6875,
+          "sensitivity": 0.7109375,
+          "specificity": 0.65,
+          "precision": 0.7647058823529411,
+          "f_measure": 0.7368421052631579
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.75,
+          "sensitivity": 0.78125,
+          "specificity": 0.7,
+          "precision": 0.8064516129032258,
+          "f_measure": 0.7936507936507936
+        }
       },
       "pso": {
         "mask": 26590,
@@ -6772,7 +7149,20 @@
           "precision": 0.953125,
           "f_measure": 0.953125
         },
-        "clustering_test_acc": 0.8365384615384616
+        "clustering_train_metrics": {
+          "accuracy": 0.8245192307692307,
+          "sensitivity": 0.76171875,
+          "specificity": 0.925,
+          "precision": 0.9420289855072463,
+          "f_measure": 0.8423326133909287
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8365384615384616,
+          "sensitivity": 0.765625,
+          "specificity": 0.95,
+          "precision": 0.9607843137254902,
+          "f_measure": 0.8521739130434782
+        }
       },
       "fold_index": 14
     },
@@ -6999,7 +7389,20 @@
           "precision": 0.9253731343283582,
           "f_measure": 0.9465648854961832
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 4382,
@@ -7223,7 +7626,20 @@
           "precision": 0.9076923076923077,
           "f_measure": 0.9147286821705427
         },
-        "clustering_test_acc": 0.8173076923076923
+        "clustering_train_metrics": {
+          "accuracy": 0.84375,
+          "sensitivity": 0.7734375,
+          "specificity": 0.95625,
+          "precision": 0.9658536585365853,
+          "f_measure": 0.8590021691973969
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8173076923076923,
+          "sensitivity": 0.75,
+          "specificity": 0.925,
+          "precision": 0.9411764705882353,
+          "f_measure": 0.8347826086956521
+        }
       },
       "fold_index": 15
     },
@@ -7450,7 +7866,20 @@
           "precision": 0.9508196721311475,
           "f_measure": 0.9279999999999999
         },
-        "clustering_test_acc": 0.7884615384615384
+        "clustering_train_metrics": {
+          "accuracy": 0.7620192307692307,
+          "sensitivity": 0.72265625,
+          "specificity": 0.825,
+          "precision": 0.8685446009389671,
+          "f_measure": 0.7889125799573562
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7884615384615384,
+          "sensitivity": 0.828125,
+          "specificity": 0.725,
+          "precision": 0.828125,
+          "f_measure": 0.828125
+        }
       },
       "pso": {
         "mask": 61438,
@@ -7674,7 +8103,20 @@
           "precision": 0.9508196721311475,
           "f_measure": 0.9279999999999999
         },
-        "clustering_test_acc": 0.7884615384615384
+        "clustering_train_metrics": {
+          "accuracy": 0.7620192307692307,
+          "sensitivity": 0.72265625,
+          "specificity": 0.825,
+          "precision": 0.8685446009389671,
+          "f_measure": 0.7889125799573562
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7884615384615384,
+          "sensitivity": 0.828125,
+          "specificity": 0.725,
+          "precision": 0.828125,
+          "f_measure": 0.828125
+        }
       },
       "fold_index": 16
     },
@@ -7901,7 +8343,20 @@
           "precision": 0.921875,
           "f_measure": 0.921875
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 18383,
@@ -8125,7 +8580,20 @@
           "precision": 0.921875,
           "f_measure": 0.921875
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 17
     },
@@ -8352,7 +8820,20 @@
           "precision": 0.9344262295081968,
           "f_measure": 0.9120000000000001
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 7855,
@@ -8576,7 +9057,20 @@
           "precision": 0.9076923076923077,
           "f_measure": 0.9147286821705427
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 18
     },
@@ -8803,7 +9297,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.8653846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.8269230769230769,
+          "sensitivity": 0.73046875,
+          "specificity": 0.98125,
+          "precision": 0.9842105263157894,
+          "f_measure": 0.8385650224215246
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8653846153846154,
+          "sensitivity": 0.796875,
+          "specificity": 0.975,
+          "precision": 0.9807692307692307,
+          "f_measure": 0.8793103448275861
+        }
       },
       "pso": {
         "mask": 30687,
@@ -9027,7 +9534,20 @@
           "precision": 0.9538461538461539,
           "f_measure": 0.9612403100775193
         },
-        "clustering_test_acc": 0.7403846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.7019230769230769,
+          "sensitivity": 0.7265625,
+          "specificity": 0.6625,
+          "precision": 0.775,
+          "f_measure": 0.7500000000000001
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7403846153846154,
+          "sensitivity": 0.75,
+          "specificity": 0.725,
+          "precision": 0.8135593220338984,
+          "f_measure": 0.7804878048780488
+        }
       },
       "fold_index": 19
     },
@@ -9254,7 +9774,20 @@
           "precision": 0.9682539682539683,
           "f_measure": 0.9606299212598425
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 61054,
@@ -9478,7 +10011,20 @@
           "precision": 0.9523809523809523,
           "f_measure": 0.9448818897637795
         },
-        "clustering_test_acc": 0.8269230769230769
+        "clustering_train_metrics": {
+          "accuracy": 0.8125,
+          "sensitivity": 0.71484375,
+          "specificity": 0.96875,
+          "precision": 0.973404255319149,
+          "f_measure": 0.8243243243243243
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8269230769230769,
+          "sensitivity": 0.75,
+          "specificity": 0.95,
+          "precision": 0.96,
+          "f_measure": 0.8421052631578947
+        }
       },
       "fold_index": 20
     },
@@ -9705,7 +10251,20 @@
           "precision": 0.9454545454545454,
           "f_measure": 0.8739495798319329
         },
-        "clustering_test_acc": 0.7019230769230769
+        "clustering_train_metrics": {
+          "accuracy": 0.7884615384615384,
+          "sensitivity": 0.7109375,
+          "specificity": 0.9125,
+          "precision": 0.9285714285714286,
+          "f_measure": 0.8053097345132744
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7019230769230769,
+          "sensitivity": 0.640625,
+          "specificity": 0.8,
+          "precision": 0.8367346938775511,
+          "f_measure": 0.7256637168141593
+        }
       },
       "pso": {
         "mask": 20047,
@@ -9929,7 +10488,20 @@
           "precision": 0.9464285714285714,
           "f_measure": 0.8833333333333333
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 21
     },
@@ -10156,7 +10728,20 @@
           "precision": 0.953125,
           "f_measure": 0.953125
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 7935,
@@ -10380,7 +10965,20 @@
           "precision": 0.9545454545454546,
           "f_measure": 0.9692307692307692
         },
-        "clustering_test_acc": 0.6826923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.6995192307692307,
+          "sensitivity": 0.75,
+          "specificity": 0.61875,
+          "precision": 0.758893280632411,
+          "f_measure": 0.7544204322200392
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6826923076923077,
+          "sensitivity": 0.765625,
+          "specificity": 0.55,
+          "precision": 0.7313432835820896,
+          "f_measure": 0.748091603053435
+        }
       },
       "fold_index": 22
     },
@@ -10607,7 +11205,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.8653846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.8221153846153846,
+          "sensitivity": 0.76953125,
+          "specificity": 0.90625,
+          "precision": 0.9292452830188679,
+          "f_measure": 0.8418803418803419
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8653846153846154,
+          "sensitivity": 0.828125,
+          "specificity": 0.925,
+          "precision": 0.9464285714285714,
+          "f_measure": 0.8833333333333333
+        }
       },
       "pso": {
         "mask": 10078,
@@ -10831,7 +11442,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.8653846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.8221153846153846,
+          "sensitivity": 0.76953125,
+          "specificity": 0.90625,
+          "precision": 0.9292452830188679,
+          "f_measure": 0.8418803418803419
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8653846153846154,
+          "sensitivity": 0.828125,
+          "specificity": 0.925,
+          "precision": 0.9464285714285714,
+          "f_measure": 0.8833333333333333
+        }
       },
       "fold_index": 23
     },
@@ -11058,7 +11682,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.8173076923076923
+        "clustering_train_metrics": {
+          "accuracy": 0.8173076923076923,
+          "sensitivity": 0.71484375,
+          "specificity": 0.98125,
+          "precision": 0.9838709677419355,
+          "f_measure": 0.828054298642534
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8173076923076923,
+          "sensitivity": 0.703125,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "f_measure": 0.8256880733944955
+        }
       },
       "pso": {
         "mask": 20303,
@@ -11282,7 +11919,20 @@
           "precision": 0.953125,
           "f_measure": 0.953125
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 24
     },
@@ -11509,7 +12159,20 @@
           "precision": 0.9827586206896551,
           "f_measure": 0.9344262295081966
         },
-        "clustering_test_acc": 0.7980769230769231
+        "clustering_train_metrics": {
+          "accuracy": 0.78125,
+          "sensitivity": 0.703125,
+          "specificity": 0.90625,
+          "precision": 0.9230769230769231,
+          "f_measure": 0.7982261640798226
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7980769230769231,
+          "sensitivity": 0.71875,
+          "specificity": 0.925,
+          "precision": 0.9387755102040817,
+          "f_measure": 0.8141592920353982
+        }
       },
       "pso": {
         "mask": 48958,
@@ -11733,7 +12396,20 @@
           "precision": 0.9827586206896551,
           "f_measure": 0.9344262295081966
         },
-        "clustering_test_acc": 0.7403846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.7091346153846154,
+          "sensitivity": 0.69921875,
+          "specificity": 0.725,
+          "precision": 0.8026905829596412,
+          "f_measure": 0.7473903966597077
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7403846153846154,
+          "sensitivity": 0.71875,
+          "specificity": 0.775,
+          "precision": 0.8363636363636363,
+          "f_measure": 0.7731092436974789
+        }
       },
       "fold_index": 25
     },
@@ -11960,7 +12636,20 @@
           "precision": 0.8695652173913043,
           "f_measure": 0.9022556390977444
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 51151,
@@ -12184,7 +12873,20 @@
           "precision": 0.8695652173913043,
           "f_measure": 0.9022556390977444
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 26
     },
@@ -12411,7 +13113,20 @@
           "precision": 0.9375,
           "f_measure": 0.9375
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 20447,
@@ -12635,7 +13350,20 @@
           "precision": 0.9365079365079365,
           "f_measure": 0.9291338582677166
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 27
     },
@@ -12862,7 +13590,20 @@
           "precision": 0.9666666666666667,
           "f_measure": 0.9354838709677419
         },
-        "clustering_test_acc": 0.7403846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.7355769230769231,
+          "sensitivity": 0.73046875,
+          "specificity": 0.74375,
+          "precision": 0.8201754385964912,
+          "f_measure": 0.7727272727272727
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7403846153846154,
+          "sensitivity": 0.734375,
+          "specificity": 0.75,
+          "precision": 0.8245614035087719,
+          "f_measure": 0.7768595041322315
+        }
       },
       "pso": {
         "mask": 48879,
@@ -13086,7 +13827,20 @@
           "precision": 0.9076923076923077,
           "f_measure": 0.9147286821705427
         },
-        "clustering_test_acc": 0.6923076923076923
+        "clustering_train_metrics": {
+          "accuracy": 0.6947115384615384,
+          "sensitivity": 0.69921875,
+          "specificity": 0.6875,
+          "precision": 0.7816593886462883,
+          "f_measure": 0.7381443298969071
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6923076923076923,
+          "sensitivity": 0.75,
+          "specificity": 0.6,
+          "precision": 0.75,
+          "f_measure": 0.75
+        }
       },
       "fold_index": 28
     },
@@ -13313,7 +14067,20 @@
           "precision": 0.9841269841269841,
           "f_measure": 0.9763779527559054
         },
-        "clustering_test_acc": 0.6730769230769231
+        "clustering_train_metrics": {
+          "accuracy": 0.6923076923076923,
+          "sensitivity": 0.72265625,
+          "specificity": 0.64375,
+          "precision": 0.7644628099173554,
+          "f_measure": 0.7429718875502008
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6730769230769231,
+          "sensitivity": 0.640625,
+          "specificity": 0.725,
+          "precision": 0.7884615384615384,
+          "f_measure": 0.7068965517241379
+        }
       },
       "pso": {
         "mask": 15962,
@@ -13537,7 +14304,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.7884615384615384
+        "clustering_train_metrics": {
+          "accuracy": 0.7427884615384616,
+          "sensitivity": 0.68359375,
+          "specificity": 0.8375,
+          "precision": 0.8706467661691543,
+          "f_measure": 0.7658643326039388
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7884615384615384,
+          "sensitivity": 0.703125,
+          "specificity": 0.925,
+          "precision": 0.9375,
+          "f_measure": 0.8035714285714286
+        }
       },
       "fold_index": 29
     },
@@ -13764,7 +14544,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 28367,
@@ -13988,7 +14781,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 30
     },
@@ -14215,7 +15021,20 @@
           "precision": 0.9516129032258065,
           "f_measure": 0.9365079365079365
         },
-        "clustering_test_acc": 0.8076923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.8269230769230769,
+          "sensitivity": 0.7578125,
+          "specificity": 0.9375,
+          "precision": 0.9509803921568627,
+          "f_measure": 0.8434782608695651
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8076923076923077,
+          "sensitivity": 0.703125,
+          "specificity": 0.975,
+          "precision": 0.9782608695652174,
+          "f_measure": 0.8181818181818182
+        }
       },
       "pso": {
         "mask": 39598,
@@ -14439,7 +15258,20 @@
           "precision": 0.9344262295081968,
           "f_measure": 0.9120000000000001
         },
-        "clustering_test_acc": 0.75
+        "clustering_train_metrics": {
+          "accuracy": 0.8149038461538461,
+          "sensitivity": 0.7109375,
+          "specificity": 0.98125,
+          "precision": 0.9837837837837838,
+          "f_measure": 0.8253968253968254
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.75,
+          "sensitivity": 0.609375,
+          "specificity": 0.975,
+          "precision": 0.975,
+          "f_measure": 0.7499999999999999
+        }
       },
       "fold_index": 31
     },
@@ -14666,7 +15498,20 @@
           "precision": 0.8695652173913043,
           "f_measure": 0.9022556390977444
         },
-        "clustering_test_acc": 0.7692307692307693
+        "clustering_train_metrics": {
+          "accuracy": 0.7980769230769231,
+          "sensitivity": 0.6953125,
+          "specificity": 0.9625,
+          "precision": 0.967391304347826,
+          "f_measure": 0.809090909090909
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7692307692307693,
+          "sensitivity": 0.703125,
+          "specificity": 0.875,
+          "precision": 0.9,
+          "f_measure": 0.7894736842105263
+        }
       },
       "pso": {
         "mask": 14043,
@@ -14890,7 +15735,20 @@
           "precision": 0.90625,
           "f_measure": 0.90625
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 32
     },
@@ -15117,7 +15975,20 @@
           "precision": 0.9523809523809523,
           "f_measure": 0.9448818897637795
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 28431,
@@ -15341,7 +16212,20 @@
           "precision": 0.9836065573770492,
           "f_measure": 0.96
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 33
     },
@@ -15568,7 +16452,20 @@
           "precision": 0.9661016949152542,
           "f_measure": 0.9268292682926829
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 26446,
@@ -15792,7 +16689,20 @@
           "precision": 0.9666666666666667,
           "f_measure": 0.9354838709677419
         },
-        "clustering_test_acc": 0.8076923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.8221153846153846,
+          "sensitivity": 0.7734375,
+          "specificity": 0.9,
+          "precision": 0.9252336448598131,
+          "f_measure": 0.8425531914893617
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8076923076923077,
+          "sensitivity": 0.71875,
+          "specificity": 0.95,
+          "precision": 0.9583333333333334,
+          "f_measure": 0.8214285714285714
+        }
       },
       "fold_index": 34
     },
@@ -16019,7 +16929,20 @@
           "precision": 0.9655172413793104,
           "f_measure": 0.9180327868852458
         },
-        "clustering_test_acc": 0.75
+        "clustering_train_metrics": {
+          "accuracy": 0.7475961538461539,
+          "sensitivity": 0.69140625,
+          "specificity": 0.8375,
+          "precision": 0.8719211822660099,
+          "f_measure": 0.7712418300653596
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.75,
+          "sensitivity": 0.71875,
+          "specificity": 0.8,
+          "precision": 0.8518518518518519,
+          "f_measure": 0.7796610169491525
+        }
       },
       "pso": {
         "mask": 42974,
@@ -16243,7 +17166,20 @@
           "precision": 0.9661016949152542,
           "f_measure": 0.9268292682926829
         },
-        "clustering_test_acc": 0.8173076923076923
+        "clustering_train_metrics": {
+          "accuracy": 0.8221153846153846,
+          "sensitivity": 0.765625,
+          "specificity": 0.9125,
+          "precision": 0.9333333333333333,
+          "f_measure": 0.8412017167381974
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8173076923076923,
+          "sensitivity": 0.765625,
+          "specificity": 0.9,
+          "precision": 0.9245283018867925,
+          "f_measure": 0.8376068376068376
+        }
       },
       "fold_index": 35
     },
@@ -16470,7 +17406,20 @@
           "precision": 0.9206349206349206,
           "f_measure": 0.9133858267716536
         },
-        "clustering_test_acc": 0.75
+        "clustering_train_metrics": {
+          "accuracy": 0.8245192307692307,
+          "sensitivity": 0.71875,
+          "specificity": 0.99375,
+          "precision": 0.9945945945945946,
+          "f_measure": 0.8344671201814059
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.75,
+          "sensitivity": 0.625,
+          "specificity": 0.95,
+          "precision": 0.9523809523809523,
+          "f_measure": 0.7547169811320755
+        }
       },
       "pso": {
         "mask": 65470,
@@ -16694,7 +17643,20 @@
           "precision": 0.9206349206349206,
           "f_measure": 0.9133858267716536
         },
-        "clustering_test_acc": 0.75
+        "clustering_train_metrics": {
+          "accuracy": 0.8245192307692307,
+          "sensitivity": 0.71875,
+          "specificity": 0.99375,
+          "precision": 0.9945945945945946,
+          "f_measure": 0.8344671201814059
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.75,
+          "sensitivity": 0.625,
+          "specificity": 0.95,
+          "precision": 0.9523809523809523,
+          "f_measure": 0.7547169811320755
+        }
       },
       "fold_index": 36
     },
@@ -16921,7 +17883,20 @@
           "precision": 0.9253731343283582,
           "f_measure": 0.9465648854961832
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 7503,
@@ -17145,7 +18120,20 @@
           "precision": 0.8970588235294118,
           "f_measure": 0.9242424242424244
         },
-        "clustering_test_acc": 0.7019230769230769
+        "clustering_train_metrics": {
+          "accuracy": 0.6850961538461539,
+          "sensitivity": 0.6953125,
+          "specificity": 0.66875,
+          "precision": 0.7705627705627706,
+          "f_measure": 0.7310061601642712
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7019230769230769,
+          "sensitivity": 0.734375,
+          "specificity": 0.65,
+          "precision": 0.7704918032786885,
+          "f_measure": 0.7519999999999999
+        }
       },
       "fold_index": 37
     },
@@ -17372,7 +18360,20 @@
           "precision": 0.9538461538461539,
           "f_measure": 0.9612403100775193
         },
-        "clustering_test_acc": 0.6442307692307693
+        "clustering_train_metrics": {
+          "accuracy": 0.6201923076923077,
+          "sensitivity": 0.62109375,
+          "specificity": 0.61875,
+          "precision": 0.7227272727272728,
+          "f_measure": 0.6680672268907564
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6442307692307693,
+          "sensitivity": 0.609375,
+          "specificity": 0.7,
+          "precision": 0.7647058823529411,
+          "f_measure": 0.6782608695652174
+        }
       },
       "pso": {
         "mask": 39967,
@@ -17596,7 +18597,20 @@
           "precision": 0.9384615384615385,
           "f_measure": 0.9457364341085271
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 38
     },
@@ -17823,7 +18837,20 @@
           "precision": 0.9242424242424242,
           "f_measure": 0.9384615384615383
         },
-        "clustering_test_acc": 0.8076923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.8269230769230769,
+          "sensitivity": 0.75390625,
+          "specificity": 0.94375,
+          "precision": 0.9554455445544554,
+          "f_measure": 0.8427947598253276
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8076923076923077,
+          "sensitivity": 0.734375,
+          "specificity": 0.925,
+          "precision": 0.94,
+          "f_measure": 0.8245614035087719
+        }
       },
       "pso": {
         "mask": 11854,
@@ -18047,7 +19074,20 @@
           "precision": 0.9242424242424242,
           "f_measure": 0.9384615384615383
         },
-        "clustering_test_acc": 0.8076923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.8269230769230769,
+          "sensitivity": 0.75390625,
+          "specificity": 0.94375,
+          "precision": 0.9554455445544554,
+          "f_measure": 0.8427947598253276
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8076923076923077,
+          "sensitivity": 0.734375,
+          "specificity": 0.925,
+          "precision": 0.94,
+          "f_measure": 0.8245614035087719
+        }
       },
       "fold_index": 39
     },
@@ -18274,7 +19314,20 @@
           "precision": 0.9402985074626866,
           "f_measure": 0.9618320610687023
         },
-        "clustering_test_acc": 0.8269230769230769
+        "clustering_train_metrics": {
+          "accuracy": 0.8052884615384616,
+          "sensitivity": 0.68359375,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "f_measure": 0.8120649651972158
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8269230769230769,
+          "sensitivity": 0.71875,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "f_measure": 0.8363636363636363
+        }
       },
       "pso": {
         "mask": 38703,
@@ -18498,7 +19551,20 @@
           "precision": 0.9545454545454546,
           "f_measure": 0.9692307692307692
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 40
     },
@@ -18725,7 +19791,20 @@
           "precision": 0.9344262295081968,
           "f_measure": 0.9120000000000001
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 30446,
@@ -18949,7 +20028,20 @@
           "precision": 0.9206349206349206,
           "f_measure": 0.9133858267716536
         },
-        "clustering_test_acc": 0.7884615384615384
+        "clustering_train_metrics": {
+          "accuracy": 0.7860576923076923,
+          "sensitivity": 0.69921875,
+          "specificity": 0.925,
+          "precision": 0.93717277486911,
+          "f_measure": 0.8008948545861297
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7884615384615384,
+          "sensitivity": 0.671875,
+          "specificity": 0.975,
+          "precision": 0.9772727272727273,
+          "f_measure": 0.7962962962962963
+        }
       },
       "fold_index": 41
     },
@@ -19176,7 +20268,20 @@
           "precision": 0.95,
           "f_measure": 0.9193548387096774
         },
-        "clustering_test_acc": 0.7115384615384616
+        "clustering_train_metrics": {
+          "accuracy": 0.7019230769230769,
+          "sensitivity": 0.73046875,
+          "specificity": 0.65625,
+          "precision": 0.7727272727272727,
+          "f_measure": 0.751004016064257
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7115384615384616,
+          "sensitivity": 0.71875,
+          "specificity": 0.7,
+          "precision": 0.7931034482758621,
+          "f_measure": 0.7540983606557378
+        }
       },
       "pso": {
         "mask": 3662,
@@ -19400,7 +20505,20 @@
           "precision": 0.9516129032258065,
           "f_measure": 0.9365079365079365
         },
-        "clustering_test_acc": 0.8365384615384616
+        "clustering_train_metrics": {
+          "accuracy": 0.8173076923076923,
+          "sensitivity": 0.74609375,
+          "specificity": 0.93125,
+          "precision": 0.9455445544554455,
+          "f_measure": 0.8340611353711791
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8365384615384616,
+          "sensitivity": 0.75,
+          "specificity": 0.975,
+          "precision": 0.9795918367346939,
+          "f_measure": 0.8495575221238937
+        }
       },
       "fold_index": 42
     },
@@ -19627,7 +20745,20 @@
           "precision": 0.9661016949152542,
           "f_measure": 0.9268292682926829
         },
-        "clustering_test_acc": 0.7211538461538461
+        "clustering_train_metrics": {
+          "accuracy": 0.7548076923076923,
+          "sensitivity": 0.7734375,
+          "specificity": 0.725,
+          "precision": 0.8181818181818182,
+          "f_measure": 0.7951807228915662
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.7211538461538461,
+          "sensitivity": 0.765625,
+          "specificity": 0.65,
+          "precision": 0.7777777777777778,
+          "f_measure": 0.7716535433070867
+        }
       },
       "pso": {
         "mask": 47007,
@@ -19851,7 +20982,20 @@
           "precision": 0.9508196721311475,
           "f_measure": 0.9279999999999999
         },
-        "clustering_test_acc": 0.6538461538461539
+        "clustering_train_metrics": {
+          "accuracy": 0.6298076923076923,
+          "sensitivity": 0.625,
+          "specificity": 0.6375,
+          "precision": 0.7339449541284404,
+          "f_measure": 0.6751054852320675
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6538461538461539,
+          "sensitivity": 0.6875,
+          "specificity": 0.6,
+          "precision": 0.7333333333333333,
+          "f_measure": 0.7096774193548386
+        }
       },
       "fold_index": 43
     },
@@ -20078,7 +21222,20 @@
           "precision": 0.9117647058823529,
           "f_measure": 0.9393939393939394
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 19503,
@@ -20302,7 +21459,20 @@
           "precision": 0.8970588235294118,
           "f_measure": 0.9242424242424244
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 44
     },
@@ -20529,7 +21699,20 @@
           "precision": 0.9516129032258065,
           "f_measure": 0.9365079365079365
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 28623,
@@ -20753,7 +21936,20 @@
           "precision": 0.9516129032258065,
           "f_measure": 0.9365079365079365
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 45
     },
@@ -20980,7 +22176,20 @@
           "precision": 0.9365079365079365,
           "f_measure": 0.9291338582677166
         },
-        "clustering_test_acc": 0.8173076923076923
+        "clustering_train_metrics": {
+          "accuracy": 0.8125,
+          "sensitivity": 0.734375,
+          "specificity": 0.9375,
+          "precision": 0.9494949494949495,
+          "f_measure": 0.828193832599119
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8173076923076923,
+          "sensitivity": 0.75,
+          "specificity": 0.925,
+          "precision": 0.9411764705882353,
+          "f_measure": 0.8347826086956521
+        }
       },
       "pso": {
         "mask": 34366,
@@ -21204,7 +22413,20 @@
           "precision": 0.95,
           "f_measure": 0.9193548387096774
         },
-        "clustering_test_acc": 0.8269230769230769
+        "clustering_train_metrics": {
+          "accuracy": 0.8365384615384616,
+          "sensitivity": 0.76171875,
+          "specificity": 0.95625,
+          "precision": 0.9653465346534653,
+          "f_measure": 0.851528384279476
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8269230769230769,
+          "sensitivity": 0.765625,
+          "specificity": 0.925,
+          "precision": 0.9423076923076923,
+          "f_measure": 0.8448275862068965
+        }
       },
       "fold_index": 46
     },
@@ -21431,7 +22653,20 @@
           "precision": 0.96875,
           "f_measure": 0.96875
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 55183,
@@ -21655,7 +22890,20 @@
           "precision": 0.9692307692307692,
           "f_measure": 0.9767441860465116
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 47
     },
@@ -21882,7 +23130,20 @@
           "precision": 0.9661016949152542,
           "f_measure": 0.9268292682926829
         },
-        "clustering_test_acc": 0.8076923076923077
+        "clustering_train_metrics": {
+          "accuracy": 0.8341346153846154,
+          "sensitivity": 0.7421875,
+          "specificity": 0.98125,
+          "precision": 0.9844559585492227,
+          "f_measure": 0.846325167037862
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.8076923076923077,
+          "sensitivity": 0.6875,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "f_measure": 0.8148148148148148
+        }
       },
       "pso": {
         "mask": 63151,
@@ -22106,7 +23367,20 @@
           "precision": 0.9365079365079365,
           "f_measure": 0.9291338582677166
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 48
     },
@@ -22333,7 +23607,20 @@
           "precision": 0.9242424242424242,
           "f_measure": 0.9384615384615383
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "pso": {
         "mask": 3167,
@@ -22557,7 +23844,20 @@
           "precision": 0.9242424242424242,
           "f_measure": 0.9384615384615383
         },
-        "clustering_test_acc": 0.6153846153846154
+        "clustering_train_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        },
+        "clustering_test_metrics": {
+          "accuracy": 0.6153846153846154,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.6153846153846154,
+          "f_measure": 0.761904761904762
+        }
       },
       "fold_index": 49
     }
@@ -22584,8 +23884,26 @@
       "test_metrics_precision_std": 0.028037023182250338,
       "test_metrics_f_measure_mean": 0.9326036378578532,
       "test_metrics_f_measure_std": 0.022336498083156943,
-      "clustering_test_acc_mean": 0.69,
-      "clustering_test_acc_std": 0.0873585077467538,
+      "clustering_train_metrics_accuracy_mean": 0.6946153846153845,
+      "clustering_train_metrics_accuracy_std": 0.08803061849663107,
+      "clustering_train_metrics_sensitivity_mean": 0.85359375,
+      "clustering_train_metrics_sensitivity_std": 0.14294578025863514,
+      "clustering_train_metrics_specificity_mean": 0.44025,
+      "clustering_train_metrics_specificity_std": 0.43378450871371604,
+      "clustering_train_metrics_precision_mean": 0.7582610606525929,
+      "clustering_train_metrics_precision_std": 0.15179662219477214,
+      "clustering_train_metrics_f_measure_mean": 0.7782239320613646,
+      "clustering_train_metrics_f_measure_std": 0.03803816451179257,
+      "clustering_test_metrics_accuracy_mean": 0.69,
+      "clustering_test_metrics_accuracy_std": 0.0873585077467538,
+      "clustering_test_metrics_sensitivity_mean": 0.8503125,
+      "clustering_test_metrics_sensitivity_std": 0.1524247380881791,
+      "clustering_test_metrics_specificity_mean": 0.4335,
+      "clustering_test_metrics_specificity_std": 0.4283867995165117,
+      "clustering_test_metrics_precision_mean": 0.7533059722578055,
+      "clustering_test_metrics_precision_std": 0.14811866538239887,
+      "clustering_test_metrics_f_measure_mean": 0.77351927200664,
+      "clustering_test_metrics_f_measure_std": 0.045590741158833714,
       "n_features_mean": 10.12,
       "n_features_std": 1.8290981384277882
     },
@@ -22610,8 +23928,26 @@
       "test_metrics_precision_std": 0.026771070550755862,
       "test_metrics_f_measure_mean": 0.9312952154862607,
       "test_metrics_f_measure_std": 0.022299106845077146,
-      "clustering_test_acc_mean": 0.7005769230769231,
-      "clustering_test_acc_std": 0.09020050807398332,
+      "clustering_train_metrics_accuracy_mean": 0.6986538461538462,
+      "clustering_train_metrics_accuracy_std": 0.09070595496587965,
+      "clustering_train_metrics_sensitivity_mean": 0.848671875,
+      "clustering_train_metrics_sensitivity_std": 0.14315819501107202,
+      "clustering_train_metrics_specificity_mean": 0.45862499999999995,
+      "clustering_train_metrics_specificity_std": 0.43339482937040213,
+      "clustering_train_metrics_precision_mean": 0.7637873746659976,
+      "clustering_train_metrics_precision_std": 0.15103676006811395,
+      "clustering_train_metrics_f_measure_mean": 0.7795633186101731,
+      "clustering_train_metrics_f_measure_std": 0.04282649630941308,
+      "clustering_test_metrics_accuracy_mean": 0.7005769230769231,
+      "clustering_test_metrics_accuracy_std": 0.09020050807398332,
+      "clustering_test_metrics_sensitivity_mean": 0.8559375,
+      "clustering_test_metrics_sensitivity_std": 0.13807726833642822,
+      "clustering_test_metrics_specificity_mean": 0.452,
+      "clustering_test_metrics_specificity_std": 0.43133049973309334,
+      "clustering_test_metrics_precision_mean": 0.7630879407329713,
+      "clustering_test_metrics_precision_std": 0.1517294387046175,
+      "clustering_test_metrics_f_measure_mean": 0.7825022593020463,
+      "clustering_test_metrics_f_measure_std": 0.03916767682402147,
       "n_features_mean": 10.48,
       "n_features_std": 1.8787229705307804
     }
