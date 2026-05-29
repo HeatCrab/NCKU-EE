@@ -55,6 +55,7 @@ CVDL/**/data.zip
 RL/**/*.pth
 RL/**/dqn_models/
 RL/**/ddqn_models/
+RL/**/sb3_models/
 
 # Python virtual environments
 **/.venv/
