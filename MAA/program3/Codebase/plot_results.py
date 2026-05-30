@@ -2,7 +2,7 @@
 Generate route and convergence figures from the Part I / Part II results.
 
 Reads best_tours.json and convergence.npz from Results/part1 and Results/part2,
-plus the instance-24 coordinates, and writes to Results/figures/:
+plus the instance-24 coordinates, and writes to Report/Pics/:
   - route_part1_{algo}_{K}.png   representative tours, 6 plots, 1-indexed labels
   - route_part2_{algo}.png       representative tours, forbidden edges in red
   - convergence_part1.png        mean +/- std curves over the 6 cells
@@ -26,6 +26,7 @@ from lib.data import load_instance_24
 from lib.fitness import build_forbidden_mask
 
 DEFAULT_RESULTS_ROOT = CODEBASE.parent / "Results"
+DEFAULT_FIG_DIR = CODEBASE.parent / "Report" / "Pics"
 
 GA_COLOR = "C0"
 PSO_COLOR = "C1"
@@ -109,11 +110,12 @@ def load_npz(path):
 def main() -> None:
     parser = argparse.ArgumentParser(description="Plot Part I/II route + convergence figures")
     parser.add_argument("--results-root", type=Path, default=DEFAULT_RESULTS_ROOT)
+    parser.add_argument("--fig-dir", type=Path, default=DEFAULT_FIG_DIR)
     args = parser.parse_args()
 
     part1_dir = args.results_root / "part1"
     part2_dir = args.results_root / "part2"
-    fig_dir = args.results_root / "figures"
+    fig_dir = args.fig_dir
     fig_dir.mkdir(parents=True, exist_ok=True)
     coords, _ = load_instance_24()
 
