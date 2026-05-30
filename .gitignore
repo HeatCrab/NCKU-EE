@@ -85,5 +85,8 @@ esl_key.pub
 # Installer downloads (regenerable, large)
 Anaconda3-*.sh
 
+# MAA Program III - Kaggle TSPLIB raw dataset (215.5 MB, regenerable from URL)
+MAA/program3/Data/tsp_dataset.csv
+
 # CLAUDE rule
 CLAUDE.md
