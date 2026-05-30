@@ -1,0 +1,457 @@
+{
+  "config": {
+    "part": 2,
+    "n_seeds": 30,
+    "max_iter": 500,
+    "n_cities": 30,
+    "lambda": 6611.81073895534,
+    "cell_order": [
+      "ga",
+      "pso"
+    ]
+  },
+  "cells": {
+    "ga": {
+      "best_distance": 1190.7441599486172,
+      "best_fitness": 1190.7441599486172,
+      "avg_distance": 1216.8942995725854,
+      "comp_time": 0.880857808333288,
+      "forbidden_edge_count": 0,
+      "min_pure_distance": 1190.7441599486172,
+      "infeasibility_flag": false,
+      "runs": [
+        {
+          "seed": 0,
+          "distance": 1205.4432578225367,
+          "fitness": 1205.4432578225367,
+          "forbidden_edges": 0,
+          "time": 0.8738967090030201
+        },
+        {
+          "seed": 1,
+          "distance": 1233.1957397343895,
+          "fitness": 1233.1957397343895,
+          "forbidden_edges": 0,
+          "time": 0.8634400000009919
+        },
+        {
+          "seed": 2,
+          "distance": 1216.3030535761197,
+          "fitness": 1216.3030535761197,
+          "forbidden_edges": 0,
+          "time": 0.8673122079999303
+        },
+        {
+          "seed": 3,
+          "distance": 1190.7923838970999,
+          "fitness": 1190.7923838970999,
+          "forbidden_edges": 0,
+          "time": 0.8632529160022386
+        },
+        {
+          "seed": 4,
+          "distance": 1214.036413098438,
+          "fitness": 1214.036413098438,
+          "forbidden_edges": 0,
+          "time": 0.8763159580048523
+        },
+        {
+          "seed": 5,
+          "distance": 1192.8955026696779,
+          "fitness": 1192.8955026696779,
+          "forbidden_edges": 0,
+          "time": 0.8651956249959767
+        },
+        {
+          "seed": 6,
+          "distance": 1242.700485740827,
+          "fitness": 1242.700485740827,
+          "forbidden_edges": 0,
+          "time": 0.8902711249975255
+        },
+        {
+          "seed": 7,
+          "distance": 1213.686489651744,
+          "fitness": 1213.686489651744,
+          "forbidden_edges": 0,
+          "time": 0.8918663750009728
+        },
+        {
+          "seed": 8,
+          "distance": 1214.1316701109952,
+          "fitness": 1214.1316701109952,
+          "forbidden_edges": 0,
+          "time": 0.9098554590018466
+        },
+        {
+          "seed": 9,
+          "distance": 1218.895314373931,
+          "fitness": 1218.895314373931,
+          "forbidden_edges": 0,
+          "time": 0.8792951249997714
+        },
+        {
+          "seed": 10,
+          "distance": 1241.453734836162,
+          "fitness": 1241.453734836162,
+          "forbidden_edges": 0,
+          "time": 0.871096208000381
+        },
+        {
+          "seed": 11,
+          "distance": 1190.7441599486172,
+          "fitness": 1190.7441599486172,
+          "forbidden_edges": 0,
+          "time": 0.8979881249979371
+        },
+        {
+          "seed": 12,
+          "distance": 1228.75350468429,
+          "fitness": 1228.75350468429,
+          "forbidden_edges": 0,
+          "time": 0.8699561670000548
+        },
+        {
+          "seed": 13,
+          "distance": 1246.789413126655,
+          "fitness": 1246.789413126655,
+          "forbidden_edges": 0,
+          "time": 0.8595550829995773
+        },
+        {
+          "seed": 14,
+          "distance": 1225.7592388558542,
+          "fitness": 1225.7592388558542,
+          "forbidden_edges": 0,
+          "time": 0.8952657500049099
+        },
+        {
+          "seed": 15,
+          "distance": 1220.7423539090805,
+          "fitness": 1220.7423539090805,
+          "forbidden_edges": 0,
+          "time": 0.8678872079981375
+        },
+        {
+          "seed": 16,
+          "distance": 1206.9787025203195,
+          "fitness": 1206.9787025203195,
+          "forbidden_edges": 0,
+          "time": 0.8761249169983785
+        },
+        {
+          "seed": 17,
+          "distance": 1210.2184502343734,
+          "fitness": 1210.2184502343734,
+          "forbidden_edges": 0,
+          "time": 0.8661506670032395
+        },
+        {
+          "seed": 18,
+          "distance": 1207.5419838460894,
+          "fitness": 1207.5419838460894,
+          "forbidden_edges": 0,
+          "time": 0.8840617079986259
+        },
+        {
+          "seed": 19,
+          "distance": 1233.6260040535442,
+          "fitness": 1233.6260040535442,
+          "forbidden_edges": 0,
+          "time": 0.9211992080017808
+        },
+        {
+          "seed": 20,
+          "distance": 1212.8679234826336,
+          "fitness": 1212.8679234826336,
+          "forbidden_edges": 0,
+          "time": 0.8591787909972481
+        },
+        {
+          "seed": 21,
+          "distance": 1216.9905564720596,
+          "fitness": 1216.9905564720596,
+          "forbidden_edges": 0,
+          "time": 0.8528780420019757
+        },
+        {
+          "seed": 22,
+          "distance": 1200.6017248998357,
+          "fitness": 1200.6017248998357,
+          "forbidden_edges": 0,
+          "time": 0.9882344999932684
+        },
+        {
+          "seed": 23,
+          "distance": 1216.7563811890655,
+          "fitness": 1216.7563811890655,
+          "forbidden_edges": 0,
+          "time": 0.8847334169986425
+        },
+        {
+          "seed": 24,
+          "distance": 1210.2439692197981,
+          "fitness": 1210.2439692197981,
+          "forbidden_edges": 0,
+          "time": 0.8625659169993014
+        },
+        {
+          "seed": 25,
+          "distance": 1195.0416929586454,
+          "fitness": 1195.0416929586454,
+          "forbidden_edges": 0,
+          "time": 0.8672825839967118
+        },
+        {
+          "seed": 26,
+          "distance": 1255.4508680475897,
+          "fitness": 1255.4508680475897,
+          "forbidden_edges": 0,
+          "time": 0.8649736250008573
+        },
+        {
+          "seed": 27,
+          "distance": 1211.4068078028731,
+          "fitness": 1211.4068078028731,
+          "forbidden_edges": 0,
+          "time": 0.8601146660002996
+        },
+        {
+          "seed": 28,
+          "distance": 1209.2761589661425,
+          "fitness": 1209.2761589661425,
+          "forbidden_edges": 0,
+          "time": 0.9014415830024518
+        },
+        {
+          "seed": 29,
+          "distance": 1223.5050474481661,
+          "fitness": 1223.5050474481661,
+          "forbidden_edges": 0,
+          "time": 0.8943445839977358
+        }
+      ]
+    },
+    "pso": {
+      "best_distance": 1372.6163041271548,
+      "best_fitness": 1372.6163041271548,
+      "avg_distance": 1400.703190624368,
+      "comp_time": 0.24952725983433385,
+      "forbidden_edge_count": 0,
+      "min_pure_distance": 1201.7735840742814,
+      "infeasibility_flag": false,
+      "runs": [
+        {
+          "seed": 0,
+          "distance": 1201.7735840742814,
+          "fitness": 7813.584323029621,
+          "forbidden_edges": 1,
+          "time": 0.2495198749966221
+        },
+        {
+          "seed": 1,
+          "distance": 1329.4999577930223,
+          "fitness": 7941.310696748362,
+          "forbidden_edges": 1,
+          "time": 0.251254875001905
+        },
+        {
+          "seed": 2,
+          "distance": 1372.6163041271548,
+          "fitness": 1372.6163041271548,
+          "forbidden_edges": 0,
+          "time": 0.24995937499625143
+        },
+        {
+          "seed": 3,
+          "distance": 1455.2778698943944,
+          "fitness": 1455.2778698943944,
+          "forbidden_edges": 0,
+          "time": 0.24900837500172202
+        },
+        {
+          "seed": 4,
+          "distance": 1471.836989501604,
+          "fitness": 1471.836989501604,
+          "forbidden_edges": 0,
+          "time": 0.24548862500523683
+        },
+        {
+          "seed": 5,
+          "distance": 1361.4335637845668,
+          "fitness": 7973.244302739907,
+          "forbidden_edges": 1,
+          "time": 0.24684670800343156
+        },
+        {
+          "seed": 6,
+          "distance": 1316.8723513205352,
+          "fitness": 7928.683090275875,
+          "forbidden_edges": 1,
+          "time": 0.2508674999990035
+        },
+        {
+          "seed": 7,
+          "distance": 1387.1274638610737,
+          "fitness": 7998.938202816414,
+          "forbidden_edges": 1,
+          "time": 0.25183608299994376
+        },
+        {
+          "seed": 8,
+          "distance": 1316.079144771538,
+          "fitness": 7927.889883726878,
+          "forbidden_edges": 1,
+          "time": 0.24972120900201844
+        },
+        {
+          "seed": 9,
+          "distance": 1525.181312242044,
+          "fitness": 1525.181312242044,
+          "forbidden_edges": 0,
+          "time": 0.2477645000035409
+        },
+        {
+          "seed": 10,
+          "distance": 1444.8875901836086,
+          "fitness": 1444.8875901836086,
+          "forbidden_edges": 0,
+          "time": 0.24559462499746587
+        },
+        {
+          "seed": 11,
+          "distance": 1380.4120353232904,
+          "fitness": 7992.22277427863,
+          "forbidden_edges": 1,
+          "time": 0.24712291700416245
+        },
+        {
+          "seed": 12,
+          "distance": 1473.0948295077685,
+          "fitness": 1473.0948295077685,
+          "forbidden_edges": 0,
+          "time": 0.2489682500017807
+        },
+        {
+          "seed": 13,
+          "distance": 1322.3624458071179,
+          "fitness": 7934.173184762458,
+          "forbidden_edges": 1,
+          "time": 0.2507967909987201
+        },
+        {
+          "seed": 14,
+          "distance": 1255.4361011258854,
+          "fitness": 7867.246840081225,
+          "forbidden_edges": 1,
+          "time": 0.2506864579991088
+        },
+        {
+          "seed": 15,
+          "distance": 1398.4078103295917,
+          "fitness": 1398.4078103295917,
+          "forbidden_edges": 0,
+          "time": 0.24899062500480795
+        },
+        {
+          "seed": 16,
+          "distance": 1282.379184062591,
+          "fitness": 7894.189923017931,
+          "forbidden_edges": 1,
+          "time": 0.24730666699906578
+        },
+        {
+          "seed": 17,
+          "distance": 1440.6747666574124,
+          "fitness": 1440.6747666574124,
+          "forbidden_edges": 0,
+          "time": 0.24852241600456182
+        },
+        {
+          "seed": 18,
+          "distance": 1536.252632967839,
+          "fitness": 1536.252632967839,
+          "forbidden_edges": 0,
+          "time": 0.2517647089989623
+        },
+        {
+          "seed": 19,
+          "distance": 1386.9996546262805,
+          "fitness": 7998.81039358162,
+          "forbidden_edges": 1,
+          "time": 0.24965770800190512
+        },
+        {
+          "seed": 20,
+          "distance": 1344.317487721759,
+          "fitness": 7956.128226677099,
+          "forbidden_edges": 1,
+          "time": 0.2561191670029075
+        },
+        {
+          "seed": 21,
+          "distance": 1519.1622255240786,
+          "fitness": 1519.1622255240786,
+          "forbidden_edges": 0,
+          "time": 0.24881241699767997
+        },
+        {
+          "seed": 22,
+          "distance": 1569.5868393019634,
+          "fitness": 1569.5868393019634,
+          "forbidden_edges": 0,
+          "time": 0.2512299170048209
+        },
+        {
+          "seed": 23,
+          "distance": 1450.8816322285543,
+          "fitness": 1450.8816322285543,
+          "forbidden_edges": 0,
+          "time": 0.2503059999944526
+        },
+        {
+          "seed": 24,
+          "distance": 1412.379346798466,
+          "fitness": 1412.379346798466,
+          "forbidden_edges": 0,
+          "time": 0.24755558400647715
+        },
+        {
+          "seed": 25,
+          "distance": 1402.1825081081504,
+          "fitness": 8013.99324706349,
+          "forbidden_edges": 1,
+          "time": 0.24862620900239563
+        },
+        {
+          "seed": 26,
+          "distance": 1251.3524058555245,
+          "fitness": 7863.163144810864,
+          "forbidden_edges": 1,
+          "time": 0.25370754200412193
+        },
+        {
+          "seed": 27,
+          "distance": 1447.5706249125556,
+          "fitness": 1447.5706249125556,
+          "forbidden_edges": 0,
+          "time": 0.24973195899656275
+        },
+        {
+          "seed": 28,
+          "distance": 1468.23285546335,
+          "fitness": 8080.04359441869,
+          "forbidden_edges": 1,
+          "time": 0.24897975000203587
+        },
+        {
+          "seed": 29,
+          "distance": 1496.8242008550376,
+          "fitness": 1496.8242008550376,
+          "forbidden_edges": 0,
+          "time": 0.2490709589983453
+        }
+      ]
+    }
+  }
+}
