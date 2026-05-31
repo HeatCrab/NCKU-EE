@@ -33,12 +33,11 @@ PSO_COLOR = "C1"
 DPI = 150
 
 
-def plot_route(coords, tour, title, output, *, forbidden_mask=None, mark_even=False):
-    """Draw a closed tour over the city coordinates with 1-indexed labels."""
+def _draw_route(ax, coords, tour, title, *, forbidden_mask=None, mark_even=False):
+    """Draw a closed tour into the given axis with 1-indexed labels."""
     tour = np.asarray(tour)
     loop = np.append(tour, tour[0])
 
-    fig, ax = plt.subplots(figsize=(6, 6))
     for a, b in zip(loop[:-1], loop[1:]):
         is_forbidden = forbidden_mask is not None and forbidden_mask[a, b]
         ax.plot(
@@ -69,6 +68,13 @@ def plot_route(coords, tour, title, output, *, forbidden_mask=None, mark_even=Fa
     ax.set_ylabel("y")
     ax.set_aspect("equal", adjustable="datalim")
     ax.grid(alpha=0.3)
+
+
+def plot_route(coords, tour, title, output, *, forbidden_mask=None, mark_even=False):
+    """Draw a closed tour over the city coordinates with 1-indexed labels."""
+    fig, ax = plt.subplots(figsize=(6, 6))
+    _draw_route(ax, coords, tour, title,
+                forbidden_mask=forbidden_mask, mark_even=mark_even)
     fig.tight_layout()
     fig.savefig(output, dpi=DPI)
     plt.close(fig)
