@@ -1,0 +1,9 @@
+# Python dependencies for make_reference.py (the reference tensor generator).
+# These produce input.bin and ref_out.bin that the C++ testbench compares
+# against. The C++ side has its own toolchain (Homebrew onnxruntime and the
+# conda-forge libopencv C++ SDK) documented in build.sh; it is not pip-managed.
+#
+# Versions pinned to what Task B was verified with on 2026-06-21.
+numpy==1.24.3
+onnxruntime==1.19.2
+opencv-python==4.10.0.84
