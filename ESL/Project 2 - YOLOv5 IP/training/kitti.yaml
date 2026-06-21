@@ -1,0 +1,17 @@
+# Place this in /yolov5/data/kitti.yaml on the VM.
+
+# 1. Dataset root directory
+# Absolute path to the folder produced by prep.py (~/datasets/kitti_final).
+# If $HOME is not /root, change this line accordingly.
+path: /root/datasets/kitti_final  # Dataset root directory
+
+# 2. Training and Validation image paths (relative to 'path')
+train: images/train     # Path to training images
+val: images/val         # Path to validation images
+
+# Number of classes and their names
+nc: 3
+
+# 4. Class names
+# The order must exactly match the index used in the conversion script.
+names: ['Car', 'Pedestrian', 'Cyclist']

@@ -76,6 +76,19 @@ ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.bak
 ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.pdf
 ESL/Virtualizer_Docs/
 
+# ESL Project 2 - YOLOv5 trained weights (88MB each, regenerable; local-only copy)
+ESL/Project 2 - YOLOv5 IP/training/run/weights/
+# ESL Project 2 - TensorBoard event logs (regenerable)
+ESL/Project 2 - YOLOv5 IP/training/run/tensorboard/
+# ESL Project 2 - exported ONNX model (176MB, over GitHub's 100MB cap; regenerable from best.pt)
+ESL/Project 2 - YOLOv5 IP/onnx/best.onnx
+# ESL Project 2 - KITTI test images (KITTI license, do not redistribute; regenerable from the dataset)
+ESL/Project 2 - YOLOv5 IP/test_images/
+# ESL Project 2 - Task B build artifacts (regenerable: reference tensors + binary)
+ESL/Project 2 - YOLOv5 IP/TaskB/input.bin
+ESL/Project 2 - YOLOv5 IP/TaskB/ref_out.bin
+ESL/Project 2 - YOLOv5 IP/TaskB/verify_onnx
+
 # Private LINE chat exports (group conversations, never commit)
 ESL/\[LINE\]*
 
