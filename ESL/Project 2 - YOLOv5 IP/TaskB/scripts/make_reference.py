@@ -18,12 +18,13 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 
-BASE = os.path.dirname(os.path.abspath(__file__))
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL = os.path.join(BASE, "..", "onnx", "best.onnx")
 IMAGE = os.path.join(BASE, "..", "test_images", "extracted", "002071.png")
 
-INPUT_BIN = os.path.join(BASE, "input.bin")
-REF_OUT_BIN = os.path.join(BASE, "ref_out.bin")
+DATA_DIR = os.path.join(BASE, "data")
+INPUT_BIN = os.path.join(DATA_DIR, "input.bin")
+REF_OUT_BIN = os.path.join(DATA_DIR, "ref_out.bin")
 
 
 def preprocess(path):
@@ -39,6 +40,8 @@ def preprocess(path):
 
 
 def main():
+    os.makedirs(DATA_DIR, exist_ok=True)
+
     print(f"model : {os.path.normpath(MODEL)}")
     print(f"image : {os.path.normpath(IMAGE)}")
 

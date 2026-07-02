@@ -10,9 +10,12 @@ ENV="$(conda info --base)/envs/opencv"
 ORT=/opt/homebrew/opt/onnxruntime
 export PKG_CONFIG_PATH="$ENV/lib/pkgconfig"
 
-cd "$(dirname "$0")"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
 
-clang++ -std=c++17 -O2 verify_onnx.cpp -o verify_onnx \
+mkdir -p bin
+
+clang++ -std=c++17 -O2 src/verify_onnx.cpp -o bin/verify_onnx \
   -I"$ORT/include" $(pkg-config --cflags opencv4) \
   -L"$ORT/lib" -lonnxruntime $(pkg-config --libs opencv4) \
   -Wl,-rpath,"$ORT/lib" -Wl,-rpath,"$ENV/lib"

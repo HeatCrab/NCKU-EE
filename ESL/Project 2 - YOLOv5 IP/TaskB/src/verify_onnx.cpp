@@ -1,8 +1,8 @@
 // Task B testbench: verify that best.onnx runs correctly on the local machine.
 //
 // The script make_reference.py produced two raw float32 files in Python:
-//   input.bin   - the preprocessed input tensor [1, 3, 640, 640]
-//   ref_out.bin - the output tensor [1, 25200, 8] returned by ONNX Runtime
+//   data/input.bin   - the preprocessed input tensor [1, 3, 640, 640]
+//   data/ref_out.bin - the output tensor [1, 25200, 8] returned by ONNX Runtime
 //
 // This testbench performs two checks, both against the values seen in Python:
 //
@@ -50,8 +50,8 @@ constexpr float kRelTolerance = 1e-3f;
 // editing absolute paths.
 const std::string kModel = "../onnx/best.onnx";
 const std::string kImage = "../test_images/extracted/002071.png";
-const std::string kInputBin = "input.bin";
-const std::string kRefOutBin = "ref_out.bin";
+const std::string kInputBin = "data/input.bin";
+const std::string kRefOutBin = "data/ref_out.bin";
 
 // Read a raw float32 file into a vector.
 std::vector<float> ReadFloats(const std::string& path) {
