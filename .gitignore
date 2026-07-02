@@ -74,6 +74,8 @@ ESL/Project 1 - Dual ARMv8 with DMA2/Soc/Pics/
 ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.zip
 ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.bak
 ESL/Project 1 - Dual ARMv8 with DMA2/Soc/*.pdf
+# but keep the final report PDF (the deliverable; screenshots embedded are accepted)
+!ESL/Project 1 - Dual ARMv8 with DMA2/Soc/N26140804_report.pdf
 ESL/Virtualizer_Docs/
 
 # ESL Project 2 - YOLOv5 trained weights (88MB each, regenerable; local-only copy)
@@ -85,12 +87,33 @@ ESL/Project 2 - YOLOv5 IP/onnx/best.onnx
 # ESL Project 2 - KITTI test images (KITTI license, do not redistribute; regenerable from the dataset)
 ESL/Project 2 - YOLOv5 IP/test_images/
 # ESL Project 2 - Task B build artifacts (regenerable: reference tensors + binary)
-ESL/Project 2 - YOLOv5 IP/TaskB/input.bin
-ESL/Project 2 - YOLOv5 IP/TaskB/ref_out.bin
-ESL/Project 2 - YOLOv5 IP/TaskB/verify_onnx
+ESL/Project 2 - YOLOv5 IP/TaskB/data/
+ESL/Project 2 - YOLOv5 IP/TaskB/bin/
+# ESL Project 2 - Task C build artifacts (regenerable from scripts/ + build.sh)
+ESL/Project 2 - YOLOv5 IP/TaskC/data/
+ESL/Project 2 - YOLOv5 IP/TaskC/bin/
+ESL/Project 2 - YOLOv5 IP/TaskC/armv8/cpu0/*.elf
+ESL/Project 2 - YOLOv5 IP/TaskC/armv8/cpu0/dump.txt
+# ESL Project 2 - my_work deliverable: track source, ignore regenerable blobs
+# (model == onnx/best.onnx 176MB; ELF and testdata .bin rebuild via pack_my_work.sh)
+ESL/Project 2 - YOLOv5 IP/my_work/model/
+ESL/Project 2 - YOLOv5 IP/my_work/ARMv8/cpu0/*.elf
+ESL/Project 2 - YOLOv5 IP/my_work/testdata/*.bin
+# ESL Project 2 - report screenshots (Synopsys Virtualizer GUI captures, enterprise NDA)
+ESL/Project 2 - YOLOv5 IP/SoC/pics/
+# ESL Project 2 - NDA Virtualizer VDK package (167MB, over GitHub cap; == submission zip)
+ESL/Project 2 - YOLOv5 IP/Archive/Yolo_gcc-13.3-64_P0_FixedVDK.vdk.zip
+# ESL Project 2 - IRQ-attempt archive bundle (contains 176MB model; delete after demo)
+ESL/Project 2 - YOLOv5 IP/Archive/my_work_irq/
+# ESL - scratch demo photos
+ESL/tmp/
+# ESL - copyrighted lecture slides (do not redistribute)
+ESL/Slides/
+# ESL Project 2 - class groups roster (other students' info)
+ESL/Project 2 - YOLOv5 IP/1142_M150800 Project 2 Groups 0702.pdf
 
-# Private LINE chat exports (group conversations, never commit)
-ESL/\[LINE\]*
+# Private LINE chat exports (group conversations, never commit) - match at any depth
+\[LINE\]*
 
 # RTK SSH key (private key — never commit)
 esl_key
